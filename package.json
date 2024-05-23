@@ -3,7 +3,7 @@
    "version": "1.0.0",
    "description": "",
    "main": "index.js",
-   "homepage": "https://vik163own.github.io/me",
+   "homepage": "https://vik163.github.io/heat_academy_dev",
    "private": false,
    "scripts": {
       "dev": "webpack serve --env port=3000",
