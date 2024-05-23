@@ -7,7 +7,7 @@
    "private": false,
    "scripts": {
       "dev": "webpack serve --env port=3000",
-      "build": "webpack",
+      "build": "webpack  --env mode=production",
       "lint": "eslint \"**/*.{ts,tsx}\"",
       "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
       "predeploy": "npm run build",
