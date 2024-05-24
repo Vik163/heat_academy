@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/heat_academy_dev/static/css/main.8ee688a2.css",
+    "main.css": "/heat_academy_dev/static/css/main.d421b355.css",
     "main.js": "/heat_academy_dev/static/js/main.023ba525.js",
     "index.html": "/heat_academy_dev/index.html",
-    "main.8ee688a2.css.map": "/heat_academy_dev/static/css/main.8ee688a2.css.map",
+    "main.d421b355.css.map": "/heat_academy_dev/static/css/main.d421b355.css.map",
     "main.023ba525.js.map": "/heat_academy_dev/static/js/main.023ba525.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ee688a2.css",
+    "static/css/main.d421b355.css",
     "static/js/main.023ba525.js"
   ]
 }
