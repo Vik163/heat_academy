@@ -1,8 +1,11 @@
 {
    "name": "heat_academy_dev",
    "version": "0.1.0",
+   "homepage": "https://vik163.github.io/heat_academy_dev",
    "private": false,
    "devDependencies": {
+      "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+      "@craco/craco": "^7.1.0",
       "@types/circular-dependency-plugin": "^5.0.5",
       "@types/node": "^20.5.6",
       "@types/react": "^18.2.21",
@@ -40,16 +43,13 @@
       "react-scripts": "5.0.1"
    },
    "scripts": {
-      "start": "react-scripts start",
+      "dev": "react-scripts start",
       "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject"
-   },
-   "eslintConfig": {
-      "extends": [
-         "react-app",
-         "react-app/jest"
-      ]
+      "predeploy": "npm run build",
+      "eject": "react-scripts eject",
+      "deploy": "gh-pages -d build",
+      "lint": "eslint \"**/*.{ts,tsx}\"",
+      "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
    },
    "browserslist": {
       "production": [

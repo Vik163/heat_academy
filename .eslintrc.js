@@ -107,12 +107,12 @@ module.exports = {
       'no-undef': 'error', // Запрещает использование необъявленных переменных, если они не указаны в /*global */ комментариях
       'react/no-array-index-key': 'error', // использование индекса массива как ключа
       'arrow-body-style': 'off', // регулирует правило использования фигурных скобок в строелочных функциях
-      'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }], // кастомный плагин 10_2 и 13_2 7min
+      // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }], // кастомный плагин 10_2 и 13_2 7min
       'ulbi-tv-plugin/layer-imports': [
          // 13_6 6min
          'error',
          {
-            alias: '@',
+            // alias: '@',
             ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
          },
       ],
@@ -120,7 +120,7 @@ module.exports = {
          // кастомный плагин 13_3 7min
          'error',
          {
-            alias: '@',
+            // alias: '@',
             testFilesPatterns: [
                '**/*.test.*',
                '**/*.story.*',
