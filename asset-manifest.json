@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/heat_academy_dev/static/css/main.c3ab857b.css",
+    "main.css": "/heat_academy_dev/static/css/main.7160cd6d.css",
     "main.js": "/heat_academy_dev/static/js/main.7f673921.js",
     "static/media/1st Screen.png": "/heat_academy_dev/static/media/1st Screen.f0f9d5571c5cff3577de.png",
     "static/media/Inter-Black.ttf": "/heat_academy_dev/static/media/Inter-Black.5bc9c4d5770576fe98af.ttf",
@@ -19,11 +19,11 @@
     "static/media/Inter-Black.woff?v=3.19": "/heat_academy_dev/static/media/Inter-Black.352be2f433a8c9e989a7.woff",
     "static/media/Inter-Medium.woff?v=3.19": "/heat_academy_dev/static/media/Inter-Medium.8166012e2d96246962b8.woff",
     "static/media/Inter-Regular.woff?v=3.19": "/heat_academy_dev/static/media/Inter-Regular.3560b99095017866d289.woff",
-    "main.c3ab857b.css.map": "/heat_academy_dev/static/css/main.c3ab857b.css.map",
+    "main.7160cd6d.css.map": "/heat_academy_dev/static/css/main.7160cd6d.css.map",
     "main.7f673921.js.map": "/heat_academy_dev/static/js/main.7f673921.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3ab857b.css",
+    "static/css/main.7160cd6d.css",
     "static/js/main.7f673921.js"
   ]
 }
