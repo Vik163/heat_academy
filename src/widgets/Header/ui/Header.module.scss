@@ -1,0 +1,45 @@
+.header {
+   width: 100vw;
+   height: 86px;
+   position: fixed;
+   top: 0;
+   background-color: var(--color-bg-primary-header);
+   display: flex;
+   align-items: center;
+   backdrop-filter: blur(10px);
+   z-index: 7;
+}
+
+.menuIcon {
+   fill: var(--color-green);
+}
+
+.headerContainer {
+   width: 100%;
+   position: relative;
+}
+
+.menuLink {
+   margin-bottom: 15px;
+   cursor: pointer;
+}
+
+.logo {
+   width: 210px;
+   text-align: center;
+   line-height: 18px;
+   letter-spacing: 1px;
+   padding: 0 15px;
+}
+
+.logoName {
+   font-size: var(--size-20);
+}
+
+.delivery_text:last-child {
+   margin-left: 20px;
+}
+
+.button {
+   margin-top: 10px;
+}

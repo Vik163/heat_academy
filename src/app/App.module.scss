@@ -1,0 +1,23 @@
+.containerImage {
+   width: 1440px;
+   min-height: 820px;
+   background: radial-gradient(
+      1300px 800px at right top,
+      transparent,
+      var(--color-text-button)
+   );
+   position: absolute;
+   top: 187px;
+   z-index: 3;
+}
+
+.buttons {
+   position: absolute;
+   top: 650px;
+   left: calc((100vw - 1440px) / 2 + 65px);
+   z-index: 3;
+   display: grid;
+   grid-template-columns: repeat(2, 160px);
+   grid-template-rows: repeat(2, 60px);
+   gap: 18px 20px;
+}

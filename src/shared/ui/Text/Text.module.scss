@@ -22,6 +22,10 @@
    color: var(--color-bg-primary);
 }
 
+.text_green {
+   color: var(--color-green);
+}
+
 .text_pink {
    color: var(--color-pink);
 }
@@ -108,6 +112,10 @@
 
 .center {
    text-align: center;
+}
+
+.normal {
+   font-weight: 400;
 }
 
 .semibold {

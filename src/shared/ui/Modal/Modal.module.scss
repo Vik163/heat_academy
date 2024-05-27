@@ -1,0 +1,41 @@
+.Modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 5;
+   pointer-events: none;
+   overflow: hidden;
+
+   &.center {
+      z-index: 100;
+   }
+
+   &.opened {
+      pointer-events: auto;
+   }
+}
+
+.overlay {
+   height: 100%;
+   width: 100%;
+   background: rgba(100, 86, 23, 0.4);
+
+   &.centerOverlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+}
+
+.content {
+   // position: relative;
+}
+
+.close {
+   position: absolute;
+   background: transparent;
+   fill: var(--color-border-cards);
+   z-index: 5;
+}

@@ -1,22 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
 
 @import 'reset';
 @import 'variables/global';
 @import 'colors';
+@import 'fonts/inter.scss';
 
 body {
-   font-family: 'Montserrat', sans-serif;
+   font-family: 'Inter', sans-serif;
+   background-color: lightgrey;
+   display: flex;
+   justify-content: center;
+   overflow-y: hidden;
+   // padding: 0 calc(20px - (100vw - 100%)) 0 0;
 }
 
 .root {
-   position: relative;
-   // чтобы не дергался экран из-за скрола (max-width не пойдет)
-   padding: 0 calc(20px - (100vw - 100%)) 0 0;
-   overflow-x: hidden;
+   max-width: 1440px;
+   width: 100%;
+   height: 100vh;
 }
 
 .app {
-   width: 100vw;
-   height: 100vh;
-   background-color: var(--color-input-active);
+   max-width: 1440px;
+   width: 100%;
+   padding-top: 1100px;
+   padding-bottom: 100px;
 }

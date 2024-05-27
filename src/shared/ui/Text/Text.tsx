@@ -1,10 +1,12 @@
 import { type ReactNode, memo } from 'react';
+import CSS from 'csstype';
 import { classNames } from '../../lib/classNames/classNames';
 
 import cls from './Text.module.scss';
 
 export enum FontColor {
    TEXT_PRIMARY = 'text_primary',
+   TEXT_GREEN = 'text_green',
    TEXT_YELLOW = 'text_yellow',
    TEXT_BUTTON = 'text_button',
    TEXT_WHITE = 'text_white',
@@ -22,6 +24,7 @@ export enum TextAlign {
    TEXT_RIGHT = 'right',
 }
 export enum FontWeight {
+   TEXT_400 = 'normal',
    TEXT_500 = 'semibold',
    TEXT_700 = 'bold',
    TEXT_900 = 'extrabold',
@@ -53,6 +56,7 @@ export enum HeaderTagType {
 }
 
 interface TextProps {
+   style?: CSS.Properties;
    className?: string;
    title?: HeaderTagType;
    fontWeight?: FontWeight;
@@ -87,11 +91,12 @@ export const Text = memo((props: TextProps) => {
    const {
       className,
       title,
-      fontWeight = FontWeight.TEXT_500,
+      fontWeight = FontWeight.TEXT_400,
       align = TextAlign.TEXT_LEFT,
       fontColor = FontColor.TEXT_PRIMARY,
       fontSize = FontSize.SIZE_14,
       max,
+      style,
       children,
    } = props;
 
@@ -109,6 +114,7 @@ export const Text = memo((props: TextProps) => {
    return (
       <HeaderTag
          className={classNames(cls.text, { [cls.max]: max }, additionalClasses)}
+         style={style}
       >
          {children}
       </HeaderTag>

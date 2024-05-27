@@ -47,20 +47,7 @@ module.exports = {
    ],
    root: true,
    rules: {
-      'prettier/prettier': [
-         'error',
-         {
-            tabWidth: 3,
-            semi: true,
-            singleQuote: true,
-            jsxSingleQuote: true,
-            trailingComma: 'all',
-            bracketSpacing: true,
-            bracketSameLine: false,
-            arrowParens: 'always',
-            max_line_length: 130,
-         },
-      ],
+      'prettier/prettier': 'error',
       'react/jsx-filename-extension': [
          2,
          { extensions: ['.js', '.jsx', '.tsx'] },
@@ -130,7 +117,7 @@ module.exports = {
       ],
       'linebreak-style': 'error', // LF
       'react/self-closing-comp': 'off', // сжимает пустой компонент
-      'react/jsx-max-props-per-line': ['error', { maximum: 3 }], // 14_12 количество пропсов в строчке
+      'react/jsx-max-props-per-line': ['warn', { maximum: 3 }], // 14_12 количество пропсов в строчке
       // "ulbi-eslint-plugin/rule-name": 2,
       // "ulbi-tv-plugin/rule-name": 2
    },
