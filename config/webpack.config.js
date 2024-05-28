@@ -433,7 +433,12 @@ module.exports = function (webpackEnv) {
                   //    },
                   // },
                   {
-                     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+                     test: /\.woff2?$/i,
+                     type: 'asset/resource',
+                     dependency: { not: ['url'] },
+                  },
+                  {
+                     test: /\.(png|jpe?g|gif|woff)$/i,
                      use: [
                         {
                            loader: 'file-loader',

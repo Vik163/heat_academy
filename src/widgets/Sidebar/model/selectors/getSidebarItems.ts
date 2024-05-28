@@ -4,7 +4,6 @@ import {
    getRouteCatalog,
    getRouteContacts,
    getRouteDelivery,
-   getRouteMain,
    getRouteServices,
 } from '@/shared/const/router';
 
@@ -12,11 +11,6 @@ import {
 export const useSidebarItems = () => {
    // 16_18 7min
    const sidebarItemsList: SidebarItemType[] = [
-      {
-         path: getRouteMain(),
-         //  Icon: MainIcon,
-         text: '',
-      },
       {
          path: getRouteCatalog(),
          //  Icon: AboutIcon,

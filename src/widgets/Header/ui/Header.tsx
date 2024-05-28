@@ -1,5 +1,4 @@
 import { memo, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Header.module.scss';
 import { Text, FontColor, FontSize, FontWeight } from '@/shared/ui/Text';
@@ -21,16 +20,6 @@ export const Header = memo((props: HeaderProps) => {
 
    return (
       <header className={cls.header}>
-         <Text
-            style={{ fontFamily: 'Pattaya' }}
-            className={classNames(cls.logo)}
-            fontWeight={FontWeight.TEXT_700}
-            fontSize={FontSize.SIZE_16}
-            fontColor={FontColor.TEXT_GREEN}
-         >
-            Инженерный Центр
-            <span className={cls.logoName}> &quot;Академия Тепла&quot;</span>
-         </Text>
          <HStack className={cls.headerContainer} justify={FlexJustify.BETWEEN}>
             <VStack className={cls.phone}>
                <Text

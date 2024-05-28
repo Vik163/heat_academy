@@ -1,12 +1,14 @@
 import { memo, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
+
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
-import { Icon } from '@/shared/ui/Icon';
-import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { useSidebarItems } from '../../model/selectors/getSidebarItems';
+import { FlexAlign } from '@/shared/ui/Stack/Flex';
+import { getRouteMain } from '@/shared/const/router';
 
 interface SidebarProps {
    className?: string;
@@ -30,17 +32,22 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
    return (
       <aside
-         className={classNames(
-            cls.SidebarRedesigned,
-            { [cls.collapsedRedesigned]: collapsed },
-            [className],
-         )}
+         className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+            className,
+         ])}
       >
-         <VStack role='navigation' gap={8} className={cls.items}>
+         <Link to={getRouteMain()} className={classNames(cls.logo)}>
+            Инженерный Центр
+            <span className={cls.logoName}> &quot;Академия Тепла&quot;</span>
+         </Link>
+         <VStack
+            role='navigation'
+            className={cls.items}
+            align={FlexAlign.START}
+         >
             {itemsList}
          </VStack>
          {/* сворачивание сайдбара */}
-         <Icon className={cls.collapseBtn} Svg={ArrowIcon} />
          <div className={cls.switchers}></div>
       </aside>
    );

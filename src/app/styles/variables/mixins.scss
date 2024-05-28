@@ -7,6 +7,7 @@
 @mixin flex-column-center() {
    display: flex;
    flex-direction: column;
+   justify-content: center;
    align-items: center;
 }
 
@@ -14,19 +15,4 @@
    font-size: $size;
    font-weight: $weight;
    color: $color;
-}
-
-@mixin font-semibold($size) {
-   font-size: $size;
-   font-weight: var(--weight-500);
-}
-
-@mixin font-bold($size) {
-   font-size: $size;
-   font-weight: var(--weight-700);
-}
-
-@mixin font-extrabold($size) {
-   font-size: $size;
-   font-weight: var(--weight-900);
 }
