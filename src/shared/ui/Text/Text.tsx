@@ -5,23 +5,17 @@ import { classNames } from '../../lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum FontColor {
-   TEXT_PRIMARY = 'text_primary',
-   TEXT_GREEN = 'text_green',
-   TEXT_YELLOW = 'text_yellow',
-   TEXT_BUTTON = 'text_button',
-   TEXT_WHITE = 'text_white',
-   TEXT_PINK = 'text_pink',
-   TEXT_INPUT = 'text_input',
-   TEXT_CARD = 'text_card',
-   TEXT_TITLE_CARD = 'text_title_card',
-   TEXT_GREY_BLUE_DARK = 'text_grey_blue_dark',
-   TEXT_CARD_BUTTON_DARK = 'text_card_button_dark',
-   TEXT_INPUT_EDIT = 'text_input_edit',
+   GREEN = 'text_green',
+   YELLOW = 'text_yellow',
+   BUTTON = 'text_button',
+   WHITE = 'text_white',
+   PINK = 'text_pink',
+   LIGHT_GREY = 'text_light-grey',
 }
 export enum TextAlign {
-   TEXT_LEFT = 'left',
-   TEXT_CENTER = 'center',
-   TEXT_RIGHT = 'right',
+   LEFT = 'left',
+   CENTER = 'center',
+   RIGHT = 'right',
 }
 export enum FontWeight {
    TEXT_400 = 'normal',
@@ -50,6 +44,7 @@ export enum FontSize {
 }
 
 export enum HeaderTagType {
+   H_1 = 'h1',
    H_2 = 'h2',
    H_3 = 'h3',
    H_4 = 'h4',
@@ -92,8 +87,8 @@ export const Text = memo((props: TextProps) => {
       className,
       title,
       fontWeight = FontWeight.TEXT_400,
-      align = TextAlign.TEXT_LEFT,
-      fontColor = FontColor.TEXT_PRIMARY,
+      align = TextAlign.LEFT,
+      fontColor = FontColor.WHITE,
       fontSize = FontSize.SIZE_14,
       max,
       style,

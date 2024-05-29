@@ -22,7 +22,7 @@ export enum ButtonBgColor {
    NONE = 'none_color',
    GREY = 'button_grey',
    GREY_BLUE = 'button_grey_blue',
-   YELLOW = 'button_card_yellow',
+   YELLOW = 'button_yellow',
    WHITE = 'button_card_white',
 }
 
@@ -47,7 +47,7 @@ export const Button = memo((props: ButtonProps) => {
       variant = ButtonVariant.OUTLINE,
       radius = ButtonRadius.RADIUS_8,
       bgColor = ButtonBgColor.NONE,
-      fontColor = FontColor.TEXT_PRIMARY,
+      fontColor = FontColor.WHITE,
       fontSize = FontSize.SIZE_13,
       fontWeight = FontWeight.TEXT_700,
       width,

@@ -16,7 +16,7 @@ import Telegram from '@/shared/assets/icons/telegram.png';
 
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Icon } from '@/shared/ui/Icon';
-import { Text, FontColor, FontSize, FontWeight } from '@/shared/ui/Text';
+import { Text, FontSize, FontWeight } from '@/shared/ui/Text';
 import { FlexAlign, FlexJustify, FlexWrap } from '@/shared/ui/Stack/Flex';
 import {
    Button,
@@ -45,21 +45,18 @@ export const Footer = memo((props: FooterProps) => {
                   <Text
                      fontSize={FontSize.SIZE_16}
                      fontWeight={FontWeight.TEXT_700}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      Калорийность и состав
                   </Text>
                   <Text
                      fontSize={FontSize.SIZE_16}
                      fontWeight={FontWeight.TEXT_700}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      Правовая информация
                   </Text>
                   <Text
                      fontSize={FontSize.SIZE_16}
                      fontWeight={FontWeight.TEXT_700}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      Мы в соцсетях
                   </Text>
@@ -72,7 +69,6 @@ export const Footer = memo((props: FooterProps) => {
                      className={cls.messengers}
                      fontSize={FontSize.SIZE_16}
                      fontWeight={FontWeight.TEXT_700}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      YouTube <br /> Instagram
                   </Text>
@@ -80,7 +76,6 @@ export const Footer = memo((props: FooterProps) => {
                      className={cls.messengers}
                      fontSize={FontSize.SIZE_16}
                      fontWeight={FontWeight.TEXT_700}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      Facebook <br /> ВКонтакте
                   </Text>
@@ -88,7 +83,6 @@ export const Footer = memo((props: FooterProps) => {
                      className={cls.messengers}
                      fontSize={FontSize.SIZE_14}
                      fontWeight={FontWeight.TEXT_500}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      Москва ул. Проспект Вернадского 86В
                   </Text>
@@ -98,7 +92,6 @@ export const Footer = memo((props: FooterProps) => {
                      className={cls.date}
                      fontSize={FontSize.SIZE_14}
                      fontWeight={FontWeight.TEXT_500}
-                     fontColor={FontColor.TEXT_PRIMARY}
                   >
                      YaBao Все права защищены &copy;{year}
                   </Text>
@@ -117,7 +110,6 @@ export const Footer = memo((props: FooterProps) => {
                   className={cls.titleRight}
                   fontSize={FontSize.SIZE_14}
                   fontWeight={FontWeight.TEXT_700}
-                  fontColor={FontColor.TEXT_PRIMARY}
                >
                   ОСТАЛИСЬ ВОПРОСЫ? А МЫ ВСЕГДА НА СВЯЗИ:
                </Text>
@@ -176,7 +168,6 @@ export const Footer = memo((props: FooterProps) => {
                   className={cls.numberPhon}
                   fontSize={FontSize.SIZE_30}
                   fontWeight={FontWeight.TEXT_700}
-                  fontColor={FontColor.TEXT_YELLOW}
                >
                   8 499 391-84-49
                </Text>
@@ -185,7 +176,6 @@ export const Footer = memo((props: FooterProps) => {
                   variant={ButtonVariant.FILLED}
                   bgColor={ButtonBgColor.GREY}
                   radius={ButtonRadius.RADIUS_28}
-                  fontColor={FontColor.TEXT_BUTTON}
                   fontSize={FontSize.SIZE_14}
                   fontWeight={FontWeight.TEXT_700}
                   width={180}

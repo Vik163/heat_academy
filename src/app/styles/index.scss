@@ -5,23 +5,20 @@
 @import 'colors';
 @import 'fonts/inter.scss';
 
-body {
+.root {
    font-family: 'Inter', sans-serif;
    background-color: lightgrey;
    display: flex;
    justify-content: center;
    overflow-y: hidden;
-   // padding: 0 calc(20px - (100vw - 100%)) 0 0;
-}
-
-.root {
    width: 100vw;
 }
 
 .app {
-   max-width: 1440px;
    width: 100%;
    padding-left: var(--sidebar-width);
-   padding-top: var(--header-height);
-   padding-bottom: 100px;
+}
+
+.main {
+   width: 100%;
 }

@@ -1,49 +1,17 @@
-.text_primary {
-   color: var(--color-primary);
-}
-
 .text_button {
-   color: var(--color-text-button);
+   color: var(--color-button-text);
 }
 
-.text_yellow {
-   color: var(--color-yellow);
-}
-
-.text_input_edit {
-   color: var(--color-input-edit);
-}
-
-.text_input {
-   color: var(--color-input);
+.text_light-grey {
+   color: var(--color-light-grey-text);
 }
 
 .text_white {
-   color: var(--color-bg-primary);
+   color: var(--color-white);
 }
 
 .text_green {
    color: var(--color-green);
-}
-
-.text_pink {
-   color: var(--color-pink);
-}
-
-.text_card {
-   color: var(--color-card-text);
-}
-
-.text_title_card {
-   color: var(--color-title-card);
-}
-
-.text_grey_blue_dark {
-   color: var(--color-grey-blue-dark);
-}
-
-.text_card_button_dark {
-   color: var(--color-card-button-dark);
 }
 
 .max {

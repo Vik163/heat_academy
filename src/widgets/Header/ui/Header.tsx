@@ -6,6 +6,7 @@ import { Button, ButtonRadius, ButtonVariant } from '@/shared/ui/Button';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
 import { Modal } from '@/shared/ui/Modal';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 // eslint-disable-next-line ulbi-tv-plugin/layer-imports
 
@@ -18,29 +19,45 @@ export const Header = memo((props: HeaderProps) => {
    const { className } = props;
    const [openModal, setOpenModal] = useState(false);
 
+   const isHeaderWhite = false;
+
    return (
-      <header className={cls.header}>
-         <HStack className={cls.headerContainer} justify={FlexJustify.BETWEEN}>
-            <VStack className={cls.phone}>
-               <Text
-                  className={cls.number}
-                  fontColor={FontColor.TEXT_PRIMARY}
-                  fontSize={FontSize.SIZE_22}
-                  fontWeight={FontWeight.TEXT_700}
-               >
-                  8 (800) 301-50-51
-               </Text>
-               <Button
-                  className={cls.button}
-                  variant={ButtonVariant.CLEAR}
-                  fontColor={FontColor.TEXT_GREEN}
-                  fontSize={FontSize.SIZE_14}
-                  fontWeight={FontWeight.TEXT_400}
-                  radius={ButtonRadius.RADIUS_28}
-               >
-                  Заказать обратный звонок
-               </Button>
-            </VStack>
+      <header
+         className={classNames(
+            cls.header,
+            { [cls.headerActive]: isHeaderWhite },
+            [],
+         )}
+      >
+         <HStack justify={FlexJustify.END} className={cls.headerContainer}>
+            <Text
+               className={classNames(
+                  cls.number,
+                  { [cls.numberActive]: isHeaderWhite },
+                  [],
+               )}
+               fontColor={FontColor.WHITE}
+               fontSize={FontSize.SIZE_20}
+               fontWeight={FontWeight.TEXT_700}
+            >
+               8 (846) 354-66-30
+            </Text>
+            <Button
+               width={140}
+               height={30}
+               className={classNames(
+                  cls.button,
+                  { [cls.buttonActive]: isHeaderWhite },
+                  [],
+               )}
+               variant={ButtonVariant.OUTLINE}
+               fontSize={FontSize.SIZE_14}
+               fontColor={FontColor.WHITE}
+               fontWeight={FontWeight.TEXT_400}
+               radius={ButtonRadius.RADIUS_8}
+            >
+               Обратный звонок
+            </Button>
          </HStack>
          {openModal && (
             <Modal
@@ -55,7 +72,6 @@ export const Header = memo((props: HeaderProps) => {
                <VStack align={FlexAlign.START} className={cls.containerLinks}>
                   <Text
                      className={cls.menuLink}
-                     fontColor={FontColor.TEXT_PRIMARY}
                      fontSize={FontSize.SIZE_20}
                      fontWeight={FontWeight.TEXT_700}
                   >
@@ -63,7 +79,6 @@ export const Header = memo((props: HeaderProps) => {
                   </Text>
                   <Text
                      className={cls.menuLink}
-                     fontColor={FontColor.TEXT_PRIMARY}
                      fontSize={FontSize.SIZE_20}
                      fontWeight={FontWeight.TEXT_700}
                   >
@@ -71,7 +86,6 @@ export const Header = memo((props: HeaderProps) => {
                   </Text>
                   <Text
                      className={cls.menuLink}
-                     fontColor={FontColor.TEXT_PRIMARY}
                      fontSize={FontSize.SIZE_20}
                      fontWeight={FontWeight.TEXT_700}
                   >
@@ -79,7 +93,6 @@ export const Header = memo((props: HeaderProps) => {
                   </Text>
                   <Text
                      className={cls.menuLink}
-                     fontColor={FontColor.TEXT_PRIMARY}
                      fontSize={FontSize.SIZE_20}
                      fontWeight={FontWeight.TEXT_700}
                   >

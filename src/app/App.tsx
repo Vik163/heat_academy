@@ -15,7 +15,9 @@ const App = memo(() => {
       >
          <Header />
          <Sidebar />
-         <AppRouter />
+         <main className='main'>
+            <AppRouter />
+         </main>
          {/* <Footer />  */}
       </VStack>
    );
