@@ -21,6 +21,7 @@ export enum ButtonRadius {
 export enum ButtonBgColor {
    NONE = 'none_color',
    GREY = 'button_grey',
+   AMBER = 'button_amber',
    GREY_BLUE = 'button_grey_blue',
    YELLOW = 'button_yellow',
    WHITE = 'button_card_white',

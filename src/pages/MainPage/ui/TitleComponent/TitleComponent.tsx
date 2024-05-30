@@ -10,7 +10,7 @@ import {
    HeaderTagType,
    Text,
 } from '@/shared/ui/Text';
-import { FlexAlign, FlexJustify, FlexWrap } from '@/shared/ui/Stack/Flex';
+import { FlexAlign, FlexWrap } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import image from '@/shared/assets/images/several-keson.png';
 
@@ -22,10 +22,7 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
    const { className } = props;
 
    return (
-      <HStack
-         className={classNames(cls.TitleComponent, {}, [className])}
-         justify={FlexJustify.START}
-      >
+      <article className={classNames(cls.TitleComponent, {}, [className])}>
          <VStack className={cls.infoContainer} align={FlexAlign.START}>
             <Text title={HeaderTagType.H_1} className={cls.title}>
                Погреба <br /> и кессоны для скважин
@@ -47,12 +44,12 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
                fontColor={FontColor.BUTTON}
                variant={ButtonVariant.FILLED}
                bgColor={ButtonBgColor.YELLOW}
-               className={cls.buttonSelect}
+               className={classNames('', {}, [cls.buttonSelect])}
             >
                Подобрать кессон/погреб
             </Button>
             <img src={image} className={cls.image} alt='Кессон'></img>
          </VStack>
-      </HStack>
+      </article>
    );
 });

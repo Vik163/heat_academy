@@ -35,24 +35,22 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
    );
 
    return (
-      <aside
+      <nav
          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
             className,
          ])}
       >
-         <nav>
-            <Link to={getRouteMain()} className={classNames(cls.logo)}>
-               Инженерный Центр
-               <span className={cls.logoName}> &quot;Академия Тепла&quot;</span>
-            </Link>
-            <VStack
-               role='navigation'
-               className={cls.items}
-               align={FlexAlign.START}
-            >
-               {itemsList}
-            </VStack>
-         </nav>
+         <Link to={getRouteMain()} className={classNames(cls.logo)}>
+            Инженерный Центр
+            <span className={cls.logoName}> &quot;Академия Тепла&quot;</span>
+         </Link>
+         <VStack
+            role='navigation'
+            className={cls.items}
+            align={FlexAlign.START}
+         >
+            {itemsList}
+         </VStack>
          {/* сворачивание сайдбара */}
          <div className={cls.switchers}></div>
          {openModal && (
@@ -97,6 +95,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                </VStack>
             </Modal>
          )}
-      </aside>
+      </nav>
    );
 });

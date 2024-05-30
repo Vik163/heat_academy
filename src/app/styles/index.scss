@@ -5,13 +5,16 @@
 @import 'colors';
 @import 'fonts/inter.scss';
 
+html {
+   margin-right: calc(-1 * (100vw - 100%));
+   overflow-x: hidden;
+}
+
 .root {
    font-family: 'Inter', sans-serif;
    background-color: lightgrey;
    display: flex;
    justify-content: center;
-   overflow-y: hidden;
-   width: 100vw;
 }
 
 .app {

@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import cls from './Header.module.scss';
 import { Text, FontColor, FontSize, FontWeight } from '@/shared/ui/Text';
@@ -18,8 +18,23 @@ export const Header = memo((props: HeaderProps) => {
    // eslint-disable-next-line @typescript-eslint/no-unused-vars
    const { className } = props;
    const [openModal, setOpenModal] = useState(false);
+   const [isHeaderWhite, setISHeaderWhite] = useState(false);
 
-   const isHeaderWhite = false;
+   const onScroll = () => {
+      if (window.scrollY !== 0) {
+         setISHeaderWhite(true);
+      } else {
+         setISHeaderWhite(false);
+      }
+   };
+
+   useEffect(() => {
+      window.addEventListener('scroll', onScroll);
+
+      return () => {
+         window.removeEventListener('scroll', onScroll);
+      };
+   }, []);
 
    return (
       <header

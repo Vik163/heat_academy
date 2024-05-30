@@ -6,6 +6,7 @@ import cls from './Text.module.scss';
 
 export enum FontColor {
    GREEN = 'text_green',
+   BLACK = 'text_black',
    YELLOW = 'text_yellow',
    BUTTON = 'text_button',
    WHITE = 'text_white',
@@ -25,6 +26,7 @@ export enum FontWeight {
 }
 export enum FontSize {
    SIZE_44 = 'size_44',
+   SIZE_36 = 'size_36',
    SIZE_32 = 'size_32',
    SIZE_30 = 'size_30',
    SIZE_24 = 'size_24',
@@ -66,6 +68,7 @@ const mapSizeToClass: Record<FontSize, string> = {
    size_44: cls.size_44,
    size_32: cls.size_32,
    size_38: cls.size_38,
+   size_36: cls.size_36,
    size_30: cls.size_30,
    size_26: cls.size_26,
    size_24: cls.size_24,
