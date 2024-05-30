@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/heat_academy_dev/static/css/main.ae565042.css",
-    "main.js": "/heat_academy_dev/static/js/main.f07097bb.js",
+    "main.css": "/heat_academy_dev/static/css/main.7fc08bd3.css",
+    "main.js": "/heat_academy_dev/static/js/main.937b6759.js",
     "static/media/Inter-Black.ttf": "/heat_academy_dev/static/media/Inter-Black.5bc9c4d5770576fe98af.ttf",
     "static/media/Inter-Medium.ttf": "/heat_academy_dev/static/media/Inter-Medium.9cbff87dc577185b8630.ttf",
     "static/media/Inter-Regular.ttf": "/heat_academy_dev/static/media/Inter-Regular.96ce55e3ba0d6a209090.ttf",
@@ -12,18 +12,20 @@
     "static/media/Inter-Medium.woff2": "/heat_academy_dev/static/media/Inter-Medium.6db7e439cc4b0e5c0cd2.woff2",
     "static/media/Inter-Regular.woff2": "/heat_academy_dev/static/media/Inter-Regular.4c96ed73beaf6d1e6cc7.woff2",
     "static/media/several-keson.png": "/heat_academy_dev/static/media/several-keson.c70ffd65d6994501bcec.png",
+    "static/media/oborudovaniye.png": "/heat_academy_dev/static/media/oborudovaniye.30ee33428933de33de5d.png",
     "index.html": "/heat_academy_dev/index.html",
     "static/media/icon-check-yellow.svg": "/heat_academy_dev/static/media/icon-check-yellow.5a37d594c2d54e7232bb.svg",
     "static/media/icon-arrow-right.svg": "/heat_academy_dev/static/media/icon-arrow-right.e9551b5ee0819f086d88.svg",
     "static/media/round-header-type-home.svg": "/heat_academy_dev/static/media/round-header-type-home.d736405faf403c1cd50a.svg",
+    "static/media/round-oborudovaniye.svg": "/heat_academy_dev/static/media/round-oborudovaniye.dd1b0f8a8e0d34dca3df.svg",
     "static/media/Inter-Black.woff": "/heat_academy_dev/static/media/Inter-Black.352be2f433a8c9e989a7.woff",
     "static/media/Inter-Medium.woff": "/heat_academy_dev/static/media/Inter-Medium.8166012e2d96246962b8.woff",
     "static/media/Inter-Regular.woff": "/heat_academy_dev/static/media/Inter-Regular.3560b99095017866d289.woff",
-    "main.ae565042.css.map": "/heat_academy_dev/static/css/main.ae565042.css.map",
-    "main.f07097bb.js.map": "/heat_academy_dev/static/js/main.f07097bb.js.map"
+    "main.7fc08bd3.css.map": "/heat_academy_dev/static/css/main.7fc08bd3.css.map",
+    "main.937b6759.js.map": "/heat_academy_dev/static/js/main.937b6759.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae565042.css",
-    "static/js/main.f07097bb.js"
+    "static/css/main.7fc08bd3.css",
+    "static/js/main.937b6759.js"
   ]
 }
