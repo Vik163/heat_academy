@@ -1,0 +1,41 @@
+.ProductItem {
+   width: 100%;
+   padding: 24px 0 79px;
+   background-color: #f5f8fb;
+
+   .crumbs {
+      max-width: var(--page-width);
+      width: 100%;
+      margin: 0 auto 30px;
+   }
+}
+
+.container {
+   max-width: var(--page-width);
+   width: 100%;
+   margin: 0 auto;
+}
+
+.infoContainer {
+   width: 600px;
+}
+
+.select {
+   width: 135px;
+   height: 40px;
+   border: 2px solid var(--color-yellow);
+   display: flex;
+   border-radius: 8px;
+   font-size: var(--size-14);
+   line-height: 18px;
+}
+
+.titleProduct {
+   width: 100%;
+   margin-bottom: 10px;
+}
+
+.mainImage {
+   width: 367px;
+   height: 460px;
+}

@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from 'react';
 
+import { useLocation } from 'react-router-dom';
 import cls from './Header.module.scss';
 import { Text, FontColor, FontSize, FontWeight } from '@/shared/ui/Text';
 import { Button, ButtonRadius, ButtonVariant } from '@/shared/ui/Button';
@@ -10,31 +11,36 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 // eslint-disable-next-line ulbi-tv-plugin/layer-imports
 
-interface HeaderProps {
-   className?: string;
-}
+// interface HeaderProps {
+//    className?: string;
+// }
 
-export const Header = memo((props: HeaderProps) => {
-   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-   const { className } = props;
+export const Header = memo(() => {
    const [openModal, setOpenModal] = useState(false);
-   const [isHeaderWhite, setISHeaderWhite] = useState(false);
+   const [isHeaderWhite, setISHeaderWhite] = useState<boolean>();
+   const { pathname } = useLocation();
 
    const onScroll = () => {
-      if (window.scrollY !== 0) {
-         setISHeaderWhite(true);
-      } else {
+      if (window.scrollY === 0) {
          setISHeaderWhite(false);
+      } else {
+         setISHeaderWhite(true);
       }
    };
 
    useEffect(() => {
-      window.addEventListener('scroll', onScroll);
+      if (window.scrollY === 0 && pathname === '/') setISHeaderWhite(false);
+      if (window.scrollY !== 0 || pathname !== '/') setISHeaderWhite(true);
+   }, [pathname]);
 
+   useEffect(() => {
+      if (pathname === '/') {
+         window.addEventListener('scroll', onScroll);
+      }
       return () => {
          window.removeEventListener('scroll', onScroll);
       };
-   }, []);
+   }, [pathname]);
 
    return (
       <header

@@ -24,7 +24,11 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
    return (
       <article className={classNames(cls.TitleComponent, {}, [className])}>
          <VStack className={cls.infoContainer} align={FlexAlign.START}>
-            <Text title={HeaderTagType.H_1} className={cls.title}>
+            <Text
+               title={HeaderTagType.H_1}
+               className={cls.title}
+               fontColor={FontColor.WHITE}
+            >
                Погреба <br /> и кессоны для скважин
             </Text>
             <Text fontSize={FontSize.SIZE_18} className={cls.production}>

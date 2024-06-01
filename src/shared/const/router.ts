@@ -1,5 +1,6 @@
 export enum AppRoutes {
    CATALOG = 'catalog',
+   PRODUCT = 'product',
    ABOUT = 'about',
    SERVICES = 'services',
    DELIVERY = 'delivery',
@@ -22,6 +23,7 @@ export const RoutePath = {
    [AppRoutes.DELIVERY]: '/delivery',
    [AppRoutes.CATALOG]: '/catalog',
    [AppRoutes.SERVICES]: '/services',
+   [AppRoutes.PRODUCT]: '/product',
    // [AppRoutes.BASKET]: '/basket',
    // [AppRoutes.ORDER]: '/order',
 
@@ -34,12 +36,13 @@ export const getRouteMain = () => '/';
 export const getRouteContacts = () => '/contacts';
 export const getRouteActions = () => '/actions';
 export const getRouteProfile = (id: string) => `/profile/${id}`;
-export const getRouteCatalog = (id?: string) => `/catalog/${id}`;
+export const getRouteCatalog = () => '/catalog';
 export const getRouteServices = () => '/services';
 export const getRouteAbout = () => '/about';
 export const getRouteDelivery = () => '/delivery';
 export const getRouteBasket = () => '/basket';
 export const getRouteOrder = () => '/order';
+export const getRouteProduct = (id?: string) => `/product/${id}`;
 // export const getRouteAdmin = () => '/admin';
 // export const getRouteForbidden = () => '/forbidden';
 export const getRouteNotFound = () => '*';
@@ -54,6 +57,7 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
    [getRouteServices()]: AppRoutes.SERVICES,
    [getRouteAbout()]: AppRoutes.ABOUT,
    [getRouteDelivery()]: AppRoutes.DELIVERY,
+   [getRouteProduct()]: AppRoutes.PRODUCT,
    // [getRouteBasket()]: AppRoutes.BASKET,
    // [getRouteOrder()]: AppRoutes.ORDER,
    //    [getRouteAdmin()]: AppRoutes.ADMIN_PANEL,

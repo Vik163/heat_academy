@@ -3,6 +3,7 @@ import { CatalogPage } from '@/pages/CatalogPage';
 import { ContactsPage } from '@/pages/ContactsPage';
 import { DeliveryPage } from '@/pages/DeliveryPage';
 import { MainPage } from '@/pages/MainPage';
+import { ProductPage } from '@/pages/ProductPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import {
    AppRoutes,
@@ -12,6 +13,7 @@ import {
    getRouteAbout,
    getRouteServices,
    getRouteContacts,
+   getRouteProduct,
 } from '@/shared/const/router';
 import { type AppRoutesProps } from '@/shared/types/router';
 
@@ -39,6 +41,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
    [AppRoutes.CONTACTS]: {
       path: getRouteContacts(),
       element: <ContactsPage />,
+   },
+   [AppRoutes.PRODUCT]: {
+      path: getRouteProduct(':id'),
+      element: <ProductPage />,
    },
    // [AppRoutes.ACTIONS]: {
    //    path: getRouteActions(),
