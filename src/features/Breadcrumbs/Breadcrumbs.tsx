@@ -11,10 +11,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface BreadcrumbProps {
    className?: string;
+   productName?: string;
 }
 
 export const Breadcrumb = (props: BreadcrumbProps) => {
-   const { className } = props;
+   const { className, productName } = props;
    const location = useLocation();
 
    const arr = location.pathname.split('/').map((i) => {
@@ -30,7 +31,7 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
          {arr.map((path, i) => (
             <li key={path} className={cls.linkContainer}>
                <AppLink to={`/${path}`} className={cls.link}>
-                  {breadcrumbsLink[path]}
+                  {breadcrumbsLink[path] || productName}
                </AppLink>
                {arr.length !== i + 1 && (
                   <Icon Svg={SlashImg} className={cls.icon} />

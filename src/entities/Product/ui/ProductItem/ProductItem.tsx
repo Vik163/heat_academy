@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -15,7 +15,10 @@ import {
 import { products } from '@/shared/const/products/products';
 import { Product, Products } from '../../model/types/products';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
-import { Select } from '@/shared/ui/Select';
+import { ParametersComponent } from '../ParametersComponent/ParametersComponent';
+import { PriceComponent } from '../PriceComponent/PriceComponent';
+import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
+import { HorizontalScroll } from '@/features/HorizontalScroll/HorizontalScroll';
 
 interface ProductItemProps {
    className?: string;
@@ -25,7 +28,6 @@ export const ProductItem = memo((props: ProductItemProps) => {
    const { className } = props;
    const { pathname } = useLocation();
    const [product, setProduct] = useState<Product>();
-   const [selectedValue, setSelectedValue] = useState<string>();
    const index = pathname.lastIndexOf('/') + 1;
    const productViewPath = pathname.slice(index);
    const data: Products = products;
@@ -35,17 +37,16 @@ export const ProductItem = memo((props: ProductItemProps) => {
       if (productViewPath) setProduct(data[productViewPath][0]);
    }, []);
 
-   const changeSelect = (value: string) => {
+   const changeSelect = useCallback((value: string) => {
       const selectProduct = data[productViewPath].find(
          (item) => item.size === value,
       );
-      setSelectedValue(value);
       setProduct(selectProduct);
-   };
+   }, []);
 
    return (
       <div className={classNames(cls.ProductItem, {}, [className])}>
-         <Breadcrumb className={cls.crumbs} />
+         <Breadcrumb productName={product?.title} className={cls.crumbs} />
          <HStack className={cls.container}>
             <VStack className={cls.infoContainer} align={FlexAlign.START}>
                <Text
@@ -64,28 +65,37 @@ export const ProductItem = memo((props: ProductItemProps) => {
                >
                   {product?.model}
                </Text>
-               <div>
-                  Выберите размер кессона
-                  <HStack>
-                     <Select
-                        className={cls.select}
-                        placeholder={product?.size}
-                        name='products'
-                        options={productsViews}
-                        heightOptionContainer={productsViews.length * 18 + 4}
-                        scrollRadius={0}
-                        onChange={changeSelect}
-                        selected={selectedValue}
-                     />
-                  </HStack>
-               </div>
+               {product && (
+                  <ParametersComponent
+                     onChange={changeSelect}
+                     product={product}
+                     productsViews={productsViews}
+                  />
+               )}
+               {product && <PriceComponent product={product} />}
+               <Button
+                  width={330}
+                  height={53}
+                  variant={ButtonVariant.FILLED}
+                  bgColor={ButtonBgColor.YELLOW}
+                  fontWeight={FontWeight.TEXT_400}
+                  fontColor={FontColor.BUTTON}
+                  className={cls.buttonAdvice}
+               >
+                  Получить консультацию менеджера
+               </Button>
             </VStack>
-            <VStack>
-               <img
-                  src={product?.image}
-                  alt={product?.title}
-                  className={cls.mainImage}
-               />
+            <VStack gap={20}>
+               <div className={cls.imageContainer}>
+                  <img
+                     src={product?.image}
+                     alt={product?.title}
+                     className={cls.mainImage}
+                  />
+               </div>
+               {product && (
+                  <HorizontalScroll elements={product?.imagesFeatures} />
+               )}
             </VStack>
          </HStack>
       </div>

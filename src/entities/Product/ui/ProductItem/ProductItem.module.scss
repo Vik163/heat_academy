@@ -20,22 +20,48 @@
    width: 600px;
 }
 
-.select {
-   width: 135px;
-   height: 40px;
-   border: 2px solid var(--color-yellow);
-   display: flex;
-   border-radius: 8px;
-   font-size: var(--size-14);
-   line-height: 18px;
-}
-
 .titleProduct {
    width: 100%;
    margin-bottom: 10px;
 }
 
-.mainImage {
+.imageContainer {
    width: 367px;
    height: 460px;
+   position: relative;
+
+   &::before {
+      position: absolute;
+      left: 70%;
+      bottom: 150px;
+      content: url(../../../../shared/assets/icons/type-garant-1.svg);
+      z-index: 2;
+   }
+
+   &::after {
+      position: absolute;
+      left: 70%;
+      bottom: 34px;
+
+      content: url(../../../../shared/assets/icons/vectorpaint.png);
+      z-index: 2;
+   }
+
+   .mainImage {
+      width: 367px;
+      height: 460px;
+   }
+}
+
+.buttonAdvice {
+   padding-left: 58px;
+   padding-right: 18px;
+   font-size: 14px;
+   box-shadow: 0px 6px 13px rgba(15, 15, 150, 0.05);
+   background-image: url(../../../../shared/assets/icons/icon-info.png);
+   background-position: 23px center;
+   background-repeat: no-repeat;
+   background-size: 26px;
+   border-radius: 8px;
+   margin-top: 23px;
 }

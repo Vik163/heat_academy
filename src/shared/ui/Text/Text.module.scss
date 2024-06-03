@@ -18,6 +18,10 @@
    color: black;
 }
 
+.text_red {
+   color: var(--color--vivid-red);
+}
+
 .max {
    width: 100%;
 }
@@ -51,6 +55,9 @@
 }
 .size_20 {
    font-size: var(--size-20);
+}
+.size_19 {
+   font-size: var(--size-19);
 }
 .size_18 {
    font-size: var(--size-18);

@@ -10,7 +10,7 @@ export enum FontColor {
    YELLOW = 'text_yellow',
    BUTTON = 'text_button',
    WHITE = 'text_white',
-   PINK = 'text_pink',
+   RED = 'text_red',
    LIGHT_GREY = 'text_light-grey',
 }
 export enum TextAlign {
@@ -35,6 +35,7 @@ export enum FontSize {
    SIZE_38 = 'size_38',
    SIZE_26 = 'size_26',
    SIZE_22 = 'size_22',
+   SIZE_19 = 'size_19',
    SIZE_18 = 'size_18',
    SIZE_17 = 'size_17',
    SIZE_16 = 'size_16',
@@ -76,6 +77,7 @@ const mapSizeToClass: Record<FontSize, string> = {
    size_24: cls.size_24,
    size_22: cls.size_22,
    size_20: cls.size_20,
+   size_19: cls.size_19,
    size_18: cls.size_18,
    size_17: cls.size_17,
    size_16: cls.size_16,

@@ -25,6 +25,7 @@ export enum ButtonBgColor {
    GREY_BLUE = 'button_grey_blue',
    YELLOW = 'button_yellow',
    WHITE = 'button_card_white',
+   GREEN = 'button_green',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
