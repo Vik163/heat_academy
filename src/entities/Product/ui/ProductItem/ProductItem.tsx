@@ -12,13 +12,13 @@ import {
    HeaderTagType,
    Text,
 } from '@/shared/ui/Text';
-import { products } from '@/shared/const/products/products';
-import { Product, Products } from '../../model/types/products';
+import { Product } from '../../model/types/products';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { ParametersComponent } from '../ParametersComponent/ParametersComponent';
 import { PriceComponent } from '../PriceComponent/PriceComponent';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { HorizontalScroll } from '@/features/HorizontalScroll/HorizontalScroll';
+import { $api } from '@/shared/api/api';
 
 interface ProductItemProps {
    className?: string;
@@ -28,21 +28,39 @@ export const ProductItem = memo((props: ProductItemProps) => {
    const { className } = props;
    const { pathname } = useLocation();
    const [product, setProduct] = useState<Product>();
+   const [products, setProducts] = useState<Product[]>();
+   const [productsViews, setProductsViews] = useState<string[]>();
    const index = pathname.lastIndexOf('/') + 1;
    const productViewPath = pathname.slice(index);
-   const data: Products = products;
-   const productsViews = data[productViewPath].map((item) => item.size);
+
+   const getViewsProducts = (arr: Product[]) => {
+      const views = arr.map((item) => item.size);
+      return views;
+   };
 
    useEffect(() => {
-      if (productViewPath) setProduct(data[productViewPath][0]);
-   }, []);
+      $api
+         .get('/products', {
+            params: {
+               viewProduct: productViewPath,
+            },
+         })
+         .then((data) => {
+            if (data.data) {
+               setProducts(data.data);
+               setProduct(data.data[0]);
+               setProductsViews(getViewsProducts(data.data));
+            }
+         });
+   }, [productViewPath]);
 
-   const changeSelect = useCallback((value: string) => {
-      const selectProduct = data[productViewPath].find(
-         (item) => item.size === value,
-      );
-      setProduct(selectProduct);
-   }, []);
+   const changeSelect = useCallback(
+      (value: string) => {
+         const selectProduct = products?.find((item) => item.size === value);
+         setProduct(selectProduct);
+      },
+      [products],
+   );
 
    return (
       <div className={classNames(cls.ProductItem, {}, [className])}>
@@ -65,7 +83,7 @@ export const ProductItem = memo((props: ProductItemProps) => {
                >
                   {product?.model}
                </Text>
-               {product && (
+               {product && productsViews && (
                   <ParametersComponent
                      onChange={changeSelect}
                      product={product}

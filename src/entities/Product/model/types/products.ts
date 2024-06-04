@@ -6,7 +6,7 @@ export interface Product {
    diaPipe?: string;
    weight: string;
    price: number;
-   priceSale: number;
+   priceDiscount: number;
    imageBig: string;
    image: string;
    imagesFeatures: string[];

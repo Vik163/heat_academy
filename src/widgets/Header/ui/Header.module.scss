@@ -1,5 +1,5 @@
 .header {
-   width: 80%;
+   width: 100%;
    height: var(--header-height);
    position: fixed;
    top: 0;
@@ -14,8 +14,7 @@
    }
 
    .headerContainer {
-      max-width: 1310px;
-      width: 100%;
+      width: 80%;
       height: 100%;
    }
 }

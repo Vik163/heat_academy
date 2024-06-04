@@ -39,7 +39,7 @@ export const PriceComponent = memo((props: PriceComponentProps) => {
                   {formatPrice(product.price)}&#8381;
                </Text>
                <Text fontSize={FontSize.SIZE_19} fontColor={FontColor.RED}>
-                  {formatPrice(product.priceSale)}&#8381;
+                  {formatPrice(product.priceDiscount)}&#8381;
                </Text>
             </HStack>
             <Button

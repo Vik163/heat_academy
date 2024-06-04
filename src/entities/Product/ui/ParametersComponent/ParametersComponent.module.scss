@@ -16,7 +16,6 @@
 }
 
 .select {
-   width: 135px;
    height: 40px;
    border: 2px solid var(--color-yellow);
    display: flex;
@@ -24,6 +23,7 @@
    font-size: var(--size-14);
    line-height: 18px;
    position: relative;
+   padding: 0 40px 0 15px;
 
    &::after {
       position: absolute;
