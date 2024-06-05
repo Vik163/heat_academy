@@ -13,11 +13,31 @@ interface ParametersComponentProps {
    onChange: (value: string) => void;
    product: Product;
    productsViews: string[];
+   productViewPath: string;
 }
 
 export const ParametersComponent = memo((props: ParametersComponentProps) => {
-   const { className, onChange, product, productsViews } = props;
+   const { className, onChange, product, productsViews, productViewPath } =
+      props;
    const [selectedValue, setSelectedValue] = useState<string>();
+
+   const viewProduct = () => {
+      switch (productViewPath) {
+         case 'caissons':
+            return 'размер кессона';
+         case 'cellcaissons':
+            return 'размер погреба-кессона';
+         case 'cellars':
+            return 'размер погреба';
+         case 'capacities':
+            return 'объем емкости';
+         case 'sps':
+            return 'размер КНС';
+
+         default:
+            return 'размер кессона';
+      }
+   };
 
    const onChangeSelect = useCallback((value: string) => {
       setSelectedValue(value);
@@ -31,7 +51,7 @@ export const ParametersComponent = memo((props: ParametersComponentProps) => {
             align={FlexAlign.START}
             justify={FlexJustify.BETWEEN}
          >
-            <span className={cls.selectTitle}>Выберите размер кессона</span>
+            <span className={cls.selectTitle}>Выберите {viewProduct()}</span>
             <Select
                className={cls.select}
                placeholder={product?.size}
@@ -82,16 +102,18 @@ export const ParametersComponent = memo((props: ParametersComponentProps) => {
                <span className={cls.parameter}>Монолитный полипропилен</span>
             </VStack>
 
-            <VStack
-               className={classNames(cls.parameterContainer, {}, [
-                  cls.parameterWeight,
-               ])}
-               align={FlexAlign.START}
-               justify={FlexJustify.BETWEEN}
-            >
-               <span className={cls.parameterTitle}>Вес</span>
-               <span className={cls.parameter}>{product?.weight}</span>
-            </VStack>
+            {product.weight && (
+               <VStack
+                  className={classNames(cls.parameterContainer, {}, [
+                     cls.parameterWeight,
+                  ])}
+                  align={FlexAlign.START}
+                  justify={FlexJustify.BETWEEN}
+               >
+                  <span className={cls.parameterTitle}>Вес</span>
+                  <span className={cls.parameter}>{product?.weight}</span>
+               </VStack>
+            )}
          </HStack>
       </div>
    );

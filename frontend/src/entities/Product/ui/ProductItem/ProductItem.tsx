@@ -108,6 +108,7 @@ export const ProductItem = memo((props: ProductItemProps) => {
                   </Text>
                   {product && productsViews && (
                      <ParametersComponent
+                        productViewPath={productViewPath}
                         onChange={changeSelect}
                         product={product}
                         productsViews={productsViews}

@@ -23,7 +23,6 @@ interface CatalogComponentProps {
 export const CatalogComponent = memo((props: CatalogComponentProps) => {
    const { className } = props;
 
-   console.log('productsLinks:', productsLinks);
    const links = Object.entries(productsLinks).map(([key, value]) => {
       return (
          <AppLink

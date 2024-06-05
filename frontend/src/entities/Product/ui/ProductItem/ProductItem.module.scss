@@ -29,6 +29,8 @@
    width: 367px;
    height: 460px;
    position: relative;
+   display: flex;
+   align-items: center;
 
    &::before {
       position: absolute;
@@ -49,7 +51,6 @@
 
    .mainImage {
       width: 367px;
-      height: 460px;
    }
 }
 

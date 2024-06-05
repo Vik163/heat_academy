@@ -16,8 +16,8 @@ interface PriceComponentProps {
 export const PriceComponent = memo((props: PriceComponentProps) => {
    const { className, product } = props;
 
-   const formatPrice = (value: number) => {
-      const price = String(value).split('');
+   const formatPrice = (value: string) => {
+      const price = value.split('');
       const index = price.length === 5 ? 2 : 3;
       price.splice(index, 0, ' ').join('');
       return price;
@@ -30,18 +30,27 @@ export const PriceComponent = memo((props: PriceComponentProps) => {
             align={FlexAlign.CENTER}
             className={cls.priceContainer}
          >
-            <HStack gap={20}>
-               <Text
-                  fontSize={FontSize.SIZE_19}
-                  fontColor={FontColor.LIGHT_GREY}
-                  className={cls.price}
-               >
-                  {formatPrice(product.price)}&#8381;
-               </Text>
+            {String(product.priceDiscount) !== 'Под заказ' ? (
+               <HStack gap={20}>
+                  <Text
+                     fontSize={FontSize.SIZE_19}
+                     fontColor={FontColor.LIGHT_GREY}
+                     className={cls.price}
+                  >
+                     {formatPrice(String(product.price))}&#8381;
+                  </Text>
+                  <Text fontSize={FontSize.SIZE_19} fontColor={FontColor.RED}>
+                     {formatPrice(String(product.priceDiscount))}&#8381;
+                  </Text>
+               </HStack>
+            ) : (
                <Text fontSize={FontSize.SIZE_19} fontColor={FontColor.RED}>
-                  {formatPrice(product.priceDiscount)}&#8381;
+                  {formatPrice(String(product.priceDiscount))} <br />
+                  <span className={cls.orderText}>
+                     Изготовление по вашим размерам
+                  </span>
                </Text>
-            </HStack>
+            )}
             <Button
                width={124}
                height={40}
