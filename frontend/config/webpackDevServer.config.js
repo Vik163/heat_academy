@@ -33,12 +33,16 @@ module.exports = function (proxy, allowedHost) {
       // really know what you're doing with a special environment variable.
       // Note: ["localhost", ".localhost"] will support subdomains - but we might
       // want to allow setting the allowedHosts manually for more complex setups
-      allowedHosts: disableFirewall ? 'all' : ['heat-academy-dev.vercel.app'],
+      allowedHosts: disableFirewall
+         ? 'all'
+         : ['localhost', 'https://heat-academy-dev-frontend.vercel.app'],
       // allowedHosts: disableFirewall ? 'all' : [allowedHost],
       headers: {
+         'Access-Control-Allow-Credentials': 'true',
          'Access-Control-Allow-Origin': '*',
-         'Access-Control-Allow-Methods': '*',
-         'Access-Control-Allow-Headers': '*',
+         'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+         'Access-Control-Allow-Headers':
+            'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
       },
       // Enable gzip compression of generated files.
       compress: true,

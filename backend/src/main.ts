@@ -18,6 +18,7 @@ const httpsOptions = {
 const option = [
   'https://heat-academy-dev-frontend.vercel.app',
   'https://127.0.0.1:3000',
+  'https://localhost',
 ];
 
 async function bootstrap() {
