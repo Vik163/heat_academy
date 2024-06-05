@@ -16,9 +16,7 @@ const httpsOptions = {
   cert: readFileSync('./security/localhost+3.pem'),
 };
 const option = [
-  'https://pizzashop163.ru',
   'https://heat-academy-dev-frontend.vercel.app',
-  'https://heat-academy-dev-frontend-etz6isiy1-vik163s-projects.vercel.app',
   'https://127.0.0.1:3000',
 ];
 
