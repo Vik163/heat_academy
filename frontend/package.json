@@ -1,7 +1,7 @@
 {
    "name": "heat_academy_dev",
    "version": "0.1.0",
-   "homepage": "https://vik163.github.io/heat_academy_dev",
+   "homepage": "heat-academy-dev-frontend.vercel.app",
    "private": false,
    "devDependencies": {
       "@babel/core": "^7.16.0",
