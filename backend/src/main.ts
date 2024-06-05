@@ -15,7 +15,11 @@ const httpsOptions = {
   key: readFileSync('./security/localhost+3-key.pem'),
   cert: readFileSync('./security/localhost+3.pem'),
 };
-const option = ['https://pizzashop163.ru', 'https://127.0.0.1:3000'];
+const option = [
+  'https://pizzashop163.ru',
+  'https://heat-academy-dev-frontend.vercel.app',
+  'https://127.0.0.1:3000',
+];
 
 async function bootstrap() {
   // c https
