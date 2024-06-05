@@ -12,7 +12,7 @@ import axios from 'axios';
 // правильнее apiUrl = env.apiUrl || 'http://localhost:8000' - webpack.config
 
 export const $api = axios.create({
-   baseURL: 'https://heat-academy-dev-frontend.vercel.app', // правильнее
+   baseURL: 'https://heat-academy-dev.vercel.app', // правильнее
    withCredentials: true,
 });
 
