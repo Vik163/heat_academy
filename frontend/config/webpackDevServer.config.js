@@ -35,7 +35,11 @@ module.exports = function (proxy, allowedHost) {
       // want to allow setting the allowedHosts manually for more complex setups
       allowedHosts: disableFirewall
          ? 'all'
-         : ['pizzashop163.ru', 'www.pizzashop163.ru'],
+         : [
+              'pizzashop163.ru',
+              'www.pizzashop163.ru',
+              'heat-academy-dev.vercel.app',
+           ],
       // allowedHosts: disableFirewall ? 'all' : [allowedHost],
       headers: {
          'Access-Control-Allow-Origin': '*',
