@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { readFileSync } from 'fs';
-import * as cookieParser from 'cookie-parser';
-import * as session from 'express-session';
+import cookieParser = require('cookie-parser');
+import session = require('express-session');
 import { doubleCsrfProtection } from '../csrf.config';
 import * as passport from 'passport';
 import { AppModule } from './app.module';
