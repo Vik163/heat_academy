@@ -40,6 +40,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    width?: number;
    height?: number;
    disabled?: boolean;
+   arrow?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -53,6 +54,7 @@ export const Button = memo((props: ButtonProps) => {
       fontSize = FontSize.SIZE_13,
       fontWeight = FontWeight.TEXT_700,
       width,
+      arrow = false,
       height,
       id,
       disabled = false,
@@ -72,6 +74,7 @@ export const Button = memo((props: ButtonProps) => {
 
    const mods: Mods = {
       [cls.disabled]: disabled,
+      [cls.buttonSelect]: arrow,
    };
 
    return (

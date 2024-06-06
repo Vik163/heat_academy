@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { useLocation } from 'react-router-dom';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './CatalogComponent.module.scss';
 import {
@@ -11,10 +12,10 @@ import {
 } from '@/shared/ui/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
-import { productsLinks } from '@/shared/const/products/products';
-import { FlexWrap } from '@/shared/ui/Stack/Flex';
+import { productsLinks, cellarsLinks } from '@/shared/const/products/products';
+import { FlexAlign, FlexJustify, FlexWrap } from '@/shared/ui/Stack/Flex';
 import { AppLink } from '@/shared/ui/AppLink';
-import { getRouteProduct } from '@/shared/const/router';
+import { getRouteCellars, getRouteProduct } from '@/shared/const/router';
 
 interface CatalogComponentProps {
    className?: string;
@@ -22,22 +23,38 @@ interface CatalogComponentProps {
 
 export const CatalogComponent = memo((props: CatalogComponentProps) => {
    const { className } = props;
+   const { pathname } = useLocation();
+   const isCellars = pathname === '/cellars';
+   const links = isCellars ? cellarsLinks : productsLinks;
+   const title = isCellars
+      ? 'Погреба пластиковые Земляк'
+      : 'Каталог кессонов и погребов';
 
-   const links = Object.entries(productsLinks).map(([key, value]) => {
+   const mods: Mods = { [cls.category]: isCellars };
+
+   const linksCards = Object.entries(links).map(([key, value]) => {
+      const nameLink = isCellars ? `Погреб ЗЕМЛЯК ${key}` : key;
       return (
          <AppLink
-            to={getRouteProduct(value.link)}
+            to={
+               value.link === 'cellars'
+                  ? getRouteCellars()
+                  : getRouteProduct(value.link)
+            }
             key={key}
-            className={cls.linkContainer}
+            className={classNames(cls.linkContainer, mods, [])}
          >
-            <VStack gap={20}>
+            {isCellars && (
+               <img src={value.image} alt={key} className={cls.imageLink} />
+            )}
+            <VStack max justify={FlexJustify.BETWEEN} align={FlexAlign.START}>
                <Text
                   title={HeaderTagType.H_4}
                   fontSize={FontSize.SIZE_18}
                   fontWeight={FontWeight.TEXT_500}
-                  className={cls.titleLink}
+                  className={classNames(cls.titleLink, mods, [])}
                >
-                  {key}
+                  {nameLink}
                </Text>
                <Button
                   width={124}
@@ -52,7 +69,9 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
                   Перейти
                </Button>
             </VStack>
-            <img src={value.image} alt={key} className={cls.imageLink} />
+            {!isCellars && (
+               <img src={value.image} alt={key} className={cls.imageLink} />
+            )}
          </AppLink>
       );
    });
@@ -64,12 +83,13 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
                title={HeaderTagType.H_3}
                fontSize={FontSize.SIZE_36}
                fontWeight={FontWeight.TEXT_700}
+               fontColor={FontColor.TEXT}
                className={cls.title}
             >
-               Каталог кессонов и погребов
+               {title}
             </Text>
             <HStack wrap={FlexWrap.WPAP} gap={20}>
-               {links}
+               {linksCards}
             </HStack>
          </div>
       </div>

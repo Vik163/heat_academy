@@ -19,7 +19,7 @@
 
 .mainInfo {
    position: relative;
-   max-width: 1034px;
+   max-width: var(--page-width);
    padding: 0 10px;
    margin: 0 auto;
    height: 721px;

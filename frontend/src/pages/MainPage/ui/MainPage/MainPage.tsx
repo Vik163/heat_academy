@@ -4,7 +4,7 @@ import cls from './MainPage.module.scss';
 import { Page } from '@/widgets/Page';
 import { TitleComponent } from '../TitleComponent/TitleComponent';
 import { EquipmentComponent } from '../EquipmentComponent/EquipmentComponent';
-import { CatalogComponent } from '../CatalogComponent/CatalogComponent';
+import { CatalogComponent } from '@/widgets/CatalogComponent';
 
 // interface MainPageProps {
 //    className?: string;

@@ -12,6 +12,7 @@ export enum FontColor {
    WHITE = 'text_white',
    RED = 'text_red',
    LIGHT_GREY = 'text_light-grey',
+   TEXT = 'text_text',
 }
 export enum TextAlign {
    LEFT = 'left',

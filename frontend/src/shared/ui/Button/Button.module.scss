@@ -72,3 +72,17 @@
    outline: none;
    border: none;
 }
+
+.buttonSelect {
+   padding: 8px 16px;
+   position: relative;
+   justify-content: flex-start;
+
+   &::after {
+      content: '';
+      position: absolute;
+      right: 20px;
+      content: url(../../assets/icons/icon-arrow-right.svg);
+      margin-left: 13px;
+   }
+}

@@ -14,6 +14,7 @@ import {
    getRouteServices,
    getRouteContacts,
    getRouteProduct,
+   getRouteCellars,
 } from '@/shared/const/router';
 import { type AppRoutesProps } from '@/shared/types/router';
 
@@ -24,6 +25,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
    },
    [AppRoutes.CATALOG]: {
       path: getRouteCatalog(),
+      element: <CatalogPage />,
+   },
+   [AppRoutes.CELLARS]: {
+      path: getRouteCellars(),
       element: <CatalogPage />,
    },
    [AppRoutes.DELIVERY]: {
