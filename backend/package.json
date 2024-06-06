@@ -78,8 +78,7 @@
     "typescript": "^5.1.6"
   },
   "engines": {
-    "node": "14.20.0",
-    "npm": "7.24.2"
+    "node": "20.x"
   },
   "jest": {
     "moduleFileExtensions": [
