@@ -5,6 +5,8 @@ import { Page } from '@/widgets/Page';
 import { TitleComponent } from '../TitleComponent/TitleComponent';
 import { EquipmentComponent } from '../EquipmentComponent/EquipmentComponent';
 import { CatalogComponent } from '@/widgets/CatalogComponent';
+import { BestDecisionComponent } from '../BestDecisionComponent/BestDecisionComponent';
+import { MontageComponent } from '../MontageComponent/MontageComponent';
 
 // interface MainPageProps {
 //    className?: string;
@@ -16,6 +18,8 @@ export const MainPage = memo(() => {
          <TitleComponent />
          <EquipmentComponent />
          <CatalogComponent />
+         <BestDecisionComponent />
+         <MontageComponent />
       </Page>
    );
 });
