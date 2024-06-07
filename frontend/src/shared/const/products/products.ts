@@ -24,7 +24,7 @@ export const productsLinks = {
 export const cellarsLinks = {
    Стандарт: {
       image: 'https://земляк.рф/wp-content/uploads/2022/09/pogreb_006_pogreb_standart-6-kopiya-2.png',
-      link: 'cellar_standart',
+      link: 'https://земляк.рф/product/pogreb-zemlyak-1200h1200h2400-mm-s-pryamym-vert-vhodom/',
    },
    Комфорт: {
       image: 'https://земляк.рф/wp-content/uploads/2022/09/001-_box-kopiya-vz-min.png',

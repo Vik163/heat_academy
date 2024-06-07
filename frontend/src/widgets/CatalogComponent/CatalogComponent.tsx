@@ -34,7 +34,39 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
 
    const linksCards = Object.entries(links).map(([key, value]) => {
       const nameLink = isCellars ? `Погреб ЗЕМЛЯК ${key}` : key;
-      return (
+      return isCellars ? (
+         <a
+            aria-label='cellars'
+            href={value.link}
+            target='_blank'
+            className={classNames(cls.linkContainer, mods, [])}
+            rel='noreferrer'
+         >
+            <img src={value.image} alt={key} className={cls.imageLink} />
+            <VStack max justify={FlexJustify.BETWEEN} align={FlexAlign.START}>
+               <Text
+                  title={HeaderTagType.H_4}
+                  fontSize={FontSize.SIZE_18}
+                  fontWeight={FontWeight.TEXT_500}
+                  className={classNames(cls.titleLink, mods, [])}
+               >
+                  {nameLink}
+               </Text>
+               <Button
+                  width={124}
+                  height={40}
+                  fontSize={FontSize.SIZE_15}
+                  fontWeight={FontWeight.TEXT_400}
+                  fontColor={FontColor.BUTTON}
+                  variant={ButtonVariant.FILLED}
+                  bgColor={ButtonBgColor.YELLOW}
+                  className={classNames('', {}, [cls.buttonSelect])}
+               >
+                  Перейти
+               </Button>
+            </VStack>
+         </a>
+      ) : (
          <AppLink
             to={
                value.link === 'cellars'
