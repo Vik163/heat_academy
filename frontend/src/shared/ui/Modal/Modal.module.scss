@@ -20,7 +20,7 @@
 .overlay {
    height: 100%;
    width: 100%;
-   background: rgba(100, 86, 23, 0.4);
+   background: rgba(100, 86, 23, 0.5);
 
    &.centerOverlay {
       display: flex;
@@ -36,6 +36,6 @@
 .close {
    position: absolute;
    background: transparent;
-   fill: var(--color-border-cards);
+   fill: rgb(75, 69, 16);
    z-index: 5;
 }

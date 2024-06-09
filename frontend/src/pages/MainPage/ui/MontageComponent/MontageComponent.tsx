@@ -11,6 +11,7 @@ import {
 } from '@/shared/ui/Text';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { Player } from '@/shared/ui/Player';
+import { Modal } from '@/shared/ui/Modal';
 
 export const MontageComponent = memo(() => {
    const [isPlaying, setIsPlaying] = useState(false);
@@ -61,15 +62,14 @@ export const MontageComponent = memo(() => {
                      Узнать подробнее
                   </Button>
                </div>
-               <div className={cls.videoContainer} onClick={startVideo}>
-                  <Player
-                     url='https://www.youtube.com/watch?v=2rp0PbsVi6c'
-                     width={630}
-                     height={423}
-                     playing={isPlaying}
-                     className={cls.video}
-                     onEnded={endVideo}
-                  />
+               <div
+                  className={classNames(
+                     cls.videoContainer,
+                     { [cls.fullscren]: isPlaying },
+                     [],
+                  )}
+                  onClick={startVideo}
+               >
                   {!isPlaying && (
                      <div>
                         <img
@@ -89,6 +89,25 @@ export const MontageComponent = memo(() => {
                </div>
             </div>
          </div>
+         {isPlaying && (
+            <Modal
+               onClose={endVideo}
+               isOpen={isPlaying}
+               buttonCloseHeight={30}
+               buttonCloseRight={30}
+               buttonCloseTop={30}
+               buttonCloseWidth={30}
+            >
+               <Player
+                  url='https://www.youtube.com/watch?v=2rp0PbsVi6c'
+                  width={1230}
+                  height={800}
+                  playing={isPlaying}
+                  className={cls.video}
+                  onEnded={endVideo}
+               />
+            </Modal>
+         )}
       </article>
    );
 });

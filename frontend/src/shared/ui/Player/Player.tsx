@@ -19,10 +19,6 @@ const Player = memo((props: PlayerProps) => {
          cc_load_policy: 0,
          iv_load_policy: 3,
          modestbranding: 1,
-         showinfo: 0,
-      },
-      embedOptions: {
-         suggestedQuality: 'small',
       },
    };
 
