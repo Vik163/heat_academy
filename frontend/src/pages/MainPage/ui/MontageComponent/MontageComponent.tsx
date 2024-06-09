@@ -16,19 +16,6 @@ export const MontageComponent = memo(() => {
    const [isPlaying, setIsPlaying] = useState(false);
    // const playerRef = useRef<ReturnType<typeof videojs> | null>(null);
 
-   const videoJsOptions = {
-      controls: true,
-      responsive: true,
-      fluid: true,
-      aspectRatio: '4:3',
-      poster:
-         'https://xn--e1adkde9i.xn--p1ai/wp-content/uploads/2023/10/screenshot_1.png',
-      sources: {
-         src: 'https//youtu.be/2rp0PbsVi6c',
-         type: 'video/youtube',
-      },
-   };
-
    const startVideo = () => {
       setIsPlaying(true);
    };
@@ -74,10 +61,7 @@ export const MontageComponent = memo(() => {
                      Узнать подробнее
                   </Button>
                </div>
-               <div className={cls.videoContainer}>
-                  {!isPlaying && (
-                     <div onClick={startVideo} className={cls.poster}></div>
-                  )}
+               <div className={cls.videoContainer} onClick={startVideo}>
                   <Player
                      url='https://www.youtube.com/watch?v=2rp0PbsVi6c'
                      width={630}
@@ -86,30 +70,23 @@ export const MontageComponent = memo(() => {
                      className={cls.video}
                      onEnded={endVideo}
                   />
-               </div>
-               <a
-                  data-fancybox='video-btn-1'
-                  href='https://www.youtube.com/watch?v=2rp0PbsVi6c&amp;autohide=2&amp;modestbranding=1&amp;fs=0&amp;showinfo=0&amp;rel=0&amp;roistat_visit=2074074'
-                  className={cls.block_video}
-               >
-                  <img
-                     src='https://xn--e1adkde9i.xn--p1ai/wp-content/uploads/2023/10/screenshot_1.png'
-                     alt='видео'
-                  />
-                  <span className={cls.video_play}></span>
-                  <div className={cls.video_info}>
-                     <span>Посмотрите видео «Как правильно делать монтаж»</span>
-                     <div
-                        className={classNames(cls.btn, {}, [
-                           cls.btn_yellow,
-                           cls.btn_s,
-                           cls.btn_icon_video,
-                        ])}
-                     >
-                        Смотреть 2 мин.
+                  {!isPlaying && (
+                     <div>
+                        <img
+                           className={cls.poster}
+                           src='https://xn--e1adkde9i.xn--p1ai/wp-content/uploads/2023/10/screenshot_1.png'
+                           alt='видео'
+                        />
+                        <span className={cls.video_play}></span>
+                        <div className={cls.video_info}>
+                           <span>
+                              Посмотрите видео «Как правильно делать монтаж»
+                           </span>
+                           <div className={cls.btn}>Смотреть 2 мин.</div>
+                        </div>
                      </div>
-                  </div>
-               </a>
+                  )}
+               </div>
             </div>
          </div>
       </article>
