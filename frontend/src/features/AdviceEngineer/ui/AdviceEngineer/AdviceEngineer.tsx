@@ -34,14 +34,14 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
                <Text
                   fontSize={FontSize.SIZE_36}
                   fontWeight={FontWeight.TEXT_700}
-                  fontColor={FontColor.TEXT}
+                  fontColor={FontColor.TEXT_PRIMARY}
                >
                   Посоветуйтесь с инженером
                </Text>
                <Text
                   className={cls.description}
                   fontSize={FontSize.SIZE_18}
-                  fontColor={FontColor.TEXT}
+                  fontColor={FontColor.TEXT_PRIMARY}
                >
                   Подбор кессона, оборудования, особенности монтажа, скидки и
                   оптовые цены - любой вопрос!
@@ -82,7 +82,7 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
                <Text
                   className={cls.caption}
                   fontSize={FontSize.SIZE_14}
-                  fontColor={FontColor.TEXT}
+                  fontColor={FontColor.TEXT_PRIMARY}
                >
                   Дмитрий Попов, эксперт по водоснабжению
                </Text>

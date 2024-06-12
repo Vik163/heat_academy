@@ -12,7 +12,10 @@ import {
 } from '@/shared/ui/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
-import { productsLinks, cellarsLinks } from '@/shared/const/products/products';
+import {
+   productsLinks,
+   cellarsLinks,
+} from '@/shared/const/products/productsLinks';
 import { FlexAlign, FlexJustify, FlexWrap } from '@/shared/ui/Stack/Flex';
 import { AppLink } from '@/shared/ui/AppLink';
 import { getRouteCellars, getRouteProduct } from '@/shared/const/router';
@@ -30,17 +33,22 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
       ? 'Погреба пластиковые Земляк'
       : 'Каталог кессонов и погребов';
 
+   window.scrollTo({
+      top: 0,
+   });
+
    const mods: Mods = { [cls.category]: isCellars };
 
    const linksCards = Object.entries(links).map(([key, value]) => {
       const nameLink = isCellars ? `Погреб ЗЕМЛЯК ${key}` : key;
-      return isCellars ? (
+      return value.link !== 'cellars' ? (
          <a
             aria-label='cellars'
             href={value.link}
             target='_blank'
             className={classNames(cls.linkContainer, mods, [])}
             rel='noreferrer'
+            key={key}
          >
             <img src={value.image} alt={key} className={cls.imageLink} />
             <VStack max justify={FlexJustify.BETWEEN} align={FlexAlign.START}>
@@ -115,7 +123,6 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
                title={HeaderTagType.H_3}
                fontSize={FontSize.SIZE_36}
                fontWeight={FontWeight.TEXT_700}
-               fontColor={FontColor.TEXT}
                className={cls.title}
             >
                {title}

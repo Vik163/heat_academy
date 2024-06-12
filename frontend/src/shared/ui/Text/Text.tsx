@@ -12,7 +12,7 @@ export enum FontColor {
    WHITE = 'text_white',
    RED = 'text_red',
    LIGHT_GREY = 'text_light-grey',
-   TEXT = 'text_text',
+   TEXT_PRIMARY = 'text_text',
 }
 export enum TextAlign {
    LEFT = 'left',
@@ -96,7 +96,7 @@ export const Text = memo((props: TextProps) => {
       title,
       fontWeight = FontWeight.TEXT_400,
       align = TextAlign.LEFT,
-      fontColor = FontColor.BLACK,
+      fontColor = FontColor.TEXT_PRIMARY,
       fontSize = FontSize.SIZE_14,
       max,
       style,

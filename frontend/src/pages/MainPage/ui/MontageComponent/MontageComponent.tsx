@@ -28,7 +28,11 @@ export const MontageComponent = memo(() => {
    return (
       <article id='sec-montazh' className={cls.montazh}>
          <div className={cls.container}>
-            <Text title={HeaderTagType.H_3} className={cls.title}>
+            <Text
+               title={HeaderTagType.H_3}
+               className={cls.title}
+               fontColor={FontColor.TEXT_PRIMARY}
+            >
                Монтаж кессона за 1 день
             </Text>
             <Text className={cls.description}>

@@ -32,7 +32,6 @@ export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
                title={HeaderTagType.H_3}
                fontWeight={FontWeight.TEXT_700}
                fontSize={FontSize.SIZE_36}
-               fontColor={FontColor.BLACK}
             >
                Производим на чешском оборудовании
             </Text>
@@ -65,7 +64,6 @@ export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
                            title={HeaderTagType.H_4}
                            fontWeight={FontWeight.TEXT_700}
                            fontSize={FontSize.SIZE_16}
-                           fontColor={FontColor.BLACK}
                         >
                            {i.title}
                         </Text>
@@ -96,7 +94,6 @@ export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
                            title={HeaderTagType.H_4}
                            fontWeight={FontWeight.TEXT_700}
                            fontSize={FontSize.SIZE_16}
-                           fontColor={FontColor.BLACK}
                         >
                            {i.title}
                         </Text>
