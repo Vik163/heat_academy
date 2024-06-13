@@ -21,7 +21,8 @@ export enum TextAlign {
 }
 export enum FontWeight {
    TEXT_400 = 'normal',
-   TEXT_500 = 'semibold',
+   TEXT_500 = 'middle',
+   TEXT_600 = 'semibold',
    TEXT_700 = 'bold',
    TEXT_900 = 'extrabold',
 }

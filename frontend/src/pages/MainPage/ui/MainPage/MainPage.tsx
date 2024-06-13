@@ -8,6 +8,7 @@ import { CatalogComponent } from '@/widgets/CatalogComponent';
 import { BestDecisionComponent } from '../BestDecisionComponent/BestDecisionComponent';
 import { MontageComponent } from '../MontageComponent/MontageComponent';
 import { ModelList } from '../ModelList/ModelList';
+import { InfoComponent } from '../InfoComponent/InfoComponent';
 
 // interface MainPageProps {
 //    className?: string;
@@ -22,6 +23,7 @@ export const MainPage = memo(() => {
          <BestDecisionComponent />
          <MontageComponent />
          <ModelList />
+         <InfoComponent />
       </Page>
    );
 });
