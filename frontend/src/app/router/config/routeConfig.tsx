@@ -4,6 +4,7 @@ import { ContactsPage } from '@/pages/ContactsPage';
 import { DeliveryPage } from '@/pages/DeliveryPage';
 import { MainPage } from '@/pages/MainPage';
 import { ProductPage } from '@/pages/ProductPage';
+import { QuestionsPage } from '@/pages/QuestionsPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import {
    AppRoutes,
@@ -15,6 +16,7 @@ import {
    getRouteContacts,
    getRouteProduct,
    getRouteCellars,
+   getRouteQuestions,
 } from '@/shared/const/router';
 import { type AppRoutesProps } from '@/shared/types/router';
 
@@ -50,6 +52,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
    [AppRoutes.PRODUCT]: {
       path: getRouteProduct(':id'),
       element: <ProductPage />,
+   },
+   [AppRoutes.QUESTIONS]: {
+      path: getRouteQuestions(),
+      element: <QuestionsPage />,
    },
    // [AppRoutes.ACTIONS]: {
    //    path: getRouteActions(),

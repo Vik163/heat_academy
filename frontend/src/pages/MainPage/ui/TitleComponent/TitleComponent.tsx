@@ -22,7 +22,10 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
    const { className } = props;
 
    return (
-      <article className={classNames(cls.TitleComponent, {}, [className])}>
+      <article
+         id='title'
+         className={classNames(cls.TitleComponent, {}, [className])}
+      >
          <VStack className={cls.infoContainer} align={FlexAlign.START}>
             <Text
                title={HeaderTagType.H_1}

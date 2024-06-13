@@ -1,29 +1,19 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Footer.module.scss';
 
-import Logo from '@/shared/assets/icons/shop_logo.png';
-import Viza from '@/shared/assets/icons/viza.png';
-import Pay from '@/shared/assets/icons/pay.png';
-import Master from '@/shared/assets/icons/master.png';
-import Viber from '@/shared/assets/icons/viber.png';
-import Skype from '@/shared/assets/icons/skype.png';
-import FB from '@/shared/assets/icons/fb.png';
-import VK from '@/shared/assets/icons/vk.png';
-import WhatsApp from '@/shared/assets/icons/whatsApp.png';
-import Telegram from '@/shared/assets/icons/telegram.png';
-
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Icon } from '@/shared/ui/Icon';
-import { Text, FontSize, FontWeight } from '@/shared/ui/Text';
-import { FlexAlign, FlexJustify, FlexWrap } from '@/shared/ui/Stack/Flex';
+import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
 import {
-   Button,
-   ButtonBgColor,
-   ButtonRadius,
-   ButtonVariant,
-} from '@/shared/ui/Button';
+   getRouteAbout,
+   getRouteCatalog,
+   getRouteContacts,
+   getRouteDelivery,
+   getRouteQuestions,
+} from '@/shared/const/router';
+import { FontColor, FontSize, Text } from '@/shared/ui/Text';
 
 interface FooterProps {
    className?: string;
@@ -33,158 +23,88 @@ export const Footer = memo((props: FooterProps) => {
    const { className } = props;
    const year = new Date().getFullYear();
 
-   return (
-      <VStack
-         className={classNames(cls.Footer, {}, [className])}
-         justify={FlexJustify.CENTER}
-      >
-         <HStack className={cls.footerContainer} justify={FlexJustify.BETWEEN}>
-            <VStack className={cls.sidesContainers} align={FlexAlign.START}>
-               <Icon src={Logo} width={80} height={60} />
-               <HStack className={cls.infoLinks} wrap={FlexWrap.WPAP}>
-                  <Text
-                     fontSize={FontSize.SIZE_16}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
-                     Калорийность и состав
-                  </Text>
-                  <Text
-                     fontSize={FontSize.SIZE_16}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
-                     Правовая информация
-                  </Text>
-                  <Text
-                     fontSize={FontSize.SIZE_16}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
-                     Мы в соцсетях
-                  </Text>
-               </HStack>
-               <HStack
-                  className={cls.messengersLinks}
-                  justify={FlexJustify.BETWEEN}
-               >
-                  <Text
-                     className={cls.messengers}
-                     fontSize={FontSize.SIZE_16}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
-                     YouTube <br /> Instagram
-                  </Text>
-                  <Text
-                     className={cls.messengers}
-                     fontSize={FontSize.SIZE_16}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
-                     Facebook <br /> ВКонтакте
-                  </Text>
-                  <Text
-                     className={cls.messengers}
-                     fontSize={FontSize.SIZE_14}
-                     fontWeight={FontWeight.TEXT_500}
-                  >
-                     Москва ул. Проспект Вернадского 86В
-                  </Text>
-               </HStack>
-               <HStack className={cls.infoDate} justify={FlexJustify.BETWEEN}>
-                  <Text
-                     className={cls.date}
-                     fontSize={FontSize.SIZE_14}
-                     fontWeight={FontWeight.TEXT_500}
-                  >
-                     YaBao Все права защищены &copy;{year}
-                  </Text>
-                  <HStack
-                     justify={FlexJustify.BETWEEN}
-                     className={cls.payCards}
-                  >
-                     <Icon src={Viza} />
-                     <Icon src={Pay} />
-                     <Icon src={Master} />
-                  </HStack>
-               </HStack>
-            </VStack>
-            <VStack className={cls.sidesContainers} align={FlexAlign.START}>
-               <Text
-                  className={cls.titleRight}
-                  fontSize={FontSize.SIZE_14}
-                  fontWeight={FontWeight.TEXT_700}
-               >
-                  ОСТАЛИСЬ ВОПРОСЫ? А МЫ ВСЕГДА НА СВЯЗИ:
-               </Text>
-               <HStack className={cls.messengersButtons} wrap={FlexWrap.WPAP}>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     <Icon src={Telegram} />
-                  </Button>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     <Icon src={Viber} />
-                  </Button>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     <Icon src={Skype} />
-                  </Button>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     <Icon src={FB} />
-                  </Button>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     <Icon src={VK} />
-                  </Button>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     <Icon src={WhatsApp} />
-                  </Button>
-                  <Button
-                     className={cls.messengerButton}
-                     variant={ButtonVariant.OUTLINE}
-                     radius={ButtonRadius.RADIUS_14}
-                  >
-                     Написать нам
-                  </Button>
-               </HStack>
-               <Text
-                  className={cls.numberPhon}
-                  fontSize={FontSize.SIZE_30}
-                  fontWeight={FontWeight.TEXT_700}
-               >
-                  8 499 391-84-49
-               </Text>
+   const scrollTop = () => {
+      window.scrollTo({
+         top: 0,
+         behavior: 'smooth',
+      });
+   };
 
-               <Button
-                  variant={ButtonVariant.FILLED}
-                  bgColor={ButtonBgColor.GREY}
-                  radius={ButtonRadius.RADIUS_28}
-                  fontSize={FontSize.SIZE_14}
-                  fontWeight={FontWeight.TEXT_700}
-                  width={180}
-                  height={42}
+   return (
+      <footer>
+         <HStack
+            className={classNames(cls.container, {}, [className])}
+            justify={FlexJustify.BETWEEN}
+            align={FlexAlign.START}
+         >
+            <div className={cls.footerInfo}>
+               <span onClick={scrollTop} className={cls.logo}>
+                  &quot;Академия Тепла&quot;
+               </span>
+               <p className={cls.textInfo}>
+                  141280, МО, г. Ивантеевка, ул. Дзержинского, д. 1<br /> Email:
+                  &nbsp;
+                  <a href='#' className={cls.post}>
+                     werwe@sjdf.dy
+                  </a>
+                  <br /> Работаем: 9:00-19:00, ежедневно
+               </p>
+               <p className={cls.textInfo}>
+                  Посещение склада доступно по следующим дням:
+                  <br />
+                  Понедельник — четверг: с 13:00 — 14:00
+                  <br />
+                  Пятница — с 13:00 — 14:-00 и 17:00 — 18:00
+                  <br />
+                  Суббота и воскресенье — выходной
+               </p>
+               <p className={cls.textInfo}>
+                  {year} © ТМ «ЗЕМЛЯК». Все права защищены.
+               </p>
+            </div>
+            <VStack
+               className={cls.links}
+               align={FlexAlign.START}
+               justify={FlexJustify.START}
+               gap={15}
+            >
+               <Link to={getRouteCatalog()} className={cls.link}>
+                  Каталог
+               </Link>
+               <Link to={getRouteAbout()} className={cls.link}>
+                  О кампании
+               </Link>
+               <Link to={getRouteDelivery()} className={cls.link}>
+                  Доставка и оплата
+               </Link>
+               <Link to={getRouteContacts()} className={cls.link}>
+                  Контакты
+               </Link>
+               <Link to={getRouteQuestions()} className={cls.link}>
+                  Вопрос-ответ
+               </Link>
+            </VStack>
+            <VStack
+               className={cls.sequrityInfo}
+               align={FlexAlign.START}
+               gap={20}
+            >
+               <Text
+                  fontSize={FontSize.SIZE_11}
+                  fontColor={FontColor.LIGHT_GREY}
                >
-                  Заказать звонок
-               </Button>
+                  Любая информация, представленная на данном сайте, носит
+                  исключительно информационный характер и ни при каких условиях
+                  не является публичной офертой, определяемой положением статьи
+                  437 ГК РФ. Отправляя сведения через любую электронную форму на
+                  этом сайте, вы даёте согласие на обработку ваших персональных
+                  данных.
+               </Text>
+               <Link to='#' className={cls.politics}>
+                  Политика конфиденциальности
+               </Link>
             </VStack>
          </HStack>
-      </VStack>
+      </footer>
    );
 });

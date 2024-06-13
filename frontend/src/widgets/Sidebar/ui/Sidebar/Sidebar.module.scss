@@ -34,7 +34,7 @@
    height: var(--header-height);
    @include flex-column-center;
    font-family: 'Pattaya';
-   @include font(var(--size-16), var(--weight-700), var(--color-light-green));
+   @include font(var(--size-16), var(--weight-700), var(--color-green));
    line-height: 18px;
    letter-spacing: 1px;
    padding: 15px;

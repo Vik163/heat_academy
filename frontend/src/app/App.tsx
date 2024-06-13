@@ -6,6 +6,7 @@ import { FlexJustify } from '@/shared/ui/Stack/Flex';
 import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './router';
+import { Footer } from '@/widgets/Footer';
 
 const App = memo(() => {
    return (
@@ -18,7 +19,7 @@ const App = memo(() => {
          <main className='main'>
             <AppRouter />
          </main>
-         {/* <Footer />  */}
+         <Footer />
       </VStack>
    );
 });
