@@ -1,7 +1,18 @@
-import { type ReactNode, memo, MutableRefObject, useRef } from 'react';
+import {
+   type ReactNode,
+   memo,
+   MutableRefObject,
+   useRef,
+   useEffect,
+   useState,
+} from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Page.module.scss';
+
+import arrow from '../../shared/assets/icons/icon-arrow-top.svg';
+import { Icon } from '@/shared/ui/Icon';
+import { useTrottle } from '@/shared/lib/hooks/useTrottle';
 
 export enum PageDirection {
    VIRTICAL = 'vertical',
@@ -32,6 +43,7 @@ export const Page = memo((props: PageProps) => {
    } = props;
    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
    const pageWithScrollRef = useRef() as MutableRefObject<HTMLDivElement>;
+   const [scroll, setScroll] = useState(0);
 
    // useEffect(() => {
    //    if (!saveScroll)
@@ -81,6 +93,25 @@ export const Page = memo((props: PageProps) => {
    //    }
    // }, [delayScroll]);
 
+   const scrollTop = () => {
+      window.scrollTo({
+         top: 0,
+         behavior: 'smooth',
+      });
+   };
+
+   const handleScroll = useTrottle(() => {
+      setScroll(window.scrollY);
+   }, 200);
+
+   useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+         window.removeEventListener('scroll', handleScroll);
+      };
+   }, []);
+
    return (
       <section
          // ставится если нужен внутренный скролл в page
@@ -94,6 +125,11 @@ export const Page = memo((props: PageProps) => {
       >
          {children}
          <div className={cls.trigger} ref={triggerRef} />
+         {scroll > 1000 && (
+            <div className={cls.arrowTop} onClick={scrollTop}>
+               <Icon Svg={arrow} />
+            </div>
+         )}
       </section>
    );
 });
