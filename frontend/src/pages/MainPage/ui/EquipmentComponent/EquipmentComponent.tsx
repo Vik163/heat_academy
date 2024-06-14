@@ -120,7 +120,7 @@ export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
                Хочу приехать на склад
             </Button>
             <Text fontSize={FontSize.SIZE_14} fontColor={FontColor.LIGHT_GREY}>
-               Приезжайте на склад в г. ???? и убедитесь в качестве
+               Приезжайте на склад в г. Новокуйбышевске и убедитесь в качестве
             </Text>
          </div>
       </article>

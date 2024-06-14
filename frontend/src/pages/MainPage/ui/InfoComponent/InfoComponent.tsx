@@ -360,10 +360,9 @@ export const InfoComponent = memo((props: InfoComponentProps) => {
                установка оборудования.
             </p>
             <p>
-               Для расчета точной стоимости услуги позвоните нам по номеру
-               <span style={{ color: 'red' }}>
-                  +7 (499) 877-13-48 или напишите на e-mail info@земляк.рф.
-               </span>
+               Для расчета точной стоимости услуги позвоните нам по номеру +7
+               (846) 354-66-30 или напишите на e-mail &nbsp;
+               <a href='#'>actepla@yandex.ru</a>.
             </p>
             <Text
                title={HeaderTagType.H_3}

@@ -38,25 +38,32 @@ export const Footer = memo((props: FooterProps) => {
             align={FlexAlign.START}
          >
             <div className={cls.footerInfo}>
-               <span onClick={scrollTop} className={cls.logo}>
+               <span onClick={scrollTop} className={cls.logo1}>
                   &quot;Академия Тепла&quot;
                </span>
+               <br />
+               <br />
+               <span onClick={scrollTop} className={cls.logo}>
+                  Академия&nbsp;&nbsp;&nbsp;&nbsp;Тепла
+               </span>
                <p className={cls.textInfo}>
-                  141280, МО, г. Ивантеевка, ул. Дзержинского, д. 1<br /> Email:
-                  &nbsp;
+                  Самарская область, г. Новокуйбышевск, <br />
+                  ул. Молодогвардейская, д. 4
+                  <br /> email: &nbsp;
                   <a href='#' className={cls.post}>
                      werwe@sjdf.dy
                   </a>
-                  <br /> Работаем: 9:00-19:00, ежедневно
+                  <br />
+                  тел. +7 (846) 354-66-30
                </p>
                <p className={cls.textInfo}>
-                  Посещение склада доступно по следующим дням:
-                  <br />
-                  Понедельник — четверг: с 13:00 — 14:00
-                  <br />
-                  Пятница — с 13:00 — 14:-00 и 17:00 — 18:00
-                  <br />
-                  Суббота и воскресенье — выходной
+                  Работаем:
+                  <br /> Понедельник - Пятница - с 8.30-18.30, <br />
+                  Суббота - с 8.30-17.00,
+                  <br /> Воскресенье - с 8.30-14.00
+               </p>
+               <p className={cls.textInfo}>
+                  Посещение склада по договорённости
                </p>
                <p className={cls.textInfo}>
                   {year} © ТМ «ЗЕМЛЯК». Все права защищены.
