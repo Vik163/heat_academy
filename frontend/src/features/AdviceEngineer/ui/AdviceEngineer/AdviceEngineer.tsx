@@ -6,9 +6,8 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { FontColor, FontSize, FontWeight, Text } from '@/shared/ui/Text';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import whatsapp from '@/shared/assets/icons/icon-whatsapp.svg';
-import telegram from '@/shared/assets/icons/icon-telegram.svg';
+// import whatsapp from '@/shared/assets/icons/icon-whatsapp.svg';
+// import telegram from '@/shared/assets/icons/icon-telegram.svg';
 
 interface AdviceEngineerProps {
    className?: string;
@@ -26,7 +25,7 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
             <div className={cls.faceContainer}>
                <img
                   className={cls.face}
-                  src='https://w7.pngwing.com/pngs/491/220/png-transparent-woman-question-mark-mysterious-people-woman-silhouette-thumbnail.png'
+                  src='https://земляк.рф/wp-content/uploads/2021/10/tsifry.png'
                   alt='лицо'
                />
             </div>
@@ -59,7 +58,7 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
                   >
                      Задать вопрос
                   </Button>
-                  <Button
+                  {/* <Button
                      className={cls.whatsapp}
                      width={42}
                      height={42}
@@ -74,7 +73,7 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
                      variant={ButtonVariant.FILLED}
                   >
                      <Icon width={42} height={42} Svg={telegram} />
-                  </Button>
+                  </Button> */}
                   <a href='#' className={cls.link}>
                      почта@почта.ru
                   </a>
