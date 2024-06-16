@@ -47,11 +47,13 @@ module.exports = {
    ],
    root: true,
    rules: {
-      'prettier/prettier': 'error',
-      'react/jsx-filename-extension': [
-         2,
-         { extensions: ['.js', '.jsx', '.tsx'] },
+      'prettier/prettier': [
+         'error',
+         {
+            printWidth: 110,
+         },
       ],
+      'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
       'import/no-unresolved': 'off',
       'import/prefer-default-export': 'off',
       '@typescript-eslint/no-unused-vars': 'error',
@@ -109,11 +111,7 @@ module.exports = {
          'error',
          {
             // alias: '@',
-            testFilesPatterns: [
-               '**/*.test.*',
-               '**/*.story.*',
-               '**/StoreDecorator.tsx',
-            ], // 13_4 1min
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'], // 13_4 1min
          },
       ],
       'linebreak-style': 'error', // LF
