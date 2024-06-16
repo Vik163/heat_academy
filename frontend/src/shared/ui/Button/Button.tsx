@@ -16,6 +16,7 @@ export enum ButtonRadius {
    RADIUS_8 = 'border_radius_8',
    RADIUS_7 = 'border_radius_7',
    RADIUS_6 = 'border_radius_6',
+   RADIUS_NONE = 'border_radius_none',
 }
 
 export enum ButtonBgColor {
@@ -83,11 +84,7 @@ export const Button = memo((props: ButtonProps) => {
          // eslint-disable-next-line react/button-has-type
          type={type}
          style={{ width, height }}
-         className={classNames(
-            disabled ? '' : cls.Button,
-            mods,
-            additionalClases,
-         )}
+         className={classNames(disabled ? '' : cls.Button, mods, additionalClases)}
          disabled={disabled}
          {...otherProps}
       >

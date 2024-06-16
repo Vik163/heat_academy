@@ -1,10 +1,12 @@
 import { SidebarItemType } from '../types/sidebar';
 import {
    getRouteAbout,
+   getRouteArrangementWells,
    getRouteCatalog,
    getRouteContacts,
    getRouteDelivery,
-   getRouteServices,
+   getRouteMontageCaisson,
+   getRouteResultsSAWC,
 } from '@/shared/const/router';
 
 // 8_2
@@ -17,14 +19,35 @@ export const useSidebarItems = () => {
          text: 'Каталог',
       },
       {
-         path: getRouteServices(),
-         //  Icon: ProfileIcon,
          text: 'Услуги',
+         addItems: [
+            {
+               path: getRouteMontageCaisson(),
+               //  Icon: ArticleIcon,
+               text: 'Монтаж кессона',
+            },
+            {
+               path: getRouteArrangementWells(),
+               //  Icon: ArticleIcon,
+               text: 'Обустройство скважин',
+            },
+         ],
       },
       {
-         path: getRouteAbout(),
          //  Icon: ArticleIcon,
          text: 'О компании',
+         addItems: [
+            {
+               path: getRouteAbout(),
+               //  Icon: ArticleIcon,
+               text: 'О компании',
+            },
+            {
+               path: getRouteResultsSAWC(),
+               //  Icon: ArticleIcon,
+               text: 'Результаты СОУТ',
+            },
+         ],
       },
       {
          path: getRouteDelivery(),

@@ -28,27 +28,20 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
    const itemsList = useMemo(
       () =>
-         sidebarItemsList.map((item: SidebarItemType) => (
-            <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+         sidebarItemsList.map((item: SidebarItemType, i: number) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <SidebarItem item={item} collapsed={collapsed} key={i} />
          )),
       [collapsed, sidebarItemsList],
    );
 
    return (
-      <nav
-         className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-            className,
-         ])}
-      >
+      <nav className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
          <Link to={getRouteMain()} className={classNames(cls.logo)}>
             Инженерный Центр
             <span className={cls.logoName}> &quot;Академия Тепла&quot;</span>
          </Link>
-         <VStack
-            role='navigation'
-            className={cls.items}
-            align={FlexAlign.START}
-         >
+         <VStack role='navigation' className={cls.items} align={FlexAlign.START}>
             {itemsList}
          </VStack>
          {/* сворачивание сайдбара */}
@@ -64,32 +57,16 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                className={cls.modalMenu}
             >
                <VStack align={FlexAlign.START} className={cls.containerLinks}>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Виды работ
                   </Text>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Отзывы клиентов
                   </Text>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Акции
                   </Text>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Контакты
                   </Text>
                </VStack>

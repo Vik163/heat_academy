@@ -1,11 +1,4 @@
-import {
-   type ReactNode,
-   memo,
-   MutableRefObject,
-   useRef,
-   useEffect,
-   useState,
-} from 'react';
+import { type ReactNode, memo, MutableRefObject, useRef, useEffect, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Page.module.scss';
@@ -35,12 +28,7 @@ interface PageProps {
 const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo((props: PageProps) => {
-   const {
-      className,
-      children,
-      direction = PageDirection.VIRTICAL,
-      align = PageAlign.CENTER,
-   } = props;
+   const { className, children, direction = PageDirection.VIRTICAL, align = PageAlign.CENTER } = props;
    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
    const pageWithScrollRef = useRef() as MutableRefObject<HTMLDivElement>;
    const [scroll, setScroll] = useState(0);
@@ -116,11 +104,7 @@ export const Page = memo((props: PageProps) => {
       <section
          // ставится если нужен внутренный скролл в page
          ref={pageWithScrollRef}
-         className={classNames(cls.Page, {}, [
-            className,
-            cls[direction],
-            cls[align],
-         ])}
+         className={classNames(cls.Page, {}, [className, cls[direction], cls[align]])}
          id={PAGE_ID}
       >
          {children}

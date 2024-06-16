@@ -1,7 +1,11 @@
 import React from 'react';
 
-export interface SidebarItemType {
-   path: string;
+interface SidebarItem {
+   path?: string;
    text?: string;
    Icon?: React.VFC<React.SVGProps<SVGSVGElement>>;
+}
+
+export interface SidebarItemType extends SidebarItem {
+   addItems?: SidebarItem[];
 }

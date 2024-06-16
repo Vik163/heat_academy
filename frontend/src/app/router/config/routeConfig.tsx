@@ -1,22 +1,26 @@
 import { AboutPage } from '@/pages/AboutPage';
+import { ArragementWellsPage } from '@/pages/ArragementWellsPage';
 import { CatalogPage } from '@/pages/CatalogPage';
 import { ContactsPage } from '@/pages/ContactsPage';
 import { DeliveryPage } from '@/pages/DeliveryPage';
 import { MainPage } from '@/pages/MainPage';
+import { MontageCaissonPage } from '@/pages/MontageCaissonPage';
 import { ProductPage } from '@/pages/ProductPage';
 import { QuestionsPage } from '@/pages/QuestionsPage';
-import { ServicesPage } from '@/pages/ServicesPage';
+import { ResultsSAWC } from '@/pages/ResultsSAWC';
 import {
    AppRoutes,
    getRouteMain,
    getRouteCatalog,
    getRouteDelivery,
    getRouteAbout,
-   getRouteServices,
    getRouteContacts,
    getRouteProduct,
    getRouteCellars,
    getRouteQuestions,
+   getRouteArrangementWells,
+   getRouteMontageCaisson,
+   getRouteResultsSAWC,
 } from '@/shared/const/router';
 import { type AppRoutesProps } from '@/shared/types/router';
 
@@ -41,10 +45,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
       path: getRouteAbout(),
       element: <AboutPage />,
    },
-   [AppRoutes.SERVICES]: {
-      path: getRouteServices(),
-      element: <ServicesPage />,
-   },
    [AppRoutes.CONTACTS]: {
       path: getRouteContacts(),
       element: <ContactsPage />,
@@ -56,6 +56,18 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
    [AppRoutes.QUESTIONS]: {
       path: getRouteQuestions(),
       element: <QuestionsPage />,
+   },
+   [AppRoutes.ARRANGEMENT_WELLS]: {
+      path: getRouteArrangementWells(),
+      element: <ArragementWellsPage />,
+   },
+   [AppRoutes.MONTAGE_CAISSON]: {
+      path: getRouteMontageCaisson(),
+      element: <MontageCaissonPage />,
+   },
+   [AppRoutes.RESULTS_SAWC]: {
+      path: getRouteResultsSAWC(),
+      element: <ResultsSAWC />,
    },
    // [AppRoutes.ACTIONS]: {
    //    path: getRouteActions(),
