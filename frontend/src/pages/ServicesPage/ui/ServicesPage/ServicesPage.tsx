@@ -10,9 +10,5 @@ interface ServicesPageProps {
 export const ServicesPage = memo((props: ServicesPageProps) => {
    const { className } = props;
 
-   return (
-      <div className={classNames(cls.ServicesPage, {}, [className])}>
-         ServicesPAGE
-      </div>
-   );
+   return <div className={classNames(cls.ServicesPage, {}, [className])}>ServicesPAGE</div>;
 });

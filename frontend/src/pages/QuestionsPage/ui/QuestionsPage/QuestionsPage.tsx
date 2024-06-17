@@ -1,14 +1,15 @@
-import { memo } from "react";
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import cls from "./QuestionsPage.module.scss";
+import cls from './QuestionsPage.module.scss';
+import { Page } from '@/widgets/Page';
 
 interface QuestionsPageProps {
-  className?: string;
+   className?: string;
 }
 
 export const QuestionsPage = memo((props: QuestionsPageProps) => {
-  const { className } = props;
+   const { className } = props;
 
-  return <div className={classNames(cls.QuestionsPage, {}, [className])}></div>;
+   return <Page className={classNames(cls.QuestionsPage, {}, [className])}>QuestionsPage</Page>;
 });

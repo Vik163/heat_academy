@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
@@ -19,20 +19,58 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
    const [collapsed, setCollapsed] = useState(false);
    const [openModal, setOpenModal] = useState(false);
-
-   const sidebarItemsList = useSidebarItems(); // 16_18 8min
+   const [isAddLinks, setIsAddLinks] = useState<string[]>([]);
+   console.log('isAddLinks:', isAddLinks);
+   const [sidebarItemsList, setSidebarItemsList] = useState(useSidebarItems());
 
    const onToggle = () => {
       setCollapsed((prev) => !prev);
    };
 
+   const addLinks = useCallback(
+      (text: string) => {
+         if (isAddLinks.length < 1) {
+            setIsAddLinks([text]);
+         } else {
+            isAddLinks.forEach((item) => {
+               if (text === item) {
+                  const w = isAddLinks.filter((arritem) => arritem !== text);
+                  setIsAddLinks(w);
+               } else if (text !== item && isAddLinks.length === 1) {
+                  const q = isAddLinks.concat([text]);
+                  setIsAddLinks(q);
+               }
+            });
+         }
+
+         sidebarItemsList.forEach((item: SidebarItemType, i: number) => {
+            if (isAddLinks.some((link) => item.text === link) && item.text === text) {
+               return sidebarItemsList.splice(i + 1, 2);
+            }
+            if (item.addItems && item.text === text) {
+               return sidebarItemsList.splice(i + 1, 0, ...item.addItems);
+            }
+         });
+         setSidebarItemsList(sidebarItemsList);
+      },
+      [isAddLinks],
+   );
+
    const itemsList = useMemo(
       () =>
-         sidebarItemsList.map((item: SidebarItemType, i: number) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <SidebarItem item={item} collapsed={collapsed} key={i} />
-         )),
-      [collapsed, sidebarItemsList],
+         sidebarItemsList.map((item: SidebarItemType, i: number) => {
+            return (
+               <SidebarItem
+                  addLinks={addLinks}
+                  isAddLinks={isAddLinks.some((link) => item.text === link)}
+                  item={item}
+                  collapsed={collapsed}
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={i}
+               />
+            );
+         }),
+      [addLinks, collapsed, isAddLinks, sidebarItemsList],
    );
 
    return (

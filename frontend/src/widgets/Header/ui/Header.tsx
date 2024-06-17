@@ -43,20 +43,10 @@ export const Header = memo(() => {
    }, [pathname]);
 
    return (
-      <header
-         className={classNames(
-            cls.header,
-            { [cls.headerActive]: isHeaderWhite },
-            [],
-         )}
-      >
+      <header className={classNames(cls.header, { [cls.headerActive]: isHeaderWhite }, [])}>
          <HStack justify={FlexJustify.END} className={cls.headerContainer}>
             <Text
-               className={classNames(
-                  cls.number,
-                  { [cls.numberActive]: isHeaderWhite },
-                  [],
-               )}
+               className={classNames(cls.number, { [cls.numberActive]: isHeaderWhite }, [])}
                fontColor={FontColor.WHITE}
                fontSize={FontSize.SIZE_20}
                fontWeight={FontWeight.TEXT_700}
@@ -66,11 +56,7 @@ export const Header = memo(() => {
             <Button
                width={140}
                height={30}
-               className={classNames(
-                  cls.button,
-                  { [cls.buttonActive]: isHeaderWhite },
-                  [],
-               )}
+               className={classNames(cls.button, { [cls.buttonActive]: isHeaderWhite }, [])}
                variant={ButtonVariant.OUTLINE}
                fontSize={FontSize.SIZE_14}
                fontColor={FontColor.WHITE}
@@ -91,32 +77,16 @@ export const Header = memo(() => {
                className={cls.modalMenu}
             >
                <VStack align={FlexAlign.START} className={cls.containerLinks}>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Виды работ
                   </Text>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Отзывы клиентов
                   </Text>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Акции
                   </Text>
-                  <Text
-                     className={cls.menuLink}
-                     fontSize={FontSize.SIZE_20}
-                     fontWeight={FontWeight.TEXT_700}
-                  >
+                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
                      Контакты
                   </Text>
                </VStack>

@@ -3,13 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './TitleComponent.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import {
-   FontColor,
-   FontSize,
-   FontWeight,
-   HeaderTagType,
-   Text,
-} from '@/shared/ui/Text';
+import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { FlexAlign, FlexWrap } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import image from '@/shared/assets/images/several-keson.png';
@@ -22,16 +16,9 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
    const { className } = props;
 
    return (
-      <article
-         id='title'
-         className={classNames(cls.TitleComponent, {}, [className])}
-      >
+      <article id='title' className={classNames(cls.TitleComponent, {}, [className])}>
          <VStack className={cls.infoContainer} align={FlexAlign.START}>
-            <Text
-               title={HeaderTagType.H_1}
-               className={cls.title}
-               fontColor={FontColor.WHITE}
-            >
+            <Text title={HeaderTagType.H_1} className={cls.title} fontColor={FontColor.WHITE}>
                Погреба <br /> и кессоны для скважин
             </Text>
             <Text fontSize={FontSize.SIZE_18} className={cls.production}>
