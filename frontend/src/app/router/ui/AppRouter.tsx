@@ -7,9 +7,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 const AppRouter = () => {
    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
       // лоадер для подгружаемых файлов
-      const element = (
-         <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
-      );
+      const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
 
       return <Route key={route.path} path={route.path} element={element} />;
    }, []);

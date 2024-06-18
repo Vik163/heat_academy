@@ -1,7 +1,7 @@
 .PageLoader {
-   min-height: calc(100vh - var(--navbar-height));
+   min-height: calc(100vh - var(--header-height));
    width: 101%;
-   background-color: var(--color-bg-primary);
+   background-color: var(--color-bg-component);
    position: fixed;
    display: flex;
    justify-content: center;

@@ -33,9 +33,7 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
                <AppLink to={`/${path}`} className={cls.link}>
                   {breadcrumbsLink[path] || productName}
                </AppLink>
-               {arr.length !== i + 1 && (
-                  <Icon Svg={SlashImg} className={cls.icon} />
-               )}
+               {arr.length !== i + 1 && <Icon Svg={SlashImg} className={cls.icon} />}
             </li>
          ))}
       </ul>

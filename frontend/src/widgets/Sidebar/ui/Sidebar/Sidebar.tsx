@@ -20,7 +20,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
    const [collapsed, setCollapsed] = useState(false);
    const [openModal, setOpenModal] = useState(false);
    const [isAddLinks, setIsAddLinks] = useState<string[]>([]);
-   console.log('isAddLinks:', isAddLinks);
    const [sidebarItemsList, setSidebarItemsList] = useState(useSidebarItems());
 
    const onToggle = () => {
