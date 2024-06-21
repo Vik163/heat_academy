@@ -3,19 +3,10 @@ import { useLocation } from 'react-router-dom';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './CatalogComponent.module.scss';
-import {
-   FontColor,
-   FontSize,
-   FontWeight,
-   HeaderTagType,
-   Text,
-} from '@/shared/ui/Text';
+import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
-import {
-   productsLinks,
-   cellarsLinks,
-} from '@/shared/const/products/productsLinks';
+import { productsLinks, cellarsLinks } from '@/shared/const/products/productsLinks';
 import { FlexAlign, FlexJustify, FlexWrap } from '@/shared/ui/Stack/Flex';
 import { AppLink } from '@/shared/ui/AppLink';
 import { getRouteCellars, getRouteProduct } from '@/shared/const/router';
@@ -29,9 +20,7 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
    const { pathname } = useLocation();
    const isCellars = pathname === '/cellars';
    const links = isCellars ? cellarsLinks : productsLinks;
-   const title = isCellars
-      ? 'Погреба пластиковые Земляк'
-      : 'Каталог кессонов и погребов';
+   const title = isCellars ? 'Погреба пластиковые Земляк' : 'Каталог кессонов и погребов';
 
    window.scrollTo({
       top: 0,
@@ -76,17 +65,11 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
          </a>
       ) : (
          <AppLink
-            to={
-               value.link === 'cellars'
-                  ? getRouteCellars()
-                  : getRouteProduct(value.link)
-            }
+            to={value.link === 'cellars' ? getRouteCellars() : getRouteProduct(value.link)}
             key={key}
             className={classNames(cls.linkContainer, mods, [])}
          >
-            {isCellars && (
-               <img src={value.image} alt={key} className={cls.imageLink} />
-            )}
+            {isCellars && <img src={value.image} alt={key} className={cls.imageLink} />}
             <VStack max justify={FlexJustify.BETWEEN} align={FlexAlign.START}>
                <Text
                   title={HeaderTagType.H_4}
@@ -109,9 +92,7 @@ export const CatalogComponent = memo((props: CatalogComponentProps) => {
                   Перейти
                </Button>
             </VStack>
-            {!isCellars && (
-               <img src={value.image} alt={key} className={cls.imageLink} />
-            )}
+            {!isCellars && <img src={value.image} alt={key} className={cls.imageLink} />}
          </AppLink>
       );
    });

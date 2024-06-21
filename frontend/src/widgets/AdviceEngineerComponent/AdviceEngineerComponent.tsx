@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import cls from './AdviceEngineer.module.scss';
+import cls from './AdviceEngineerComponent.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { FontColor, FontSize, FontWeight, Text } from '@/shared/ui/Text';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
@@ -9,19 +9,16 @@ import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 // import whatsapp from '@/shared/assets/icons/icon-whatsapp.svg';
 // import telegram from '@/shared/assets/icons/icon-telegram.svg';
 
-interface AdviceEngineerProps {
+interface AdviceEngineerComponentProps {
    className?: string;
 }
 
-export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
+export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps) => {
    const { className } = props;
 
    return (
       <div className={classNames(cls.AdviceEngineer, {}, [className])}>
-         <HStack
-            gap={20}
-            className={classNames(cls.container, {}, [className])}
-         >
+         <HStack gap={20} className={classNames(cls.container, {}, [className])}>
             <div className={cls.faceContainer}>
                <img
                   className={cls.face}
@@ -42,8 +39,7 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
                   fontSize={FontSize.SIZE_18}
                   fontColor={FontColor.TEXT_PRIMARY}
                >
-                  Подбор кессона, оборудования, особенности монтажа, скидки и
-                  оптовые цены - любой вопрос!
+                  Подбор кессона, оборудования, особенности монтажа, скидки и оптовые цены - любой вопрос!
                </Text>
                <HStack>
                   <Button
@@ -78,11 +74,7 @@ export const AdviceEngineer = memo((props: AdviceEngineerProps) => {
                      почта@почта.ru
                   </a>
                </HStack>
-               <Text
-                  className={cls.caption}
-                  fontSize={FontSize.SIZE_14}
-                  fontColor={FontColor.TEXT_PRIMARY}
-               >
+               <Text className={cls.caption} fontSize={FontSize.SIZE_14} fontColor={FontColor.TEXT_PRIMARY}>
                   Дмитрий Попов, эксперт по водоснабжению
                </Text>
             </VStack>

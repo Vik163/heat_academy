@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './CatalogPage.module.scss';
 import { Page } from '@/widgets/Page';
 import { CatalogComponent } from '@/widgets/CatalogComponent';
-import { AdviceEngineer } from '@/features/AdviceEngineer';
+import { AdviceEngineerComponent } from '@/widgets/AdviceEngineerComponent';
 import { CatalogInfo } from './CatalogInfo/CatalogInfo';
 
 interface CatalogPageProps {
@@ -17,7 +17,7 @@ export const CatalogPage = memo((props: CatalogPageProps) => {
    return (
       <Page className={classNames(cls.CatalogPage, {}, [className])}>
          <CatalogComponent />
-         <AdviceEngineer />
+         <AdviceEngineerComponent />
          <CatalogInfo />
       </Page>
    );
