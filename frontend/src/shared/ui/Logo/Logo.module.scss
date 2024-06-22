@@ -1,0 +1,14 @@
+@import '@/app/styles/variables/mixins.scss';
+
+.logo {
+   @include flex-column-center;
+   @include font(10px, var(--weight-700), var(--color-green));
+   line-height: 18px;
+   letter-spacing: 1px;
+}
+
+.logoName {
+   font-size: var(--size-16);
+   font-weight: var(--weight-900);
+   margin-top: 5px;
+}

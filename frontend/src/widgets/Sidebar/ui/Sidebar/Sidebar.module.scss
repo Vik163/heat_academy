@@ -1,5 +1,3 @@
-@import '@/app/styles/variables/mixins.scss';
-
 .Sidebar {
    height: 100vh;
    width: var(--sidebar-width);
@@ -30,21 +28,11 @@
 }
 
 .logo {
-   width: 210px;
-   height: var(--header-height);
-   @include flex-column-center;
-   font-family: 'Pattaya';
-   @include font(var(--size-16), var(--weight-700), var(--color-green));
-   line-height: 18px;
-   letter-spacing: 1px;
-   padding: 15px;
    border-bottom: 1px solid var(--color-outlined);
    border-right: 1px solid var(--color-outlined);
-}
-
-.logoName {
-   font-size: var(--size-20);
-   margin-top: 15px;
+   padding: 12px;
+   width: 210px;
+   height: var(--header-height);
 }
 
 .collapsed {

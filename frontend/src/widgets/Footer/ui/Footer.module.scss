@@ -18,31 +18,13 @@ footer {
    width: 38.8%;
 }
 
-.logo1 {
-   text-align: start;
-   font-family: 'Pattaya';
-   @include font(var(--size-20), var(--weight-700), var(--color-green));
-   letter-spacing: 1px;
-   cursor: pointer;
-}
-
 .logo {
-   display: inline-block;
-   text-align: start;
    width: fit-content;
-   font-family: 'Pattaya';
-   @include font(var(--size-20), var(--weight-700), var(--color-green));
-   background-image: url('../../../shared/assets/icons/icon-warm.png');
-   background-repeat: no-repeat;
-   background-position: 65%;
-   background-size: 27px;
-   letter-spacing: 1px;
-   cursor: pointer;
 }
 
 .textInfo {
    width: 385px;
-   margin-top: 20px;
+   margin-top: 30px;
    font-size: var(--size-13);
    line-height: 19px;
    color: var(--color-light-grey-text);

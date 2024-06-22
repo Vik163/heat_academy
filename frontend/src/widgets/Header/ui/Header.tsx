@@ -44,27 +44,33 @@ export const Header = memo(() => {
 
    return (
       <header className={classNames(cls.header, { [cls.headerActive]: isHeaderWhite }, [])}>
-         <HStack justify={FlexJustify.END} className={cls.headerContainer}>
-            <Text
-               className={classNames(cls.number, { [cls.numberActive]: isHeaderWhite }, [])}
-               fontColor={FontColor.WHITE}
-               fontSize={FontSize.SIZE_20}
-               fontWeight={FontWeight.TEXT_700}
-            >
-               8 (846) 354-66-30
-            </Text>
-            <Button
-               width={140}
-               height={30}
-               className={classNames(cls.button, { [cls.buttonActive]: isHeaderWhite }, [])}
-               variant={ButtonVariant.OUTLINE}
-               fontSize={FontSize.SIZE_14}
-               fontColor={FontColor.WHITE}
-               fontWeight={FontWeight.TEXT_400}
-               radius={ButtonRadius.RADIUS_8}
-            >
-               Обратный звонок
-            </Button>
+         <HStack justify={FlexJustify.BETWEEN} className={cls.headerContainer}>
+            <span className={classNames(cls.dealer, { [cls.headerActive]: isHeaderWhite }, [])}>
+               Официальный дилер ТМ «ЗЕМЛЯК»
+            </span>
+
+            <HStack justify={FlexJustify.END}>
+               <Text
+                  className={classNames(cls.number, { [cls.headerActive]: isHeaderWhite }, [])}
+                  fontColor={FontColor.WHITE}
+                  fontSize={FontSize.SIZE_20}
+                  fontWeight={FontWeight.TEXT_700}
+               >
+                  8 (846) 354-66-30
+               </Text>
+               <Button
+                  width={140}
+                  height={30}
+                  className={classNames(cls.button, { [cls.headerActive]: isHeaderWhite }, [])}
+                  variant={ButtonVariant.OUTLINE}
+                  fontSize={FontSize.SIZE_14}
+                  fontColor={FontColor.WHITE}
+                  fontWeight={FontWeight.TEXT_400}
+                  radius={ButtonRadius.RADIUS_8}
+               >
+                  Обратный звонок
+               </Button>
+            </HStack>
          </HStack>
          {openModal && (
             <Modal

@@ -14,6 +14,7 @@ import {
    getRouteQuestions,
 } from '@/shared/const/router';
 import { FontColor, FontSize, Text } from '@/shared/ui/Text';
+import { Logo } from '@/shared/ui/Logo';
 
 interface FooterProps {
    className?: string;
@@ -38,14 +39,7 @@ export const Footer = memo((props: FooterProps) => {
             align={FlexAlign.START}
          >
             <div className={cls.footerInfo}>
-               <span onClick={scrollTop} className={cls.logo1}>
-                  &quot;Академия Тепла&quot;
-               </span>
-               <br />
-               <br />
-               <span onClick={scrollTop} className={cls.logo}>
-                  Академия&nbsp;&nbsp;&nbsp;&nbsp;Тепла
-               </span>
+               <Logo className={cls.logo} />
                <p className={cls.textInfo}>
                   Самарская область, г. Новокуйбышевск, <br />
                   ул. Молодогвардейская, д. 4
@@ -62,19 +56,10 @@ export const Footer = memo((props: FooterProps) => {
                   Суббота - с 8.30-17.00,
                   <br /> Воскресенье - с 8.30-14.00
                </p>
-               <p className={cls.textInfo}>
-                  Посещение склада по договорённости
-               </p>
-               <p className={cls.textInfo}>
-                  {year} © ТМ «ЗЕМЛЯК». Все права защищены.
-               </p>
+               <p className={cls.textInfo}>Посещение склада по договорённости</p>
+               <p className={cls.textInfo}>{year} © ТМ «ЗЕМЛЯК». Все права защищены.</p>
             </div>
-            <VStack
-               className={cls.links}
-               align={FlexAlign.START}
-               justify={FlexJustify.START}
-               gap={15}
-            >
+            <VStack className={cls.links} align={FlexAlign.START} justify={FlexJustify.START} gap={15}>
                <Link to={getRouteCatalog()} className={cls.link}>
                   Каталог
                </Link>
@@ -91,21 +76,12 @@ export const Footer = memo((props: FooterProps) => {
                   Вопрос-ответ
                </Link>
             </VStack>
-            <VStack
-               className={cls.sequrityInfo}
-               align={FlexAlign.START}
-               gap={20}
-            >
-               <Text
-                  fontSize={FontSize.SIZE_11}
-                  fontColor={FontColor.LIGHT_GREY}
-               >
-                  Любая информация, представленная на данном сайте, носит
-                  исключительно информационный характер и ни при каких условиях
-                  не является публичной офертой, определяемой положением статьи
-                  437 ГК РФ. Отправляя сведения через любую электронную форму на
-                  этом сайте, вы даёте согласие на обработку ваших персональных
-                  данных.
+            <VStack className={cls.sequrityInfo} align={FlexAlign.START} gap={20}>
+               <Text fontSize={FontSize.SIZE_11} fontColor={FontColor.LIGHT_GREY}>
+                  Любая информация, представленная на данном сайте, носит исключительно информационный
+                  характер и ни при каких условиях не является публичной офертой, определяемой положением
+                  статьи 437 ГК РФ. Отправляя сведения через любую электронную форму на этом сайте, вы даёте
+                  согласие на обработку ваших персональных данных.
                </Text>
                <Link to='#' className={cls.politics}>
                   Политика конфиденциальности
