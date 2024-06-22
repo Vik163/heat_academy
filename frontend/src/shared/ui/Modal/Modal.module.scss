@@ -20,7 +20,7 @@
 .overlay {
    height: 100%;
    width: 100%;
-   background: rgba(100, 86, 23, 0.5);
+   background: rgba(24, 21, 6, 0.91);
 
    &.centerOverlay {
       display: flex;
@@ -29,13 +29,9 @@
    }
 }
 
-.content {
-   // position: relative;
-}
-
 .close {
    position: absolute;
    background: transparent;
-   fill: rgb(75, 69, 16);
+   fill: rgb(194, 254, 142);
    z-index: 5;
 }

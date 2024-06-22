@@ -7,7 +7,7 @@
 
    &::before {
       position: absolute;
-      content: url(../../../../shared/assets/images/round-oborudovaniye.svg);
+      content: url(../../shared/assets/images/round-oborudovaniye.svg);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -23,7 +23,7 @@
    padding: 0 10px;
    margin: 0 auto;
    height: 721px;
-   background-image: url(../../../../shared/assets/images/oborudovaniye.png);
+   background-image: url(../../shared/assets/images/oborudovaniye.png);
    background-position: 323px 120px;
    background-repeat: no-repeat;
    background-size: 391px;

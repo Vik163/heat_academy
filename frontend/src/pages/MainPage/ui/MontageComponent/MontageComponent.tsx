@@ -1,48 +1,22 @@
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './MontageComponent.module.scss';
-import {
-   FontColor,
-   FontSize,
-   FontWeight,
-   HeaderTagType,
-   Text,
-} from '@/shared/ui/Text';
+import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { Player } from '@/shared/ui/Player';
-import { Modal } from '@/shared/ui/Modal';
 
 export const MontageComponent = memo(() => {
-   const [isPlaying, setIsPlaying] = useState(false);
-   // const playerRef = useRef<ReturnType<typeof videojs> | null>(null);
-
-   const startVideo = () => {
-      setIsPlaying(true);
-   };
-
-   const endVideo = () => {
-      setIsPlaying(false);
-   };
-
    return (
       <article id='sec-montazh' className={cls.montazh}>
          <div className={cls.container}>
-            <Text
-               title={HeaderTagType.H_3}
-               className={cls.title}
-               fontColor={FontColor.TEXT_PRIMARY}
-            >
+            <Text title={HeaderTagType.H_3} className={cls.title} fontColor={FontColor.TEXT_PRIMARY}>
                Монтаж кессона за 1 день
             </Text>
-            <Text className={cls.description}>
-               От нашего официального дилера{' '}
-            </Text>
+            <Text className={cls.description}>От нашего официального дилера </Text>
             <div className={classNames(cls.montazh_block, {}, [])}>
                <div className={cls.block_main}>
-                  <Text className={cls.main_title}>
-                     В монтаж входят услуги:
-                  </Text>
+                  <Text className={cls.main_title}>В монтаж входят услуги:</Text>
                   <div className={cls.main_list}>
                      <ul>
                         <li>Копка котлована</li>
@@ -66,52 +40,16 @@ export const MontageComponent = memo(() => {
                      Узнать подробнее
                   </Button>
                </div>
-               <div
-                  className={classNames(
-                     cls.videoContainer,
-                     { [cls.fullscren]: isPlaying },
-                     [],
-                  )}
-                  onClick={startVideo}
-               >
-                  {!isPlaying && (
-                     <div>
-                        <img
-                           className={cls.poster}
-                           src='https://xn--e1adkde9i.xn--p1ai/wp-content/uploads/2023/10/screenshot_1.png'
-                           alt='видео'
-                        />
-                        <span className={cls.video_play}></span>
-                        <div className={cls.video_info}>
-                           <span>
-                              Посмотрите видео «Как правильно делать монтаж»
-                           </span>
-                           <div className={cls.btn}>Смотреть 2 мин.</div>
-                        </div>
-                     </div>
-                  )}
-               </div>
-            </div>
-         </div>
-         {isPlaying && (
-            <Modal
-               onClose={endVideo}
-               isOpen={isPlaying}
-               buttonCloseHeight={30}
-               buttonCloseRight={30}
-               buttonCloseTop={30}
-               buttonCloseWidth={30}
-            >
                <Player
                   url='https://www.youtube.com/watch?v=2rp0PbsVi6c'
-                  width={1230}
-                  height={800}
-                  playing={isPlaying}
+                  width={630}
+                  height={423}
                   className={cls.video}
-                  onEnded={endVideo}
+                  addPanel
+                  poster='https://xn--e1adkde9i.xn--p1ai/wp-content/uploads/2023/10/screenshot_1.png'
                />
-            </Modal>
-         )}
+            </div>
+         </div>
       </article>
    );
 });

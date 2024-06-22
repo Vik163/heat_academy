@@ -1,25 +1,18 @@
 .loader {
-   width: 16px;
-   height: 16px;
+   width: 50px;
+   padding: 8px;
+   aspect-ratio: 1;
    border-radius: 50%;
-   background: #ff3d00;
-   position: relative;
+   background: #25b09b;
+   --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+   -webkit-mask: var(--_m);
+   mask: var(--_m);
+   -webkit-mask-composite: source-out;
+   mask-composite: subtract;
+   animation: s3 1s infinite linear;
 }
-.loader:before,
-.loader:after {
-   content: '';
-   position: absolute;
-   border-radius: 50%;
-   inset: 0;
-   background: var(--color-bg-inverted);
-   transform: rotate(0deg) translate(30px);
-   animation: rotate 1s ease infinite;
-}
-.loader:after {
-   animation-delay: 0.5s;
-}
-@keyframes rotate {
-   100% {
-      transform: rotate(360deg) translate(30px);
+@keyframes s3 {
+   to {
+      transform: rotate(1turn);
    }
 }

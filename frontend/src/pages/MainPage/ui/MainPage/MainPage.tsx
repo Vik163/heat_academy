@@ -3,7 +3,7 @@ import { memo } from 'react';
 import cls from './MainPage.module.scss';
 import { Page } from '@/widgets/Page';
 import { TitleComponent } from '../TitleComponent/TitleComponent';
-import { EquipmentComponent } from '../EquipmentComponent/EquipmentComponent';
+import { EquipmentComponent } from '../../../../widgets/EquipmentComponent/EquipmentComponent';
 import { CatalogComponent } from '@/widgets/CatalogComponent';
 import { MontageComponent } from '../MontageComponent/MontageComponent';
 import { ModelList } from '../ModelList/ModelList';

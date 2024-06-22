@@ -1,5 +1,9 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import ReactPlayer from 'react-player/youtube';
+
+import cls from './Player.module.scss';
+import { Modal } from '../Modal';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export interface PlayerProps {
    className?: string;
@@ -7,12 +11,24 @@ export interface PlayerProps {
    height: number;
    url: string;
    onReady?: () => void;
-   playing?: boolean;
-   onEnded?: () => void;
+   addPanel?: boolean;
+   poster: string;
 }
 
 const Player = memo((props: PlayerProps) => {
-   const { className, width, height, url, onReady, playing, onEnded } = props;
+   const { className, width, height, url, onReady, addPanel, poster } = props;
+
+   const [isPlaying, setIsPlaying] = useState(false);
+   const widthPlayer = 1200;
+   const heightPlayer = 800;
+
+   const startVideo = () => {
+      setIsPlaying(true);
+   };
+
+   const endVideo = () => {
+      setIsPlaying(false);
+   };
 
    const configYoutube = {
       playerVars: {
@@ -23,8 +39,44 @@ const Player = memo((props: PlayerProps) => {
    };
 
    return (
-      <div className={className}>
-         <ReactPlayer
+      <div
+         style={{ width, height }}
+         className={classNames(cls.videoContainer, { [cls.fullscren]: isPlaying }, [className])}
+      >
+         {!isPlaying && (
+            <div onClick={startVideo}>
+               <img className={cls.poster} src={poster} alt='видео' />
+               <span className={classNames(cls.video_play, { [cls.addPanel]: addPanel }, [])}></span>
+               {addPanel && (
+                  <div className={cls.video_info}>
+                     <span>Посмотрите видео «Как правильно делать монтаж»</span>
+                     <div className={cls.btn}>Смотреть 2 мин.</div>
+                  </div>
+               )}
+            </div>
+         )}
+         {isPlaying && (
+            <Modal
+               onClose={endVideo}
+               isOpen={isPlaying}
+               buttonCloseHeight={30}
+               buttonCloseRight={30}
+               buttonCloseTop={30}
+               buttonCloseWidth={30}
+            >
+               <ReactPlayer
+                  controls
+                  playing={isPlaying}
+                  onReady={onReady}
+                  width={widthPlayer}
+                  height={heightPlayer}
+                  url={url}
+                  onEnded={endVideo}
+                  config={configYoutube}
+               />
+            </Modal>
+         )}
+         {/* <ReactPlayer
             controls
             playing={playing}
             onReady={onReady}
@@ -33,7 +85,7 @@ const Player = memo((props: PlayerProps) => {
             url={url}
             onEnded={onEnded}
             config={configYoutube}
-         />
+         /> */}
       </div>
    );
 });

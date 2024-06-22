@@ -1,7 +1,7 @@
 .PageLoader {
    min-height: calc(100vh - var(--header-height));
-   width: 101%;
-   background-color: var(--color-bg-component);
+   width: calc(100vw - var(--sidebar-width));
+   background-color: rgba(0, 0, 0, 0.714);
    position: fixed;
    display: flex;
    justify-content: center;

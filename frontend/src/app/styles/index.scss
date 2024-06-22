@@ -5,7 +5,7 @@
 @import 'colors';
 @import 'fonts/inter.scss';
 
-html {
+body {
    margin-right: calc(-1 * (100vw - 100%));
    overflow-x: hidden;
 }

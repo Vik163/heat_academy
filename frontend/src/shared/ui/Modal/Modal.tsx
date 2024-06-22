@@ -64,11 +64,7 @@ export const Modal = (props: ModalProps) => {
       <Portal>
          <div className={classNames(cls.Modal, mods, [])}>
             <div
-               className={classNames(
-                  cls.overlay,
-                  { [cls.centerOverlay]: isCenter },
-                  [],
-               )}
+               className={classNames(cls.overlay, { [cls.centerOverlay]: isCenter }, [])}
                onClick={handleClose}
             >
                <div
@@ -84,11 +80,7 @@ export const Modal = (props: ModalProps) => {
                      className={cls.close}
                      onClick={handleClose}
                   >
-                     <Icon
-                        width={buttonCloseWidth}
-                        height={buttonCloseHeight}
-                        Svg={close}
-                     />
+                     <Icon width={buttonCloseWidth} height={buttonCloseHeight} Svg={close} />
                   </Button>
                   {children}
                </div>
