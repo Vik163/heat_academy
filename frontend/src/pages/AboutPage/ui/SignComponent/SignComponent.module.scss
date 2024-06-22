@@ -10,7 +10,18 @@
 }
 
 .imagePopup {
-   height: 892px;
+   width: 360px;
+   -webkit-transform: scale(1);
+   transform: scale(1);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+
+   &.openImage {
+      -webkit-transform: scale(1.7);
+      transform: scale(1.7);
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+   }
 }
 
 .subtitle {

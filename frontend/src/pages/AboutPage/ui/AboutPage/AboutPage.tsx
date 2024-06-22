@@ -10,11 +10,11 @@ import { AdviceEngineerComponent } from '@/widgets/AdviceEngineerComponent';
 import { NumInfoComponent } from '../NumInfoComponent/NumInfoComponent';
 import { SignComponent } from '../SignComponent/SignComponent';
 
-interface AboutPageProps {
+export interface AboutPageProps {
    className?: string;
 }
 
-export const AboutPage = memo((props: AboutPageProps) => {
+const AboutPage = memo((props: AboutPageProps) => {
    const { className } = props;
 
    return (
@@ -28,3 +28,5 @@ export const AboutPage = memo((props: AboutPageProps) => {
       </Page>
    );
 });
+
+export default AboutPage;

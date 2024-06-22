@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useRef, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './SignComponent.module.scss';
@@ -14,13 +14,20 @@ interface SignComponentProps {
 export const SignComponent = memo((props: SignComponentProps) => {
    const { className } = props;
    const [isOpenPopup, setIsOpenPopup] = useState(false);
+   const [animatePopup, setAnimatePopup] = useState(false);
+   const imageRef = useRef<HTMLImageElement>(null);
 
    const openPopup = () => {
       setIsOpenPopup(true);
+      if (imageRef.current) console.log(imageRef.current.getBoundingClientRect());
    };
 
    const closePopup = () => {
       setIsOpenPopup(false);
+   };
+
+   const onAnimate = (bool: boolean) => {
+      setAnimatePopup(bool);
    };
 
    return (
@@ -28,6 +35,7 @@ export const SignComponent = memo((props: SignComponentProps) => {
          <HStack max justify={FlexJustify.CENTER} gap={30}>
             <div onClick={openPopup}>
                <img
+                  ref={imageRef}
                   className={cls.image}
                   src='https://земляк.рф/wp-content/uploads/2022/10/certificate-1280x1810.jpg'
                   alt='Свидетельство'
@@ -57,9 +65,11 @@ export const SignComponent = memo((props: SignComponentProps) => {
                buttonCloseRight={20}
                buttonCloseTop={20}
                buttonCloseWidth={20}
+               onAnimate={onAnimate}
+               delayClose={300}
             >
                <img
-                  className={cls.imagePopup}
+                  className={classNames(cls.imagePopup, { [cls.openImage]: animatePopup }, [])}
                   src='https://земляк.рф/wp-content/uploads/2022/10/certificate-1280x1810.jpg'
                   alt='Свидетельство'
                />
