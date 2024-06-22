@@ -42,7 +42,9 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
             >
                Подобрать кессон/погреб
             </Button>
-            <img src={image} className={cls.image} alt='Кессон'></img>
+            <div className={cls.imageContainer}>
+               <img src={image} className={cls.mainImage} alt='Кессон'></img>
+            </div>
          </VStack>
       </article>
    );

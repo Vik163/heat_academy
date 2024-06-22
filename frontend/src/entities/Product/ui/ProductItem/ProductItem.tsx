@@ -5,13 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ProductItem.module.scss';
 import { Breadcrumb } from '@/features/Breadcrumbs';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import {
-   FontColor,
-   FontSize,
-   FontWeight,
-   HeaderTagType,
-   Text,
-} from '@/shared/ui/Text';
+import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { Product } from '../../model/types/products';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { ParametersComponent } from '../ParametersComponent/ParametersComponent';
@@ -129,15 +123,9 @@ export const ProductItem = memo((props: ProductItemProps) => {
                </VStack>
                <VStack gap={20}>
                   <div className={cls.imageContainer}>
-                     <img
-                        src={product?.image}
-                        alt={product?.title}
-                        className={cls.mainImage}
-                     />
+                     <img src={product?.image} alt={product?.title} className={cls.mainImage} />
                   </div>
-                  {product && (
-                     <HorizontalScroll elements={product?.imagesFeatures} />
-                  )}
+                  {product && <HorizontalScroll elements={product?.imagesFeatures} />}
                </VStack>
             </HStack>
          )}

@@ -70,11 +70,32 @@
    }
 }
 
-.image {
+.imageContainer {
    position: absolute;
    top: 50%;
    right: 47px;
    max-width: 414px;
    transform: translate(0, -50%);
    margin-top: 35px;
+
+   &::before {
+      position: absolute;
+      left: 82%;
+      bottom: 150px;
+      content: url(../../../../shared/assets/icons/type-garant-1.svg);
+      z-index: 2;
+   }
+
+   &::after {
+      position: absolute;
+      left: 82%;
+      bottom: 34px;
+
+      content: url(../../../../shared/assets/icons/vectorpaint.png);
+      z-index: 2;
+   }
+
+   .mainImage {
+      width: 367px;
+   }
 }
