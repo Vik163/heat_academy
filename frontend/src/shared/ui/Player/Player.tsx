@@ -63,6 +63,7 @@ const Player = memo((props: PlayerProps) => {
                buttonCloseRight={20}
                buttonCloseTop={20}
                buttonCloseWidth={20}
+               delayClose={200}
             >
                <ReactPlayer
                   controls

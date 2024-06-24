@@ -42,7 +42,7 @@ export const Modal = (props: ModalProps) => {
    } = props;
 
    //* выношу логику в хук
-   const { handleClose, onContentClick, isMounted } = useModal({
+   const { handleClose, onContentClick, isMounted, animatePopup } = useModal({
       isOpen,
       onClose,
       onAnimate,
@@ -64,7 +64,14 @@ export const Modal = (props: ModalProps) => {
       <Portal>
          <div className={classNames(cls.Modal, mods, [])}>
             <div
-               className={classNames(cls.overlay, { [cls.centerOverlay]: isCenter }, [])}
+               style={{
+                  transition: `${delayClose / 1000}s`,
+               }}
+               className={classNames(
+                  cls.overlay,
+                  { [cls.centerOverlay]: isCenter, [cls.fading]: animatePopup },
+                  [],
+               )}
                onClick={handleClose}
             >
                <div

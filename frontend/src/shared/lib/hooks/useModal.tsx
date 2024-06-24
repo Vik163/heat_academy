@@ -5,11 +5,14 @@ interface UseModalProps {
    onClose: () => void;
    onAnimate?: (bool: boolean) => void;
    delayClose?: number;
+   animatePopup?: boolean;
 }
 
 export function useModal(props: UseModalProps) {
    const { isOpen, onClose, onAnimate, delayClose } = props;
    const [isMounted, setIsMounted] = useState(false);
+   const [animatePopup, setAnimatePopup] = useState(false);
+
    const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
    //  высчитывает ширину скрола ---------------------------------
@@ -25,25 +28,20 @@ export function useModal(props: UseModalProps) {
    useEffect(() => {
       if (isOpen) {
          setIsMounted(true);
-         if (onAnimate) {
-            timerRef.current = setTimeout(() => {
-               onAnimate(true);
-            }, 50);
-         }
+         timerRef.current = setTimeout(() => {
+            setAnimatePopup(true);
+            if (onAnimate) onAnimate(true);
+         }, 25);
       }
    }, [isOpen]);
 
    const handleClose = useCallback(() => {
-      if (onAnimate) {
-         onAnimate(false);
-
-         timerRef.current = setTimeout(() => {
-            onClose();
-         }, delayClose);
-      } else {
+      if (onAnimate) onAnimate(false);
+      setAnimatePopup(false);
+      timerRef.current = setTimeout(() => {
          onClose();
-      }
-   }, [delayClose, onAnimate]);
+      }, delayClose);
+   }, [delayClose, onAnimate, onClose]);
 
    const onKeyDown = useCallback(
       (e: KeyboardEvent) => {
@@ -70,5 +68,5 @@ export function useModal(props: UseModalProps) {
       };
    }, [isOpen, onKeyDown]);
 
-   return { handleClose, onContentClick, isMounted };
+   return { handleClose, onContentClick, isMounted, animatePopup };
 }

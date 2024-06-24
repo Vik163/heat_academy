@@ -21,11 +21,16 @@
    height: 100%;
    width: 100%;
    background: rgba(24, 21, 6, 0.91);
+   opacity: 0;
 
    &.centerOverlay {
       display: flex;
       justify-content: center;
       align-items: center;
+   }
+
+   &.fading {
+      opacity: 1;
    }
 }
 
