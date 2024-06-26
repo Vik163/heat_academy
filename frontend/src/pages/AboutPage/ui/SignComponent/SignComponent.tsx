@@ -58,10 +58,10 @@ export const SignComponent = memo((props: SignComponentProps) => {
             <Modal
                onClose={closePopup}
                isOpen={isOpenPopup}
-               buttonCloseHeight={20}
-               buttonCloseRight={20}
-               buttonCloseTop={20}
-               buttonCloseWidth={20}
+               buttonCloseHeight={15}
+               buttonCloseRight={15}
+               buttonCloseTop={15}
+               buttonCloseWidth={15}
                onAnimate={onAnimate}
                delayClose={300}
             >

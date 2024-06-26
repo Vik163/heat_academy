@@ -11,17 +11,21 @@ import { Breadcrumb } from '@/features/Breadcrumbs';
 
 interface TitleComponentProps {
    className?: string;
+   content: {
+      crumbs: string;
+      title: string;
+   };
 }
 
 export const TitleComponent = memo((props: TitleComponentProps) => {
-   const { className } = props;
+   const { className, content } = props;
 
    return (
       <article id='title' className={classNames(cls.TitleComponent, {}, [className])}>
          <VStack className={cls.infoContainer} align={FlexAlign.START}>
-            <Breadcrumb productName='О компании' />
+            <Breadcrumb productName={content.crumbs} />
             <Text title={HeaderTagType.H_2} className={cls.title} fontColor={FontColor.WHITE}>
-               О компании - ТМ «ЗЕМЛЯК»
+               {content.title}
             </Text>
             <Text fontSize={FontSize.SIZE_18} className={cls.production}>
                Лучшие технологические решения, качество сборки и красота исполнения, воплощённые инженерами в

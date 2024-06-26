@@ -52,11 +52,20 @@ export function useModal(props: UseModalProps) {
       [handleClose],
    );
 
+   function getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
+   }
+
    useEffect(() => {
+      const header = document.querySelector('#header') as HTMLDivElement;
+
       if (isOpen) {
+         const sizeScroll = getScrollbarWidth();
+
          document.addEventListener('keydown', onKeyDown);
          // не прокручивается страница
          document.body.style.overflow = 'hidden';
+         if (header) header.style.paddingRight = `${sizeScroll}px`;
       }
       // скролл добавляю при размонтировании
       return () => {
@@ -65,6 +74,7 @@ export function useModal(props: UseModalProps) {
             document.removeEventListener('keydown', onKeyDown);
          }
          document.body.style.overflow = 'unset';
+         header.style.paddingRight = '0px';
       };
    }, [isOpen, onKeyDown]);
 

@@ -1,0 +1,83 @@
+.ContactsPage {
+   background: #f5f8fb;
+   align-items: flex-start;
+}
+
+.container {
+   padding: 24px 0 66px;
+   max-width: var(--page-width);
+   width: 100%;
+   margin: 0 auto;
+}
+
+.title {
+   margin: 5px 0 20px;
+}
+
+.infoContainer {
+   width: 425px;
+   height: 318px;
+}
+
+.info {
+   width: 425px;
+   margin-bottom: 32px;
+   padding: 32px 21px;
+   background: #ffffff;
+   border-radius: 15px;
+}
+
+.blockPhone {
+   margin-bottom: 18px;
+   padding-left: 24px;
+   background-image: url(../../../../shared/assets/icons/icon-phone.svg);
+   background-repeat: no-repeat;
+   background-position: 1px 4px;
+
+   a {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 23px;
+      color: #1f2721;
+   }
+
+   span {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 21px;
+      color: #868c96;
+   }
+}
+
+.email {
+   margin-bottom: 23px;
+   padding-left: 23px;
+   background-image: url(../../../../shared/assets/icons/icon-email.svg);
+   background-repeat: no-repeat;
+   background-position: 0px 6px;
+
+   a {
+      font-size: 17px;
+      line-height: 27px;
+      color: #282828;
+   }
+}
+
+.address {
+   padding-left: 23px;
+   font-size: 17px;
+   line-height: 27px;
+   background-image: url(../../../../shared/assets/icons/icon-address.svg);
+   background-repeat: no-repeat;
+   background-position: 1px 7px;
+}
+
+.buttonContainer {
+   width: 425px;
+}
+
+.labelButton {
+   font-size: 17px;
+   line-height: 40px;
+}

@@ -12,8 +12,7 @@ const sockPath = process.env.WDS_SOCKET_PATH; // default: '/ws'
 const sockPort = process.env.WDS_SOCKET_PORT;
 
 module.exports = function (proxy, allowedHost) {
-   const disableFirewall =
-      !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true';
+   const disableFirewall = !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true';
    return {
       // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
       // websites from potentially accessing local content through DNS rebinding:
@@ -33,9 +32,7 @@ module.exports = function (proxy, allowedHost) {
       // really know what you're doing with a special environment variable.
       // Note: ["localhost", ".localhost"] will support subdomains - but we might
       // want to allow setting the allowedHosts manually for more complex setups
-      allowedHosts: disableFirewall
-         ? 'all'
-         : ['localhost', 'https://heat-academy-dev-frontend.vercel.app'],
+      allowedHosts: disableFirewall ? 'all' : ['localhost', 'https://heat-academy-dev-frontend.vercel.app'],
       // allowedHosts: disableFirewall ? 'all' : [allowedHost],
       headers: {
          'Access-Control-Allow-Credentials': 'true',
@@ -96,6 +93,7 @@ module.exports = function (proxy, allowedHost) {
 
       https: getHttpsConfig(),
       host,
+
       historyApiFallback: {
          // Paths with dots should still use the history fallback.
          // See https://github.com/facebook/create-react-app/issues/387.
@@ -104,6 +102,14 @@ module.exports = function (proxy, allowedHost) {
       },
       // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
       proxy,
+      // : {
+      //    '/': {
+      //       target: 'http://127.0.0.1:3000',
+      //       secure: false,
+      //       changeOrigin: true,
+      //       autoRewrite: true,
+      //    },
+      // },
       onBeforeSetupMiddleware(devServer) {
          // Keep `evalSourceMapMiddleware`
          // middlewares before `redirectServedPath` otherwise will not have any effect

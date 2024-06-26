@@ -59,10 +59,10 @@ const Player = memo((props: PlayerProps) => {
             <Modal
                onClose={endVideo}
                isOpen={isPlaying}
-               buttonCloseHeight={20}
-               buttonCloseRight={20}
-               buttonCloseTop={20}
-               buttonCloseWidth={20}
+               buttonCloseHeight={15}
+               buttonCloseRight={15}
+               buttonCloseTop={15}
+               buttonCloseWidth={15}
                delayClose={200}
             >
                <ReactPlayer

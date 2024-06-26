@@ -16,10 +16,14 @@ export interface AboutPageProps {
 
 const AboutPage = memo((props: AboutPageProps) => {
    const { className } = props;
+   const titleContent = {
+      crumbs: 'О компании',
+      title: 'О компании - ТМ «ЗЕМЛЯК»',
+   };
 
    return (
       <Page className={classNames(cls.AboutPage, {}, [className])}>
-         <TitleComponent />
+         <TitleComponent content={titleContent} />
          <AboutVideoComponent />
          <NumInfoComponent />
          <EquipmentComponent />

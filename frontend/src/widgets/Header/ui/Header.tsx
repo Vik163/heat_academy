@@ -43,7 +43,7 @@ export const Header = memo(() => {
    }, [pathname]);
 
    return (
-      <header className={classNames(cls.header, { [cls.headerActive]: isHeaderWhite }, [])}>
+      <header id='header' className={classNames(cls.header, { [cls.headerActive]: isHeaderWhite }, [])}>
          <HStack justify={FlexJustify.BETWEEN} className={cls.headerContainer}>
             <span className={classNames(cls.dealer, { [cls.headerActive]: isHeaderWhite }, [])}>
                Официальный дилер ТМ «ЗЕМЛЯК»
