@@ -4,7 +4,6 @@ export enum AppRoutes {
    CELLARS = 'cellars',
    ABOUT = 'about',
    RESULTS_SAWC = 'results-sawc',
-   DELIVERY = 'delivery',
    QUESTIONS = 'questions',
    // ACTIONS = 'actions',
    CONTACTS = 'contacts',
@@ -24,7 +23,6 @@ export const RoutePath = {
    [AppRoutes.CONTACTS]: '/contacts',
    // [AppRoutes.ACTIONS]: '/actions',
    [AppRoutes.ABOUT]: '/about',
-   [AppRoutes.DELIVERY]: '/delivery',
    [AppRoutes.CATALOG]: '/catalog',
    [AppRoutes.RESULTS_SAWC]: '/results-sawc',
    [AppRoutes.PRODUCT]: '/product',
@@ -48,7 +46,6 @@ export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteCatalog = () => '/catalog';
 export const getRouteResultsSAWC = () => '/results-sawc';
 export const getRouteAbout = () => '/about';
-export const getRouteDelivery = () => '/delivery';
 export const getRouteBasket = () => '/basket';
 export const getRouteOrder = () => '/order';
 export const getRouteProduct = (id?: string) => `/product/${id}`;
@@ -69,7 +66,6 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
    [getRouteCatalog()]: AppRoutes.CATALOG,
    [getRouteResultsSAWC()]: AppRoutes.RESULTS_SAWC,
    [getRouteAbout()]: AppRoutes.ABOUT,
-   [getRouteDelivery()]: AppRoutes.DELIVERY,
    [getRouteProduct()]: AppRoutes.PRODUCT,
    [getRouteCellars()]: AppRoutes.CELLARS,
    [getRouteQuestions()]: AppRoutes.QUESTIONS,

@@ -6,13 +6,7 @@ import cls from './Footer.module.scss';
 
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
-import {
-   getRouteAbout,
-   getRouteCatalog,
-   getRouteContacts,
-   getRouteDelivery,
-   getRouteQuestions,
-} from '@/shared/const/router';
+import { getRouteAbout, getRouteCatalog, getRouteContacts, getRouteQuestions } from '@/shared/const/router';
 import { FontColor, FontSize, Text } from '@/shared/ui/Text';
 import { Logo } from '@/shared/ui/Logo';
 
@@ -56,6 +50,8 @@ export const Footer = memo((props: FooterProps) => {
                   Суббота - с 8.30-17.00,
                   <br /> Воскресенье - с 8.30-14.00
                </p>
+               <p className={cls.textInfo}>Доставка: обговаривается индивидуально</p>
+               <p className={cls.textInfo}>Оплата: все виды расчета</p>
                <p className={cls.textInfo}>Посещение склада по договорённости</p>
                <p className={cls.textInfo}>{year} © ТМ «ЗЕМЛЯК». Все права защищены.</p>
             </div>
@@ -65,9 +61,6 @@ export const Footer = memo((props: FooterProps) => {
                </Link>
                <Link to={getRouteAbout()} className={cls.link}>
                   О кампании
-               </Link>
-               <Link to={getRouteDelivery()} className={cls.link}>
-                  Доставка и оплата
                </Link>
                <Link to={getRouteContacts()} className={cls.link}>
                   Контакты

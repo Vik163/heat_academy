@@ -2,7 +2,6 @@ import { AboutPage } from '@/pages/AboutPage';
 import { ArragementWellsPage } from '@/pages/ArragementWellsPage';
 import { CatalogPage } from '@/pages/CatalogPage';
 import { ContactsPage } from '@/pages/ContactsPage';
-import { DeliveryPage } from '@/pages/DeliveryPage';
 import { MainPage } from '@/pages/MainPage';
 import { MontageCaissonPage } from '@/pages/MontageCaissonPage';
 import { ProductPage } from '@/pages/ProductPage';
@@ -12,7 +11,6 @@ import {
    AppRoutes,
    getRouteMain,
    getRouteCatalog,
-   getRouteDelivery,
    getRouteAbout,
    getRouteContacts,
    getRouteProduct,
@@ -36,10 +34,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
    [AppRoutes.CELLARS]: {
       path: getRouteCellars(),
       element: <CatalogPage />,
-   },
-   [AppRoutes.DELIVERY]: {
-      path: getRouteDelivery(),
-      element: <DeliveryPage />,
    },
    [AppRoutes.ABOUT]: {
       path: getRouteAbout(),

@@ -4,7 +4,6 @@ import {
    getRouteArrangementWells,
    getRouteCatalog,
    getRouteContacts,
-   getRouteDelivery,
    getRouteMontageCaisson,
    getRouteResultsSAWC,
 } from '@/shared/const/router';
@@ -52,11 +51,6 @@ export const useSidebarItems = () => {
                nested: true,
             },
          ],
-      },
-      {
-         path: getRouteDelivery(),
-         //  Icon: ArticleIcon,
-         text: 'Доставка и оплата',
       },
       {
          path: getRouteContacts(),
