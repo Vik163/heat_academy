@@ -58,17 +58,9 @@ function Map(props: MapProps) {
                               <img height={55} src={marker} alt='метка' />
                               <Icon width={23} height={30} Svg={city} className={cls.icon} />
                            </Button>
-                           {/* <div className={cls.info}>
+                           <div className={cls.info}>
                               <span className={cls.logoName}>АКАДЕМИЯ ТЕПЛА</span>
-                              <Text
-                                 fontColor={FontColor.BUTTON}
-                                 fontSize={FontSize.SIZE_13}
-                                 align={TextAlign.CENTER}
-                                 className={cls.mapInfo}
-                              >
-                                 открыто: до 23:00
-                              </Text>
-                           </div> */}
+                           </div>
                         </div>
                      </YMapMarker>
                   ))}

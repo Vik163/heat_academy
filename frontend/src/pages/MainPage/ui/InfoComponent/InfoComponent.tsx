@@ -3,6 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './InfoComponent.module.scss';
 import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
+import { EMAIL, PHONE } from '@/shared/const/main_info';
 
 interface InfoComponentProps {
    className?: string;
@@ -295,9 +296,9 @@ export const InfoComponent = memo((props: InfoComponentProps) => {
                трубопровода, обсыпка пескоцементной смесью, установка оборудования.
             </p>
             <p>
-               Для расчета точной стоимости услуги позвоните нам по номеру +7 (846) 354-66-30 или напишите на
-               e-mail &nbsp;
-               <a href='#'>actepla@yandex.ru</a>.
+               Для расчета точной стоимости услуги позвоните нам по номеру {PHONE} или напишите на e-mail
+               &nbsp;
+               <a href='#'>{EMAIL}</a>.
             </p>
             <Text
                title={HeaderTagType.H_3}

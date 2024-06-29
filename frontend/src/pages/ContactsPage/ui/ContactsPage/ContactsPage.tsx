@@ -8,7 +8,15 @@ import { FontColor, FontSize, FontWeight, HeaderTagType, Text, TextAlign } from 
 import { HStack, VStack } from '@/shared/ui/Stack';
 import Map from '@/shared/ui/Map/Map';
 import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
-import { coordsStores, mainCoordinates, mainZoom } from '@/shared/const/main_info';
+import {
+   ADDRESS,
+   EMAIL,
+   MAIN_COORD,
+   MAIN_ZOOM,
+   PHONE,
+   PHONE_MOB,
+   STORES_COORD,
+} from '@/shared/const/main_info';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 
 interface ContactsPageProps {
@@ -34,13 +42,18 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
                <VStack className={cls.infoContainer} justify={FlexJustify.BETWEEN}>
                   <div className={cls.info}>
                      <div className={cls.blockPhone}>
-                        <a href='tel:+78463546630'>+7 (846) 354-66-30</a>
-                        <span>Работаем: 9:00-19:00, ежедневно</span>
+                        {PHONE},&emsp; {PHONE_MOB}
+                        <p className={cls.textInfo}>
+                           Работаем:
+                           <br /> Понедельник - Пятница - с 8.30-18.30, <br />
+                           Суббота - с 8.30-17.00,
+                           <br /> Воскресенье - с 8.30-14.00
+                        </p>
                      </div>
                      <div className={cls.email}>
-                        <a href='mailto:info@земляк.рф'>info@земляк.рф</a>
+                        <a href={EMAIL}>{EMAIL}</a>
                      </div>
-                     <div className={cls.address}>г. Ивантеевка, ул. Дзержинского, д. 1 </div>
+                     <div className={cls.address}>{ADDRESS}</div>
                   </div>
                   <HStack
                      className={cls.buttonContainer}
@@ -68,9 +81,9 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
                <Map
                   width={544}
                   height={318}
-                  location={mainCoordinates}
-                  zoom={mainZoom}
-                  coordsStores={coordsStores}
+                  location={MAIN_COORD}
+                  zoom={MAIN_ZOOM}
+                  coordsStores={STORES_COORD}
                   className={cls.map}
                />
             </HStack>

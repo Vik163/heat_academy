@@ -1,23 +1,23 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './SidebarItem.module.scss';
+import cls from './NavbarItem.module.scss';
 import { AppLink } from '@/shared/ui/AppLink';
-import type { SidebarItemType } from '../../model/types/sidebar';
+import type { NavbarItemType } from '../../model/types/navbar';
 import { Button, ButtonRadius } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import arrow from '@/shared/assets/icons/icon-arrow-top.svg';
 
-interface SidebarItemProps {
-   item: SidebarItemType;
+interface NavbarItemProps {
+   item: NavbarItemType;
    collapsed: boolean;
    addLinks?: (text: string) => void;
    isAddLinks?: boolean;
 }
 
-export const SidebarItem = memo(({ item, collapsed, addLinks, isAddLinks }: SidebarItemProps) => {
+export const NavbarItem = memo(({ item, collapsed, addLinks, isAddLinks }: NavbarItemProps) => {
    return (
-      <div className={cls.SidebarItem}>
+      <div className={cls.NavbarItem}>
          {!item.path && (
             <Button
                onClick={addLinks && (() => addLinks(item.text))}

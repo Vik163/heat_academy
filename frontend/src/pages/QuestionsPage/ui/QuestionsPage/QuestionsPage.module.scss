@@ -1,2 +1,17 @@
 .QuestionsPage {
+   width: 100%;
+}
+
+.container {
+   max-width: var(--page-width);
+   width: 100%;
+   margin: 20px auto 60px;
+}
+
+.title {
+   margin: 20px 0;
+}
+
+.questionsContainer {
+   padding-left: 10px;
 }

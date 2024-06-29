@@ -6,6 +6,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { FontColor, FontSize, FontWeight, Text } from '@/shared/ui/Text';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
+import { EMAIL } from '@/shared/const/main_info';
 // import whatsapp from '@/shared/assets/icons/icon-whatsapp.svg';
 // import telegram from '@/shared/assets/icons/icon-telegram.svg';
 
@@ -23,7 +24,7 @@ export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps
                <img
                   className={cls.face}
                   src='https://земляк.рф/wp-content/uploads/2021/10/tsifry.png'
-                  alt='лицо'
+                  alt='инженер'
                />
             </div>
             <VStack className={cls.infoContainer} align={FlexAlign.START}>
@@ -54,24 +55,8 @@ export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps
                   >
                      Задать вопрос
                   </Button>
-                  {/* <Button
-                     className={cls.whatsapp}
-                     width={42}
-                     height={42}
-                     variant={ButtonVariant.FILLED}
-                  >
-                     <Icon width={42} height={42} Svg={whatsapp} />
-                  </Button>
-                  <Button
-                     className={cls.telegram}
-                     width={42}
-                     height={42}
-                     variant={ButtonVariant.FILLED}
-                  >
-                     <Icon width={42} height={42} Svg={telegram} />
-                  </Button> */}
                   <a href='#' className={cls.link}>
-                     почта@почта.ru
+                     {EMAIL}
                   </a>
                </HStack>
                <Text className={cls.caption} fontSize={FontSize.SIZE_14} fontColor={FontColor.TEXT_PRIMARY}>

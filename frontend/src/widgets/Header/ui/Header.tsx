@@ -8,6 +8,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
 import { Modal } from '@/shared/ui/Modal';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { PHONE } from '@/shared/const/main_info';
 
 // eslint-disable-next-line ulbi-tv-plugin/layer-imports
 
@@ -56,7 +57,7 @@ export const Header = memo(() => {
                   fontSize={FontSize.SIZE_20}
                   fontWeight={FontWeight.TEXT_700}
                >
-                  8 (846) 354-66-30
+                  {PHONE}
                </Text>
                <Button
                   width={140}

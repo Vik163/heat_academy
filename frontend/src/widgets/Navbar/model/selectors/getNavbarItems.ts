@@ -1,4 +1,4 @@
-import { SidebarItemType } from '../types/sidebar';
+import { NavbarItemType } from '../types/navbar';
 import {
    getRouteAbout,
    getRouteArrangementWells,
@@ -9,9 +9,9 @@ import {
 } from '@/shared/const/router';
 
 // 8_2
-export const useSidebarItems = () => {
+export const useNavbarItems = () => {
    // 16_18 7min
-   const sidebarItemsList: SidebarItemType[] = [
+   const navbarItemsList: NavbarItemType[] = [
       {
          path: getRouteCatalog(),
          //  Icon: AboutIcon,
@@ -59,5 +59,5 @@ export const useSidebarItems = () => {
       },
    ];
 
-   return sidebarItemsList;
+   return navbarItemsList;
 };

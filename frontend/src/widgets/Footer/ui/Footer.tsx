@@ -9,6 +9,7 @@ import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
 import { getRouteAbout, getRouteCatalog, getRouteContacts, getRouteQuestions } from '@/shared/const/router';
 import { FontColor, FontSize, Text } from '@/shared/ui/Text';
 import { Logo } from '@/shared/ui/Logo';
+import { EMAIL, PHONE, PHONE_MOB } from '@/shared/const/main_info';
 
 interface FooterProps {
    className?: string;
@@ -38,11 +39,11 @@ export const Footer = memo((props: FooterProps) => {
                   Самарская область, г. Новокуйбышевск, <br />
                   ул. Молодогвардейская, д. 4
                   <br /> email: &nbsp;
-                  <a href='#' className={cls.post}>
-                     werwe@sjdf.dy
+                  <a href={EMAIL} className={cls.post}>
+                     {EMAIL}
                   </a>
                   <br />
-                  тел. +7 (846) 354-66-30
+                  тел. {PHONE}, &nbsp;{PHONE_MOB}
                </p>
                <p className={cls.textInfo}>
                   Работаем:
@@ -50,8 +51,8 @@ export const Footer = memo((props: FooterProps) => {
                   Суббота - с 8.30-17.00,
                   <br /> Воскресенье - с 8.30-14.00
                </p>
-               <p className={cls.textInfo}>Доставка: обговаривается индивидуально</p>
                <p className={cls.textInfo}>Оплата: все виды расчета</p>
+               <p className={cls.textInfo}>Доставка: обговаривается индивидуально</p>
                <p className={cls.textInfo}>Посещение склада по договорённости</p>
                <p className={cls.textInfo}>{year} © ТМ «ЗЕМЛЯК». Все права защищены.</p>
             </div>
