@@ -9,6 +9,7 @@ declare module '*.scss' {
 
 declare module '*.png';
 declare module '*.jpg';
+declare module '*.pdf';
 declare module '*.jpeg';
 declare module '*.svg' {
    import type React from 'react';

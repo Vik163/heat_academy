@@ -33,19 +33,10 @@
    background-repeat: no-repeat;
    background-position: 1px 4px;
 
-   a {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 23px;
-      color: #1f2721;
-   }
-
    span {
-      display: block;
-      margin-top: 5px;
-      font-size: 14px;
-      line-height: 21px;
-      color: #868c96;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 23px;
    }
 }
 
@@ -67,6 +58,7 @@
       font-size: 16px;
       line-height: 25px;
       color: #282828;
+      font-weight: 500;
    }
 }
 
@@ -74,6 +66,7 @@
    padding-left: 23px;
    font-size: 16px;
    line-height: 25px;
+   font-weight: 500;
    background-image: url(../../../../shared/assets/icons/icon-address.svg);
    background-repeat: no-repeat;
    background-position: 1px 7px;

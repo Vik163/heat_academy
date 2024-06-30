@@ -10,6 +10,7 @@ import { getRouteAbout, getRouteCatalog, getRouteContacts, getRouteQuestions } f
 import { FontColor, FontSize, Text } from '@/shared/ui/Text';
 import { Logo } from '@/shared/ui/Logo';
 import { EMAIL, PHONE, PHONE_MOB } from '@/shared/const/main_info';
+import polity from '../../../shared/assets/sist.pdf';
 
 interface FooterProps {
    className?: string;
@@ -77,9 +78,9 @@ export const Footer = memo((props: FooterProps) => {
                   статьи 437 ГК РФ. Отправляя сведения через любую электронную форму на этом сайте, вы даёте
                   согласие на обработку ваших персональных данных.
                </Text>
-               <Link to='#' className={cls.politics}>
+               <a href={polity} className={cls.politics} target='_blank' rel='noopener noreferrer'>
                   Политика конфиденциальности
-               </Link>
+               </a>
             </VStack>
          </HStack>
       </footer>

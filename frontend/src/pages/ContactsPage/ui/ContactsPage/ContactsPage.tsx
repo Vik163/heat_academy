@@ -42,7 +42,9 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
                <VStack className={cls.infoContainer} justify={FlexJustify.BETWEEN}>
                   <div className={cls.info}>
                      <div className={cls.blockPhone}>
-                        {PHONE},&emsp; {PHONE_MOB}
+                        <span>
+                           {PHONE},&emsp; {PHONE_MOB}
+                        </span>
                         <p className={cls.textInfo}>
                            Работаем:
                            <br /> Понедельник - Пятница - с 8.30-18.30, <br />
