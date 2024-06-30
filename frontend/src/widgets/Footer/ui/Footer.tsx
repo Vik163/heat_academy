@@ -10,7 +10,7 @@ import { getRouteAbout, getRouteCatalog, getRouteContacts, getRouteQuestions } f
 import { FontColor, FontSize, Text } from '@/shared/ui/Text';
 import { Logo } from '@/shared/ui/Logo';
 import { EMAIL, PHONE, PHONE_MOB } from '@/shared/const/main_info';
-import polity from '../../../shared/assets/sist.pdf';
+import polity from '../../../shared/assets/politika_konfidenczialnost_actepla.pdf';
 
 interface FooterProps {
    className?: string;
