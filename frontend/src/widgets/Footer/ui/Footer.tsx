@@ -20,13 +20,6 @@ export const Footer = memo((props: FooterProps) => {
    const { className } = props;
    const year = new Date().getFullYear();
 
-   const scrollTop = () => {
-      window.scrollTo({
-         top: 0,
-         behavior: 'smooth',
-      });
-   };
-
    return (
       <footer>
          <HStack

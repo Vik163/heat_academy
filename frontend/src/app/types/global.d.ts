@@ -44,6 +44,7 @@ declare namespace NodeJS {
       REACT_APP_FIREBASE_STORAGE_BUCKET: string;
       REACT_APP_FIREBASE_MESSAGING_SENDER_ID: string;
       REACT_APP_FIREBASE_APP_ID: string;
+      REACT_APP_SERVICE_ID_PUBLIC_KEY: string;
 
       REACT_APP_YA_MAP_KEY: string;
       REACT_APP_YA_CLIENT_ID: string;

@@ -80,6 +80,7 @@
       "workbox-webpack-plugin": "^6.4.1"
    },
    "dependencies": {
+      "@emailjs/browser": "^4.3.3",
       "axios": "^1.7.2",
       "react": "^18.3.1",
       "react-dom": "^18.3.1",
