@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './ContactsPage.module.scss';
@@ -18,6 +18,7 @@ import {
    STORES_COORD,
 } from '@/shared/const/main_info';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
+import { Postman } from '@/shared/ui/Postman';
 
 interface ContactsPageProps {
    className?: string;
@@ -25,6 +26,15 @@ interface ContactsPageProps {
 
 export const ContactsPage = memo((props: ContactsPageProps) => {
    const { className } = props;
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    return (
       <Page className={classNames(cls.ContactsPage, {}, [className])}>
@@ -75,6 +85,7 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
                         fontColor={FontColor.BUTTON}
                         fontWeight={FontWeight.TEXT_400}
                         arrow
+                        onClick={openForm}
                      >
                         Задать вопрос
                      </Button>
@@ -90,7 +101,15 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
                />
             </HStack>
          </div>
-         {/* <Postman /> */}
+         {isOpenForm && (
+            <Postman
+               title='Задать вопрос'
+               buttonText='Перезвоните мне'
+               placeholderText='Ваш вопрос'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </Page>
    );
 });

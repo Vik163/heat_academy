@@ -38,13 +38,9 @@ type OptionalRecord<K extends keyof any, T> = {
 
 declare namespace NodeJS {
    interface ProcessEnv {
-      REACT_APP_FIREBASE_API_KEY: string;
-      REACT_APP_FIREBASE_AUTH_DOMAIN: string;
-      REACT_APP_FIREBASE_PROJECT_ID: string;
-      REACT_APP_FIREBASE_STORAGE_BUCKET: string;
-      REACT_APP_FIREBASE_MESSAGING_SENDER_ID: string;
-      REACT_APP_FIREBASE_APP_ID: string;
-      REACT_APP_SERVICE_ID_PUBLIC_KEY: string;
+      REACT_APP_EMAIL_SERVICE_PUBLIC_KEY: string;
+      REACT_APP_EMAIL_SERVICE_ID: string;
+      REACT_APP_EMAIL_TEMPLATE_ID: string;
 
       REACT_APP_YA_MAP_KEY: string;
       REACT_APP_YA_CLIENT_ID: string;

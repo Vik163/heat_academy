@@ -1,50 +1,79 @@
-.Postman {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   width: 60rem;
-   overflow: hidden;
-   background-color: #fff;
-   min-height: 37rem;
-   border-radius: 5px;
+.modal {
+   width: 414px;
+   padding: 30px 32px;
+   background-color: white;
+   border-radius: 15px;
+   font-family: 'Inter';
 }
 
-.form_group {
-   display: grid;
-   gap: 0.3rem;
-}
-aside {
-   background-image: url(https://media.istockphoto.com/id/1205460056/photo/email-background-concept-on-blue-background-3d-rendering.jpg?b=1&s=612x612&w=0&k=20&c=_NHcxoaTPpdB6cFmpnSpWrlSdrgoIQxoRk-ImaL1QaU=);
-}
-form {
-   padding: 2rem;
-   display: grid;
-   gap: 1.5rem;
-   align-items: end;
-   align-content: center;
-}
-input {
-   border: 2px solid #ecebf3;
-   padding: 12px 8px;
+.title {
+   margin-bottom: 8px;
 }
 
-label {
-   text-transform: capitalize;
-   color: #666;
+.subtitle {
+   margin-bottom: 30px;
 }
-input,
-button {
-   border-radius: 5px;
+
+.form {
+   border-top: 1px solid #e5e5e5;
+
+   span {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      padding-left: 3px;
+      color: red;
+   }
+
+   input[name='copyemail'] {
+      display: block;
+      width: 2px;
+      height: 2px;
+      margin-top: 0;
+      margin-bottom: -2px;
+      border: none;
+      padding: 0;
+      opacity: 0.01;
+   }
+
+   input[name='phone'] {
+      width: 100%;
+      padding: 10px 20px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: #3e3d59;
+      background: #f7f7fb;
+      border: 1px solid #a8a2b4;
+      border-radius: 6px;
+      margin-top: 30px;
+   }
 }
+
+.message {
+   width: 100%;
+   height: 110px;
+   line-height: 22px;
+   resize: none;
+   padding: 10px 20px;
+   font-weight: 400;
+   font-size: 16px;
+   color: #3e3d59;
+   background: #f7f7fb;
+   border: 1px solid #a8a2b4;
+   box-sizing: border-box;
+   border-radius: 6px;
+   margin-top: 30px;
+}
+
 .btn {
-   background-color: #090817;
-   color: #dcdbe4;
-   padding: 1.3rem;
-   font-family: inherit;
+   background-color: #ffd800;
+   color: #231f20;
    border: none;
-   margin-top: 1.3rem;
-   font-size: 0.9em;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 21px;
+   border-radius: 8px;
+   margin-top: 30px;
    cursor: pointer;
-}
-h2 {
-   text-align: center;
 }

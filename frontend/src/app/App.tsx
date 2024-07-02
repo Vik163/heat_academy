@@ -13,7 +13,7 @@ const App = memo(() => {
    useEffect(
       () =>
          emailjs.init({
-            publicKey: process.env.REACT_APP_SERVICE_ID_PUBLIC_KEY,
+            publicKey: process.env.REACT_APP_EMAIL_SERVICE_PUBLIC_KEY,
          }),
       [],
    );
