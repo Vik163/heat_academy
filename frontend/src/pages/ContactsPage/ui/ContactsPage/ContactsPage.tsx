@@ -105,7 +105,7 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
             <Postman
                title='Задать вопрос'
                buttonText='Перезвоните мне'
-               placeholderText='Ваш вопрос'
+               commentText='Ваш вопрос'
                closeForm={closeForm}
                isOpen={isOpenForm}
             />
