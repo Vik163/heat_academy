@@ -6,6 +6,7 @@ import { Modal } from '@/shared/ui/Modal';
 import { FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { Button, ButtonVariant } from '@/shared/ui/Button';
 import { usePhoneValidator } from '@/shared/lib/hooks/usePhoneValidator';
+import { PageLoader } from '@/widgets/PageLoader';
 
 export interface PostmanProps {
    closeForm: () => void;
@@ -21,6 +22,7 @@ export const Postman = memo((props: PostmanProps) => {
    const phoneRef = useRef<HTMLInputElement>(null);
    const [err, setErr] = useState('');
    const [confirmSend, setConfirmSend] = useState(false);
+   const [loading, setLoading] = useState(false);
    const { phoneValidator } = usePhoneValidator();
 
    const [toSend, setToSend] = useState({
@@ -66,13 +68,14 @@ export const Postman = memo((props: PostmanProps) => {
             if (toSend.copyemail) {
                console.log('spam');
             } else {
+               setLoading(true);
                await emailjs.send(serviceId, templateId, toSend);
                setConfirmSend(true);
             }
          } catch (error) {
             console.log(error);
          } finally {
-            // setLoading(false);
+            setLoading(false);
          }
       }
    };
@@ -144,6 +147,8 @@ export const Postman = memo((props: PostmanProps) => {
          </Text>
       </div>
    );
+
+   if (loading) return <PageLoader screenFull />;
 
    return (
       <Modal

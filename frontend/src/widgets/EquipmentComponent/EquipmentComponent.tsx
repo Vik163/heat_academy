@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './EquipmentComponent.module.scss';
@@ -8,6 +8,7 @@ import { equipmentListLeft, equipmentListRight } from '../../pages/MainPage/mode
 import { EquipmentList } from '../../pages/MainPage/model/types/equipment';
 import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
+import { Postman } from '@/shared/ui/Postman';
 
 interface EquipmentComponentProps {
    className?: string;
@@ -15,6 +16,15 @@ interface EquipmentComponentProps {
 
 export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
    const { className } = props;
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    return (
       <article className={classNames(cls.EquipmentComponent, {}, [className])}>
@@ -79,6 +89,8 @@ export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
                variant={ButtonVariant.FILLED}
                fontColor={FontColor.BUTTON}
                fontWeight={FontWeight.TEXT_400}
+               fontSize={FontSize.SIZE_15}
+               onClick={openForm}
             >
                Хочу приехать на склад
             </Button>
@@ -86,6 +98,15 @@ export const EquipmentComponent = memo((props: EquipmentComponentProps) => {
                Приезжайте на склад в г. Новокуйбышевске и убедитесь в качестве
             </Text>
          </div>
+         {isOpenForm && (
+            <Postman
+               title='Хочу приехать на склад'
+               buttonText='Хочу на склад'
+               commentText='Желаемая дата и время'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </article>
    );
 });

@@ -1,12 +1,23 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './MontageComponent.module.scss';
 import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { Player } from '@/shared/ui/Player';
+import { Postman } from '@/shared/ui/Postman';
 
 export const MontageComponent = memo(() => {
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
+
    return (
       <article id='sec-montazh' className={cls.montazh}>
          <div className={cls.container}>
@@ -36,6 +47,7 @@ export const MontageComponent = memo(() => {
                      fontColor={FontColor.BUTTON}
                      fontWeight={FontWeight.TEXT_400}
                      arrow
+                     onClick={openForm}
                   >
                      Узнать подробнее
                   </Button>
@@ -50,6 +62,14 @@ export const MontageComponent = memo(() => {
                />
             </div>
          </div>
+         {isOpenForm && (
+            <Postman
+               title='Монтаж кессона за 1 день'
+               buttonText='Узнать подробнее'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </article>
    );
 });

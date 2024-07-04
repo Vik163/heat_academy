@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './ArragementTitleComponent.module.scss';
@@ -8,6 +8,7 @@ import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/u
 import { HStack } from '@/shared/ui/Stack';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { FlexJustify } from '@/shared/ui/Stack/Flex';
+import { Postman } from '@/shared/ui/Postman';
 
 interface ArragementTitleComponentProps {
    className?: string;
@@ -15,6 +16,15 @@ interface ArragementTitleComponentProps {
 
 export const ArragementTitleComponent = memo((props: ArragementTitleComponentProps) => {
    const { className } = props;
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    return (
       <article className={classNames(cls.ArragementTitleComponent, {}, [className])}>
@@ -48,11 +58,21 @@ export const ArragementTitleComponent = memo((props: ArragementTitleComponentPro
                   height={40}
                   fontColor={FontColor.BUTTON}
                   fontWeight={FontWeight.TEXT_400}
+                  fontSize={FontSize.SIZE_15}
+                  onClick={openForm}
                >
                   Рассчитать стоимость
                </Button>
             </HStack>
          </div>
+         {isOpenForm && (
+            <Postman
+               title='Обустройство скважин'
+               buttonText='Рассчитать стоимость'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </article>
    );
 });

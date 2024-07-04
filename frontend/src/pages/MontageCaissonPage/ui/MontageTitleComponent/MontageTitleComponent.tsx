@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './MontageTitleComponent.module.scss';
@@ -7,6 +7,7 @@ import { FontColor, FontSize, FontWeight, HeaderTagType, Text } from '@/shared/u
 import { HStack } from '@/shared/ui/Stack';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { FlexJustify } from '@/shared/ui/Stack/Flex';
+import { Postman } from '@/shared/ui/Postman';
 
 interface MontageTitleComponentProps {
    className?: string;
@@ -14,6 +15,15 @@ interface MontageTitleComponentProps {
 
 export const MontageTitleComponent = memo((props: MontageTitleComponentProps) => {
    const { className } = props;
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    return (
       <article className={classNames(cls.MontageTitleComponent, {}, [className])}>
@@ -50,12 +60,22 @@ export const MontageTitleComponent = memo((props: MontageTitleComponentProps) =>
                   width={223}
                   height={40}
                   fontColor={FontColor.BUTTON}
+                  fontSize={FontSize.SIZE_15}
                   fontWeight={FontWeight.TEXT_400}
+                  onClick={openForm}
                >
                   Рассчитать стоимость
                </Button>
             </HStack>
          </div>
+         {isOpenForm && (
+            <Postman
+               title='Монтаж кессона за 1 день'
+               buttonText='Рассчитать стоимость'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </article>
    );
 });

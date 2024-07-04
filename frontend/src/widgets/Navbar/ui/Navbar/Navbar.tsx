@@ -12,6 +12,7 @@ import { Modal } from '@/shared/ui/Modal';
 import { Logo } from '@/shared/ui/Logo';
 import { PHONE, PHONE_MOB } from '@/shared/const/main_info';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
+import { Postman } from '@/shared/ui/Postman';
 
 interface NavbarProps {
    className?: string;
@@ -22,6 +23,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
    const [openModal, setOpenModal] = useState(false);
    const [isAddLinks, setIsAddLinks] = useState<string[]>([]);
    const [navbarItemsList, setNavbarItemsList] = useState(useNavbarItems());
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    const onToggle = () => {
       setCollapsed((prev) => !prev);
@@ -143,10 +153,20 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                fontSize={FontSize.SIZE_12}
                fontWeight={FontWeight.TEXT_400}
                className={cls.button}
+               onClick={openForm}
             >
                Обратный звонок
             </Button>
          </VStack>
+         {isOpenForm && (
+            <Postman
+               title='Обратный звонок'
+               buttonText='Перезвоните мне'
+               commentText='Комментарий'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </nav>
    );
 });

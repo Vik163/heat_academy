@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './AdviceEngineerComponent.module.scss';
@@ -7,6 +7,7 @@ import { FontColor, FontSize, FontWeight, Text } from '@/shared/ui/Text';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { EMAIL } from '@/shared/const/main_info';
+import { Postman } from '@/shared/ui/Postman';
 // import whatsapp from '@/shared/assets/icons/icon-whatsapp.svg';
 // import telegram from '@/shared/assets/icons/icon-telegram.svg';
 
@@ -16,6 +17,15 @@ interface AdviceEngineerComponentProps {
 
 export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps) => {
    const { className } = props;
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    return (
       <div className={classNames(cls.AdviceEngineer, {}, [className])}>
@@ -50,8 +60,10 @@ export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps
                      bgColor={ButtonBgColor.YELLOW}
                      fontColor={FontColor.BUTTON}
                      fontWeight={FontWeight.TEXT_400}
+                     fontSize={FontSize.SIZE_15}
                      arrow
                      className={cls.button}
+                     onClick={openForm}
                   >
                      Задать вопрос
                   </Button>
@@ -64,6 +76,15 @@ export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps
                </Text>
             </VStack>
          </HStack>
+         {isOpenForm && (
+            <Postman
+               title='Задать вопрос'
+               buttonText='Задать вопрос'
+               commentText='Ваш вопрос'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </div>
    );
 });

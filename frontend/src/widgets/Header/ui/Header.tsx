@@ -4,22 +4,24 @@ import { useLocation } from 'react-router-dom';
 import cls from './Header.module.scss';
 import { Text, FontColor, FontSize, FontWeight } from '@/shared/ui/Text';
 import { Button, ButtonRadius, ButtonVariant } from '@/shared/ui/Button';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { FlexAlign, FlexJustify } from '@/shared/ui/Stack/Flex';
-import { Modal } from '@/shared/ui/Modal';
+import { HStack } from '@/shared/ui/Stack';
+import { FlexJustify } from '@/shared/ui/Stack/Flex';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PHONE } from '@/shared/const/main_info';
-
-// eslint-disable-next-line ulbi-tv-plugin/layer-imports
-
-// interface HeaderProps {
-//    className?: string;
-// }
+import { Postman } from '@/shared/ui/Postman';
 
 export const Header = memo(() => {
-   const [openModal, setOpenModal] = useState(false);
    const [isHeaderWhite, setISHeaderWhite] = useState<boolean>();
    const { pathname } = useLocation();
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    const onScroll = () => {
       if (window.scrollY === 0) {
@@ -68,36 +70,20 @@ export const Header = memo(() => {
                   fontColor={FontColor.WHITE}
                   fontWeight={FontWeight.TEXT_400}
                   radius={ButtonRadius.RADIUS_8}
+                  onClick={openForm}
                >
                   Обратный звонок
                </Button>
             </HStack>
          </HStack>
-         {openModal && (
-            <Modal
-               isOpen={openModal}
-               onClose={() => setOpenModal(false)}
-               buttonCloseHeight={30}
-               buttonCloseWidth={30}
-               buttonCloseRight={30}
-               buttonCloseTop={30}
-               className={cls.modalMenu}
-            >
-               <VStack align={FlexAlign.START} className={cls.containerLinks}>
-                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
-                     Виды работ
-                  </Text>
-                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
-                     Отзывы клиентов
-                  </Text>
-                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
-                     Акции
-                  </Text>
-                  <Text className={cls.menuLink} fontSize={FontSize.SIZE_20} fontWeight={FontWeight.TEXT_700}>
-                     Контакты
-                  </Text>
-               </VStack>
-            </Modal>
+         {isOpenForm && (
+            <Postman
+               title='Обратный звонок'
+               buttonText='Перезвоните мне'
+               commentText='Комментарий'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
          )}
       </header>
    );

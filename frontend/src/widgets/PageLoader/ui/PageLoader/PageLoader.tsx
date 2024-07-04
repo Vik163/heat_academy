@@ -4,10 +4,11 @@ import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
    className?: string;
+   screenFull?: boolean;
 }
 
-export const PageLoader = ({ className }: PageLoaderProps) => (
-   <div className={classNames(cls.PageLoader, {}, [className])}>
+export const PageLoader = ({ className, screenFull }: PageLoaderProps) => (
+   <div className={classNames(cls.PageLoader, { [cls.screenFull]: screenFull }, [className])}>
       <Loader />
    </div>
 );

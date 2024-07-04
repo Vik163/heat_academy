@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './TitleComponent.module.scss';
@@ -8,6 +8,7 @@ import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import image from '@/shared/assets/images/several-keson.png';
 import { Breadcrumb } from '@/features/Breadcrumbs';
+import { Postman } from '@/shared/ui/Postman';
 
 interface TitleComponentProps {
    className?: string;
@@ -19,6 +20,15 @@ interface TitleComponentProps {
 
 export const TitleComponent = memo((props: TitleComponentProps) => {
    const { className, content } = props;
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeForm = () => {
+      setIsOpenForm(false);
+   };
 
    return (
       <article id='title' className={classNames(cls.TitleComponent, {}, [className])}>
@@ -54,6 +64,7 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
                variant={ButtonVariant.FILLED}
                bgColor={ButtonBgColor.YELLOW}
                className={classNames('', {}, [cls.buttonSelect])}
+               onClick={openForm}
             >
                Узнать больше
             </Button>
@@ -61,6 +72,14 @@ export const TitleComponent = memo((props: TitleComponentProps) => {
                <img src={image} className={cls.mainImage} alt='Кессон'></img>
             </div>
          </VStack>
+         {isOpenForm && (
+            <Postman
+               title='ТМ «ЗЕМЛЯК»'
+               buttonText='Узнать больше'
+               closeForm={closeForm}
+               isOpen={isOpenForm}
+            />
+         )}
       </article>
    );
 });
