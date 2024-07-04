@@ -69,7 +69,12 @@ export const Postman = memo((props: PostmanProps) => {
                console.log('spam');
             } else {
                setLoading(true);
-               await emailjs.send(serviceId, templateId, toSend);
+               await emailjs.send(
+                  serviceId,
+                  templateId,
+                  toSend,
+                  process.env.REACT_APP_EMAIL_SERVICE_PUBLIC_KEY,
+               );
                setConfirmSend(true);
             }
          } catch (error) {
