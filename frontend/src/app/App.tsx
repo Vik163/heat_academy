@@ -9,14 +9,6 @@ import { AppRouter } from './router';
 import { Footer } from '@/widgets/Footer';
 
 const App = memo(() => {
-   // useEffect(
-   //    () =>
-   //       emailjs.init({
-   //          publicKey: process.env.REACT_APP_EMAIL_SERVICE_PUBLIC_KEY,
-   //       }),
-   //    [],
-   // );
-
    return (
       <VStack justify={FlexJustify.CENTER} className={classNames('app', {}, ['app_colors'])}>
          <Header />
