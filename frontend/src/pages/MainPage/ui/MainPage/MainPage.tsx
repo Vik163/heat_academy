@@ -10,14 +10,11 @@ import { ModelList } from '../ModelList/ModelList';
 import { InfoComponent } from '../InfoComponent/InfoComponent';
 import { ListQualitiesComponent } from '@/widgets/ListQualitiesComponent';
 import { bestDecisions } from '@/shared/const/qualities/best-decisions-main';
-
-// interface MainPageProps {
-//    className?: string;
-// }
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export const MainPage = memo(() => {
    return (
-      <Page className={cls.MainPage}>
+      <Page className={classNames(cls.MainPage, {}, [cls.page])}>
          <TitleComponent />
          <EquipmentComponent />
          <CatalogComponent />

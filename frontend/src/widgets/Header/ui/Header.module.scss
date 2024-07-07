@@ -17,16 +17,16 @@
       width: 72%;
       height: 100%;
    }
+}
 
-   .dealer {
-      margin-left: 100px;
-      font-size: var(--size-20);
-      font-weight: var(--weight-700);
-      color: var(--color-white);
+.dealer {
+   margin-left: 100px;
+   font-size: var(--size-20);
+   font-weight: var(--weight-700);
+   color: var(--color-white);
 
-      &.headerActive {
-         color: var(--color-primary);
-      }
+   &.headerActive {
+      color: var(--color-primary);
    }
 }
 
