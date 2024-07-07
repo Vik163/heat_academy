@@ -1,1 +1,1 @@
-export { ContactsPage } from './ui/ContactsPage/ContactsPage';
+export { ContactsPageAsync as ContactsPage } from './ui/ContactsPage/ContactsPage.async';

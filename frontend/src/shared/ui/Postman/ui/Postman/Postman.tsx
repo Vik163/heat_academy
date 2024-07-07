@@ -7,27 +7,38 @@ import { FontSize, FontWeight, HeaderTagType, Text } from '@/shared/ui/Text';
 import { Button, ButtonVariant } from '@/shared/ui/Button';
 import { usePhoneValidator } from '@/shared/lib/hooks/usePhoneValidator';
 import { PageLoader } from '@/widgets/PageLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export interface PostmanProps {
-   closeForm: () => void;
-   isOpen: boolean;
-   title: string;
+   closeForm?: () => void;
+   isOpen?: boolean;
+   title?: string;
    buttonText: string;
    commentText?: string;
+   kategory?: string;
 }
 
 export const Postman = memo((props: PostmanProps) => {
-   const { closeForm, isOpen, title, buttonText, commentText } = props;
+   const { closeForm, isOpen, title, buttonText, commentText, kategory } = props;
    const messageRef = useRef<HTMLTextAreaElement>(null);
    const phoneRef = useRef<HTMLInputElement>(null);
    const [err, setErr] = useState('');
    const [confirmSend, setConfirmSend] = useState(false);
    const [loading, setLoading] = useState(false);
    const { phoneValidator } = usePhoneValidator();
+   const [isOpenForm, setIsOpenForm] = useState(false);
+
+   const openForm = () => {
+      setIsOpenForm(true);
+   };
+
+   const closeModal = () => {
+      setIsOpenForm(false);
+   };
 
    const [toSend, setToSend] = useState({
       copyemail: '',
-      title,
+      title: title || kategory,
       phone: '',
       message: '',
    });
@@ -68,6 +79,7 @@ export const Postman = memo((props: PostmanProps) => {
             if (toSend.copyemail) {
                console.log('spam');
             } else {
+               if (!closeForm) openForm();
                setLoading(true);
                await emailjs.send(
                   serviceId,
@@ -87,18 +99,22 @@ export const Postman = memo((props: PostmanProps) => {
 
    const form = (
       <div className={cls.continer}>
-         <Text
-            title={HeaderTagType.H_3}
-            className={cls.title}
-            fontSize={FontSize.SIZE_22}
-            fontWeight={FontWeight.TEXT_700}
-         >
-            {title}
-         </Text>
-         <Text className={cls.subtitle} fontSize={FontSize.SIZE_15}>
-            Заполните поля ниже, наш менеджер свяжется с Вами и ответит на ваши вопросы
-         </Text>
-         <form className={cls.form} onSubmit={handleSubmit}>
+         {title && (
+            <div>
+               <Text
+                  title={HeaderTagType.H_3}
+                  className={cls.title}
+                  fontSize={FontSize.SIZE_22}
+                  fontWeight={FontWeight.TEXT_700}
+               >
+                  {title}
+               </Text>
+               <Text className={cls.subtitle} fontSize={FontSize.SIZE_15}>
+                  Заполните поля ниже, наш менеджер свяжется с Вами и ответит на ваши вопросы
+               </Text>
+            </div>
+         )}
+         <form className={classNames(cls.form, { [cls.nonModal]: !closeForm }, [])} onSubmit={handleSubmit}>
             <input
                type='text'
                name='copyemail'
@@ -106,6 +122,7 @@ export const Postman = memo((props: PostmanProps) => {
                defaultValue={toSend.copyemail}
             ></input>
             <input
+               className={classNames(cls.phone, { [cls.nonModal]: !closeForm }, [])}
                id='phone'
                ref={phoneRef}
                name='phone'
@@ -115,13 +132,13 @@ export const Postman = memo((props: PostmanProps) => {
                value={toSend.phone}
             />
             {err === 'phone' && (
-               <span id='phone' className={cls.error}>
+               <span id='phone' className={classNames(cls.error, { [cls.nonModal]: !closeForm }, [])}>
                   Введите Ваш номер телефона
                </span>
             )}
             {commentText && (
                <textarea
-                  className={cls.message}
+                  className={classNames(cls.message, { [cls.nonModal]: !closeForm }, [])}
                   id='message'
                   ref={messageRef}
                   name='message'
@@ -131,11 +148,15 @@ export const Postman = memo((props: PostmanProps) => {
                ></textarea>
             )}
             {commentText && err === 'message' && (
-               <span id='message' className={cls.error}>
+               <span id='message' className={classNames(cls.error, { [cls.nonModal]: !closeForm }, [])}>
                   Введите Ваш номер телефона
                </span>
             )}
-            <Button className={cls.btn} width={350} height={53} type='submit' variant={ButtonVariant.FILLED}>
+            <Button
+               className={classNames(cls.btn, { [cls.nonModal]: !closeForm }, [])}
+               type='submit'
+               variant={ButtonVariant.FILLED}
+            >
                {buttonText}
             </Button>
          </form>
@@ -153,9 +174,17 @@ export const Postman = memo((props: PostmanProps) => {
       </div>
    );
 
+   if (loading && !closeForm)
+      return (
+         <div>
+            {form}
+            <PageLoader screenFull />
+         </div>
+      );
    if (loading) return <PageLoader screenFull />;
 
-   return (
+   // eslint-disable-next-line no-nested-ternary
+   return closeForm && isOpen ? (
       <Modal
          onClose={closeForm}
          isOpen={isOpen}
@@ -167,5 +196,22 @@ export const Postman = memo((props: PostmanProps) => {
       >
          {!confirmSend ? form : answerPopup}
       </Modal>
+   ) : (
+      <div>
+         {form}
+         {confirmSend && (
+            <Modal
+               onClose={closeModal}
+               isOpen={isOpenForm}
+               buttonCloseHeight={20}
+               buttonCloseRight={20}
+               buttonCloseTop={20}
+               buttonCloseWidth={20}
+               className={cls.modal}
+            >
+               {answerPopup}
+            </Modal>
+         )}
+      </div>
    );
 });

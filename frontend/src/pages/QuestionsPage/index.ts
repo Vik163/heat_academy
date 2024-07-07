@@ -1,1 +1,1 @@
-export { QuestionsPage } from './ui/QuestionsPage/QuestionsPage';
+export { QuestionsPageAsync as QuestionsPage } from './ui/QuestionsPage/QuestionsPage.async';

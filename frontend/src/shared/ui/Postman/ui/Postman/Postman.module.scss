@@ -22,12 +22,8 @@
 .form {
    border-top: 1px solid #e5e5e5;
 
-   span {
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 20px;
-      padding-left: 3px;
-      color: red;
+   &.nonModal {
+      border-top: none;
    }
 
    input[name='copyemail'] {
@@ -41,7 +37,7 @@
       opacity: 0.01;
    }
 
-   input[name='phone'] {
+   .phone {
       width: 100%;
       padding: 10px 20px;
       font-weight: 400;
@@ -52,6 +48,27 @@
       border: 1px solid #a8a2b4;
       border-radius: 6px;
       margin-top: 30px;
+
+      &.nonModal {
+         margin-top: 10px;
+         width: 280px;
+         height: 40px;
+         margin-left: 84px;
+         font-size: 15px;
+      }
+   }
+}
+
+.error {
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 20px;
+   padding-left: 3px;
+   color: red;
+
+   &.nonModal {
+      width: 280px;
+      margin-left: 84px;
    }
 }
 
@@ -69,10 +86,19 @@
    box-sizing: border-box;
    border-radius: 6px;
    margin-top: 30px;
+
+   &.nonModal {
+      margin-top: 10px;
+      width: 280px;
+      height: 40px;
+      margin-left: 84px;
+   }
 }
 
 .btn {
    background-color: #ffd800;
+   width: 350px;
+   height: 53px;
    color: #231f20;
    border: none;
    font-weight: 400;
@@ -81,6 +107,14 @@
    border-radius: 8px;
    margin-top: 30px;
    cursor: pointer;
+
+   &.nonModal {
+      margin-top: 10px;
+      width: 280px;
+      height: 40px;
+      margin-left: 84px;
+      font-size: 15px;
+   }
 }
 
 .textPopup {

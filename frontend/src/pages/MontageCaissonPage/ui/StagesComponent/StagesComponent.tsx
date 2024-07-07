@@ -7,6 +7,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { stages } from '@/shared/const/installatons-stages';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
+import { Postman } from '@/shared/ui/Postman';
 
 interface StagesComponentProps {
    className?: string;
@@ -51,29 +52,36 @@ export const StagesComponent = memo((props: StagesComponentProps) => {
                      <Text className={cls.nameStage}>{stage.stageName}</Text>
                   </HStack>
                   <Text className={cls.description}>{stage.description}</Text>
-                  <HStack className={cls.buttonsContainer} gap={20}>
-                     <Button
-                        arrow
-                        width={55}
-                        height={40}
-                        variant={ButtonVariant.FILLED}
-                        bgColor={ButtonBgColor.GREY}
-                        className={cls.buttonBack}
-                        onClick={decrease}
-                     ></Button>
-                     <Button
-                        arrow
-                        variant={ButtonVariant.FILLED}
-                        bgColor={ButtonBgColor.YELLOW}
-                        width={187}
-                        height={40}
-                        fontColor={FontColor.BUTTON}
-                        fontWeight={FontWeight.TEXT_400}
-                        onClick={increase}
-                     >
-                        Следующий этап
-                     </Button>
-                  </HStack>
+                  {stage.stage === '6 этап' ? (
+                     <Postman
+                        buttonText='Рассчитать стоимость монтажа'
+                        kategory='Рассчитать стоимость монтажа'
+                     />
+                  ) : (
+                     <HStack className={cls.buttonsContainer} gap={20}>
+                        <Button
+                           arrow
+                           width={55}
+                           height={40}
+                           variant={ButtonVariant.FILLED}
+                           bgColor={ButtonBgColor.GREY}
+                           className={cls.buttonBack}
+                           onClick={decrease}
+                        ></Button>
+                        <Button
+                           arrow
+                           variant={ButtonVariant.FILLED}
+                           bgColor={ButtonBgColor.YELLOW}
+                           width={187}
+                           height={40}
+                           fontColor={FontColor.BUTTON}
+                           fontWeight={FontWeight.TEXT_400}
+                           onClick={increase}
+                        >
+                           Следующий этап
+                        </Button>
+                     </HStack>
+                  )}
                </VStack>
             </HStack>
          </div>

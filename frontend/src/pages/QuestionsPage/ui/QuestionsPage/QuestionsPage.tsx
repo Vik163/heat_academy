@@ -10,11 +10,11 @@ import arrow from '@/shared/assets/icons/icon-arrow-top.svg';
 import { Icon } from '@/shared/ui/Icon';
 import { HStack } from '@/shared/ui/Stack';
 
-interface QuestionsPageProps {
+export interface QuestionsPageProps {
    className?: string;
 }
 
-export const QuestionsPage = memo((props: QuestionsPageProps) => {
+const QuestionsPage = memo((props: QuestionsPageProps) => {
    const { className } = props;
    const [isActive, setIsActive] = useState('');
 
@@ -75,3 +75,5 @@ export const QuestionsPage = memo((props: QuestionsPageProps) => {
       </Page>
    );
 });
+
+export default QuestionsPage;

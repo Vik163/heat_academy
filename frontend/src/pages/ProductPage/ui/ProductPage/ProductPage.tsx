@@ -5,11 +5,11 @@ import cls from './ProductPage.module.scss';
 import { Page } from '@/widgets/Page';
 import { ProductItem } from '@/entities/Product';
 
-interface ProductPageProps {
+export interface ProductPageProps {
    className?: string;
 }
 
-export const ProductPage = memo((props: ProductPageProps) => {
+const ProductPage = memo((props: ProductPageProps) => {
    const { className } = props;
 
    return (
@@ -18,3 +18,5 @@ export const ProductPage = memo((props: ProductPageProps) => {
       </Page>
    );
 });
+
+export default ProductPage;

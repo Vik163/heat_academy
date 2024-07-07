@@ -5,13 +5,13 @@ import cls from './CatalogPage.module.scss';
 import { Page } from '@/widgets/Page';
 import { CatalogComponent } from '@/widgets/CatalogComponent';
 import { AdviceEngineerComponent } from '@/widgets/AdviceEngineerComponent';
-import { CatalogInfo } from './CatalogInfo/CatalogInfo';
+import { CatalogInfo } from '../CatalogInfo/CatalogInfo';
 
-interface CatalogPageProps {
+export interface CatalogPageProps {
    className?: string;
 }
 
-export const CatalogPage = memo((props: CatalogPageProps) => {
+const CatalogPage = memo((props: CatalogPageProps) => {
    const { className } = props;
 
    return (
@@ -22,3 +22,5 @@ export const CatalogPage = memo((props: CatalogPageProps) => {
       </Page>
    );
 });
+
+export default CatalogPage;

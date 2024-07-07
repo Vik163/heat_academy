@@ -20,11 +20,11 @@ import {
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { Postman } from '@/shared/ui/Postman';
 
-interface ContactsPageProps {
+export interface ContactsPageProps {
    className?: string;
 }
 
-export const ContactsPage = memo((props: ContactsPageProps) => {
+const ContactsPage = memo((props: ContactsPageProps) => {
    const { className } = props;
    const [isOpenForm, setIsOpenForm] = useState(false);
 
@@ -111,3 +111,5 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
       </Page>
    );
 });
+
+export default ContactsPage;
