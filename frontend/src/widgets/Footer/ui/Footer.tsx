@@ -33,9 +33,7 @@ export const Footer = memo((props: FooterProps) => {
                   Самарская область, г. Новокуйбышевск, <br />
                   ул. Молодогвардейская, д. 4
                   <br /> email: &nbsp;
-                  <a href={EMAIL} className={cls.post}>
-                     {EMAIL}
-                  </a>
+                  <span className={cls.post}>{EMAIL}</span>
                   <br />
                   тел. {PHONE}, &nbsp;{PHONE_MOB}
                </p>

@@ -298,7 +298,7 @@ export const InfoComponent = memo((props: InfoComponentProps) => {
             <p>
                Для расчета точной стоимости услуги позвоните нам по номеру {PHONE} или напишите на e-mail
                &nbsp;
-               <a href='#'>{EMAIL}</a>.
+               <span className={cls.link}>{EMAIL}</span>.
             </p>
             <Text
                title={HeaderTagType.H_3}

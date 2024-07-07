@@ -67,9 +67,7 @@ export const AdviceEngineerComponent = memo((props: AdviceEngineerComponentProps
                   >
                      Задать вопрос
                   </Button>
-                  <a href='#' className={cls.link}>
-                     {EMAIL}
-                  </a>
+                  <Text className={cls.link}>{EMAIL}</Text>
                </HStack>
                <Text className={cls.caption} fontSize={FontSize.SIZE_14} fontColor={FontColor.TEXT_PRIMARY}>
                   Дмитрий Попов, эксперт по водоснабжению

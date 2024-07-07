@@ -53,13 +53,11 @@
    background-image: url(../../../../shared/assets/icons/icon-email.svg);
    background-repeat: no-repeat;
    background-position: 0px 6px;
-
-   a {
-      font-size: 16px;
-      line-height: 25px;
-      color: #282828;
-      font-weight: 500;
-   }
+   font-size: 16px;
+   line-height: 25px;
+   color: #282828;
+   font-weight: 500;
+   cursor: default;
 }
 
 .address {

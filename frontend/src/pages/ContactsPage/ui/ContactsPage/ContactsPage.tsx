@@ -62,9 +62,7 @@ export const ContactsPage = memo((props: ContactsPageProps) => {
                            <br /> Воскресенье - с 8.30-14.00
                         </p>
                      </div>
-                     <div className={cls.email}>
-                        <a href={EMAIL}>{EMAIL}</a>
-                     </div>
+                     <div className={cls.email}>{EMAIL}</div>
                      <div className={cls.address}>{ADDRESS}</div>
                   </div>
                   <HStack
