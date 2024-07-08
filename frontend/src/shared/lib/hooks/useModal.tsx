@@ -65,6 +65,7 @@ export function useModal(props: UseModalProps) {
          document.addEventListener('keydown', onKeyDown);
          // не прокручивается страница
          document.body.style.overflow = 'hidden';
+         document.body.style.paddingRight = `${sizeScroll}px`;
          if (header) header.style.paddingRight = `${sizeScroll}px`;
       }
       // скролл добавляю при размонтировании
@@ -74,6 +75,7 @@ export function useModal(props: UseModalProps) {
             document.removeEventListener('keydown', onKeyDown);
          }
          document.body.style.overflow = 'unset';
+         document.body.style.paddingRight = '0px';
          header.style.paddingRight = '0px';
       };
    }, [isOpen, onKeyDown]);

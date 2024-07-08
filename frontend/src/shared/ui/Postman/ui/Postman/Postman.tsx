@@ -24,7 +24,7 @@ export const Postman = memo((props: PostmanProps) => {
    const phoneRef = useRef<HTMLInputElement>(null);
    const [err, setErr] = useState('');
    const [confirmSend, setConfirmSend] = useState(false);
-   const [loading, setLoading] = useState(false);
+   const [loading, setLoading] = useState(true);
    const { phoneValidator } = usePhoneValidator();
    const [isOpenForm, setIsOpenForm] = useState(false);
 

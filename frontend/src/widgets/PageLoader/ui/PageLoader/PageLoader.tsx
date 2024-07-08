@@ -10,13 +10,23 @@ interface PageLoaderProps {
 }
 
 export const PageLoader = ({ className, screenFull }: PageLoaderProps) => {
+   function getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
+   }
+
    useEffect(() => {
-      if (screenFull)
+      if (screenFull) {
+         const sizeScroll = getScrollbarWidth();
          // не прокручивается страница
          document.body.style.overflow = 'hidden';
+         document.body.style.paddingRight = `${sizeScroll}px`;
+      }
       // скролл добавляю при размонтировании
       return () => {
-         if (screenFull) document.body.style.overflow = 'unset';
+         if (screenFull) {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = '0px';
+         }
       };
    }, []);
 
