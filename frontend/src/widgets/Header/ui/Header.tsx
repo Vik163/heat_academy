@@ -9,11 +9,16 @@ import { FlexJustify } from '@/shared/ui/Stack/Flex';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PHONE } from '@/shared/const/main_info';
 import { Postman } from '@/shared/ui/Postman';
+import { Logo } from '@/shared/ui/Logo';
+import { useResize } from '@/shared/lib/hooks/useResize';
 
 export const Header = memo(() => {
    const [isHeaderWhite, setISHeaderWhite] = useState<boolean>();
    const { pathname } = useLocation();
    const [isOpenForm, setIsOpenForm] = useState(false);
+   const { isMobile, isMobileL, isPad, isNotebook, isDesktop } = useResize();
+
+   console.log('resize:', isMobile, isMobileL, isPad, isNotebook, isDesktop);
 
    const openForm = () => {
       setIsOpenForm(true);
@@ -48,10 +53,12 @@ export const Header = memo(() => {
    return (
       <header id='header' className={classNames(cls.header, { [cls.headerActive]: isHeaderWhite }, [])}>
          <HStack justify={FlexJustify.BETWEEN} className={cls.headerContainer}>
-            <span className={classNames(cls.dealer, { [cls.headerActive]: isHeaderWhite }, [])}>
-               Официальный дилер ТМ «ЗЕМЛЯК»
-            </span>
-
+            <HStack>
+               <Logo className={cls.logo} />
+               <span className={classNames(cls.dealer, { [cls.headerActive]: isHeaderWhite }, [])}>
+                  Официальный дилер ТМ «ЗЕМЛЯК»
+               </span>
+            </HStack>
             <HStack justify={FlexJustify.END}>
                <Text
                   className={classNames(cls.number, { [cls.headerActive]: isHeaderWhite }, [])}

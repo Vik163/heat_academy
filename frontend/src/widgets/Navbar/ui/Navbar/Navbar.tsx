@@ -9,7 +9,6 @@ import { useNavbarItems } from '../../model/selectors/getNavbarItems';
 import { FlexAlign } from '@/shared/ui/Stack/Flex';
 import { Text, FontSize, FontWeight, TextAlign, FontColor } from '@/shared/ui/Text';
 import { Modal } from '@/shared/ui/Modal';
-import { Logo } from '@/shared/ui/Logo';
 import { PHONE, PHONE_MOB } from '@/shared/const/main_info';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { Postman } from '@/shared/ui/Postman';
@@ -86,7 +85,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
    return (
       <nav className={classNames(cls.Navbar, { [cls.collapsed]: collapsed }, [className])}>
          <div>
-            <Logo className={cls.logo} />
             <VStack role='navigation' className={cls.items} align={FlexAlign.START}>
                {itemsList}
             </VStack>

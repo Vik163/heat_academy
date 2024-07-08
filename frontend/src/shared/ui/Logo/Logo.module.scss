@@ -1,14 +1,30 @@
 @import '@/app/styles/variables/mixins.scss';
+@import './LogoAdapt.module.scss';
 
 .logo {
    @include flex-column-center;
    @include font(10px, var(--weight-700), var(--color-green));
    line-height: 18px;
    letter-spacing: 1px;
+   padding: 12px;
+   width: 210px;
+   height: var(--header-height);
 }
 
 .logoName {
    font-size: var(--size-16);
    font-weight: var(--weight-900);
    margin-top: 5px;
+}
+
+@media screen and (max-width: 400px) {
+   .logo {
+      font-size: 8px;
+      width: 180px;
+   }
+
+   .logoName {
+      font-size: var(--size-12);
+      margin-top: 5px;
+   }
 }
