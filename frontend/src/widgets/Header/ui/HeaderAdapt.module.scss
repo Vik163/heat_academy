@@ -1,0 +1,17 @@
+@media screen and (max-width: 600px) {
+   .header {
+      height: var(--header-height-mobile);
+      padding-right: 20px;
+
+      .headerContainer {
+         width: 100%;
+      }
+   }
+   .menu {
+      &.close {
+         width: 20px;
+         height: 20px;
+         fill: rgb(90, 90, 90);
+      }
+   }
+}

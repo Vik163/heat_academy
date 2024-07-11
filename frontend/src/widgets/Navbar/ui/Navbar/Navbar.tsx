@@ -1,5 +1,5 @@
-import { memo, useCallback, useMemo, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 
 import cls from './Navbar.module.scss';
@@ -12,17 +12,23 @@ import { Modal } from '@/shared/ui/Modal';
 import { PHONE, PHONE_MOB } from '@/shared/const/main_info';
 import { Button, ButtonBgColor, ButtonVariant } from '@/shared/ui/Button';
 import { Postman } from '@/shared/ui/Postman';
+import { Logo } from '@/shared/ui/Logo';
+import { useAnimate } from '@/shared/lib/hooks/useAnimate';
+import { useResize } from '@/shared/lib/hooks/useResize';
 
 interface NavbarProps {
    className?: string;
+   openNavMobile?: boolean;
 }
 
-export const Navbar = memo(({ className }: NavbarProps) => {
-   const [collapsed, setCollapsed] = useState(false);
+export const Navbar = memo(({ className, openNavMobile }: NavbarProps) => {
    const [openModal, setOpenModal] = useState(false);
    const [isAddLinks, setIsAddLinks] = useState<string[]>([]);
    const [navbarItemsList, setNavbarItemsList] = useState(useNavbarItems());
    const [isOpenForm, setIsOpenForm] = useState(false);
+   const navRef = useRef<HTMLDivElement>(null);
+   const { isMobile, isMobileL } = useResize();
+   const { isOpen, isAnimate } = useAnimate(openNavMobile || false, 200);
 
    const openForm = () => {
       setIsOpenForm(true);
@@ -30,10 +36,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
    const closeForm = () => {
       setIsOpenForm(false);
-   };
-
-   const onToggle = () => {
-      setCollapsed((prev) => !prev);
    };
 
    const addLinks = useCallback(
@@ -73,23 +75,26 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                   addLinks={addLinks}
                   isAddLinks={isAddLinks.some((link) => item.text === link)}
                   item={item}
-                  collapsed={collapsed}
                   // eslint-disable-next-line react/no-array-index-key
                   key={i}
                />
             );
          }),
-      [addLinks, collapsed, isAddLinks, navbarItemsList],
+      [addLinks, isAddLinks, navbarItemsList],
    );
+   const mods: Mods = {
+      [cls.navMobile]: isMobile || isMobileL,
+      [cls.openNavMobile]: isOpen,
+      [cls.animate]: isAnimate,
+   };
 
    return (
-      <nav className={classNames(cls.Navbar, { [cls.collapsed]: collapsed }, [className])}>
+      <nav ref={navRef} className={classNames(cls.Navbar, mods, [className])}>
          <div>
+            <Logo className={cls.navLogo} />
             <VStack role='navigation' className={cls.items} align={FlexAlign.START}>
                {itemsList}
             </VStack>
-            {/* сворачивание сайдбара */}
-            <div className={cls.switchers}></div>
             {openModal && (
                <Modal
                   isOpen={openModal}

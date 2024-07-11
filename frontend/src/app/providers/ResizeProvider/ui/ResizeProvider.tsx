@@ -12,13 +12,15 @@ interface ResizeProviderProps {
 const ResizeProvider = (props: ResizeProviderProps) => {
    const { children } = props;
 
-   const [device, setDevice] = useState<Devices>();
+   const [device, setDevice] = useState<Devices>('');
    let size: Devices = '';
 
    const handler = useCallback(() => {
       const num = window.innerWidth;
 
-      if (num < 401) {
+      if (num === 320) {
+         size = 'mobile';
+      } else if (num < 401) {
          size = size === 'mobile' ? 'mobileL' : 'mobile';
       } else if (num > 400 && num < 601) {
          size = size === 'mobileL' ? 'pad' : 'mobileL';

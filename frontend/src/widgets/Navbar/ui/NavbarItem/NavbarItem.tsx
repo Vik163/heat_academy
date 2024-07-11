@@ -10,12 +10,11 @@ import arrow from '@/shared/assets/icons/icon-arrow-top.svg';
 
 interface NavbarItemProps {
    item: NavbarItemType;
-   collapsed: boolean;
    addLinks?: (text: string) => void;
    isAddLinks?: boolean;
 }
 
-export const NavbarItem = memo(({ item, collapsed, addLinks, isAddLinks }: NavbarItemProps) => {
+export const NavbarItem = memo(({ item, addLinks, isAddLinks }: NavbarItemProps) => {
    return (
       <div className={cls.NavbarItem}>
          {!item.path && (
@@ -32,7 +31,7 @@ export const NavbarItem = memo(({ item, collapsed, addLinks, isAddLinks }: Navba
             <AppLink
                to={item.path}
                className={classNames(cls.item, {
-                  [cls.collapsed]: collapsed,
+                  // [cls.collapsed]: collapsed,
                   [cls.nested]: item.nested,
                })}
                activeClassName={cls.active}

@@ -11,14 +11,23 @@ import { PHONE } from '@/shared/const/main_info';
 import { Postman } from '@/shared/ui/Postman';
 import { Logo } from '@/shared/ui/Logo';
 import { useResize } from '@/shared/lib/hooks/useResize';
+import { Icon } from '@/shared/ui/Icon';
+import menu from '@/shared/assets/icons/icon-menu.svg';
+import close from '@/shared/assets/icons/closeIcon.svg';
 
-export const Header = memo(() => {
+interface HeaderProps {
+   onNavMobile: () => void;
+   openNavMobile: boolean;
+}
+
+export const Header = memo((props: HeaderProps) => {
+   const { onNavMobile, openNavMobile } = props;
    const [isHeaderWhite, setISHeaderWhite] = useState<boolean>();
    const { pathname } = useLocation();
    const [isOpenForm, setIsOpenForm] = useState(false);
-   const { isMobile, isMobileL, isPad, isNotebook, isDesktop } = useResize();
+   const { isMobile, isMobileL } = useResize();
 
-   console.log('resize:', isMobile, isMobileL, isPad, isNotebook, isDesktop);
+   const iconLink = !openNavMobile ? menu : close;
 
    const openForm = () => {
       setIsOpenForm(true);
@@ -55,33 +64,43 @@ export const Header = memo(() => {
          <HStack justify={FlexJustify.BETWEEN} className={cls.headerContainer}>
             <HStack>
                <Logo className={cls.logo} />
-               <span className={classNames(cls.dealer, { [cls.headerActive]: isHeaderWhite }, [])}>
-                  Официальный дилер ТМ «ЗЕМЛЯК»
-               </span>
+               {!isMobileL && !isMobile && (
+                  <span className={classNames(cls.dealer, { [cls.headerActive]: isHeaderWhite }, [])}>
+                     Официальный дилер ТМ «ЗЕМЛЯК»
+                  </span>
+               )}
             </HStack>
-            <HStack justify={FlexJustify.END}>
-               <Text
-                  className={classNames(cls.number, { [cls.headerActive]: isHeaderWhite }, [])}
-                  fontColor={FontColor.WHITE}
-                  fontSize={FontSize.SIZE_20}
-                  fontWeight={FontWeight.TEXT_700}
-               >
-                  {PHONE}
-               </Text>
-               <Button
-                  width={140}
-                  height={30}
-                  className={classNames(cls.button, { [cls.headerActive]: isHeaderWhite }, [])}
-                  variant={ButtonVariant.OUTLINE}
-                  fontSize={FontSize.SIZE_14}
-                  fontColor={FontColor.WHITE}
-                  fontWeight={FontWeight.TEXT_400}
-                  radius={ButtonRadius.RADIUS_8}
-                  onClick={openForm}
-               >
-                  Обратный звонок
-               </Button>
-            </HStack>
+            {!isMobileL && !isMobile ? (
+               <HStack justify={FlexJustify.END}>
+                  <Text
+                     className={classNames(cls.number, { [cls.headerActive]: isHeaderWhite }, [])}
+                     fontColor={FontColor.WHITE}
+                     fontSize={FontSize.SIZE_20}
+                     fontWeight={FontWeight.TEXT_700}
+                  >
+                     {PHONE}
+                  </Text>
+                  <Button
+                     width={140}
+                     height={30}
+                     className={classNames(cls.button, { [cls.headerActive]: isHeaderWhite }, [])}
+                     variant={ButtonVariant.OUTLINE}
+                     fontSize={FontSize.SIZE_14}
+                     fontColor={FontColor.WHITE}
+                     fontWeight={FontWeight.TEXT_400}
+                     radius={ButtonRadius.RADIUS_8}
+                     onClick={openForm}
+                  >
+                     Обратный звонок
+                  </Button>
+               </HStack>
+            ) : (
+               <Icon
+                  onClick={onNavMobile}
+                  Svg={iconLink}
+                  className={classNames(cls.menu, { [cls.close]: openNavMobile }, [])}
+               />
+            )}
          </HStack>
          {isOpenForm && (
             <Postman
